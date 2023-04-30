@@ -1,0 +1,1087 @@
+{
+  "body": {
+    "c_perc": [
+      {
+        "data": 0.12159074074074086,
+        "name": "Lezen"
+      },
+      {
+        "data": 0.02154740740740749,
+        "name": "Herlezen"
+      },
+      {
+        "data": 0.4459748148148149,
+        "name": "Schrijven"
+      }
+    ],
+    "cog": [
+      {
+        "color": "#FFFFFF",
+        "data": [
+          0.0168
+        ],
+        "name": "ESSAY_TASK_START"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.55135
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.02866666666666665
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.5244
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.01521666666666659
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          6.666666666663504e-05
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.036466666666666696
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.008083333333333362
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.7744
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.07944999999999997
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.21208333333333354
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.008749999999999869
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.2240666666666667
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.05318333333333328
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.9233500000000001
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.03336666666666668
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.09593333333333294
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.24358333333333348
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.23175000000000007
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.002200000000000049
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.0016499999999995685
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.08826666666666663
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.028166666666666965
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.11961666666666718
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.032749999999999724
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.841016666666667
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.042450000000000196
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.07963333333333357
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.4769333333333328
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.03846666666666637
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.32778333333333365
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.32680000000000015
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.10478333333333284
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          1.207666666666667
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.035866666666666824
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.044399999999999856
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          1.0656499999999993
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.01991666666666725
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.002500000000000141
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.0904000000000002
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.25136666666666724
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.07964999999999972
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          1.1358833333333331
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.04541666666666694
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.14483333333333293
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.055449999999999805
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.30395000000000033
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.042099999999999776
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.05625000000000005
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.027933333333332727
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.46280000000000054
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.0446833333333338
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.0019500000000002848
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.056233333333332025
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.0664333333333339
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.08963333333333351
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.4737666666666654
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.06845000000000129
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          2.234566666666665
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.04590000000000094
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.35644999999999954
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.08871666666666583
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.7825500000000007
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.0487666666666664
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.04743333333333433
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.03009999999999985
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.13679999999999942
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.08269999999999972
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.10019999999999946
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.007300000000000362
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.030033333333332746
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.13303333333333556
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.18181666666666624
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.03863333333333163
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.20750000000000046
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.058033333333333825
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.4701666666666668
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.12306666666666605
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.0854166666666667
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.0416333333333338
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          1.0174166666666673
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.029499999999998416
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.10220000000000007
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.007050000000001222
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.20250000000000018
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.04820000000000102
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.1995666666666676
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.03736666666666666
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.09556666666666574
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.19328333333333308
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.00205000000000094
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.11613333333333226
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.25081666666666613
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.030766666666668385
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.2881833333333328
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.025566666666666793
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.2186333333333318
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.03448333333333442
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.8652000000000002
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.02496666666666536
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          0.07770000000000193
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.2204999999999982
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#E31A1C",
+        "data": [
+          1.5118166666666688
+        ],
+        "name": "Lezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.03049999999999997
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.7159499999999991
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.05939999999999945
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.1459500000000019
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.08013333333332873
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          2.8042333333333342
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.09195000000000286
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.14868333333333317
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.1041166666666643
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.13566666666666616
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.07853333333333323
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.2705000000000035
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.2515499999999993
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.06348333333332956
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.03348333333333786
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.002049999999998442
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.025200000000000222
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.4180666666666677
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.039566666666666084
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.1499166666666646
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.05018333333333236
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.8525833333333332
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FF7F00",
+        "data": [
+          0.07458333333333234
+        ],
+        "name": "Schrijven"
+      },
+      {
+        "color": "#FDBF6F",
+        "data": [
+          0.002600000000002045
+        ],
+        "name": "Herlezen"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          14.9952
+        ],
+        "name": "Niet Gedetecteerd"
+      }
+    ],
+    "m_perc": [
+      {
+        "data": 0.01078814814814815,
+        "name": "Orientatie"
+      },
+      {
+        "data": 0.0,
+        "name": "Plannen"
+      },
+      {
+        "data": 0.0,
+        "name": "Evaluatie"
+      },
+      {
+        "data": 0.014367407407407355,
+        "name": "Monitoren"
+      }
+    ],
+    "meta": [
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.5968666666666667
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#A6CEE3",
+        "data": [
+          0.06846666666666673
+        ],
+        "name": "Orientatie"
+      },
+      {
+        "color": "#A6CEE3",
+        "data": [
+          0.4153833333333333
+        ],
+        "name": "Orientatie"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          2.5050499999999998
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#B2DF8A",
+        "data": [
+          0.1702333333333332
+        ],
+        "name": "Monitoren"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          0.30731666666666657
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#A6CEE3",
+        "data": [
+          0.0016166666666666413
+        ],
+        "name": "Orientatie"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          7.748316666666668
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#B2DF8A",
+        "data": [
+          0.08959999999999996
+        ],
+        "name": "Monitoren"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          7.808033333333333
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#B2DF8A",
+        "data": [
+          0.0385166666666667
+        ],
+        "name": "Monitoren"
+      },
+      {
+        "color": "#B2DF8A",
+        "data": [
+          0.07756666666666523
+        ],
+        "name": "Monitoren"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          1.816416666666666
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#B2DF8A",
+        "data": [
+          0.22046666666666714
+        ],
+        "name": "Monitoren"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          7.160950000000001
+        ],
+        "name": "Niet Gedetecteerd"
+      },
+      {
+        "color": "#B2DF8A",
+        "data": [
+          0.05014999999999881
+        ],
+        "name": "Monitoren"
+      },
+      {
+        "color": "#ebebeb",
+        "data": [
+          15.925016666666668
+        ],
+        "name": "Niet Gedetecteerd"
+      }
+    ],
+    "personal": {
+      "EvaluatieMins": 0.0,
+      "EvaluatieStart": 0,
+      "HerlezenMins": 0.969633333333337,
+      "HerlezenStart": 7.815300000000001,
+      "LezenMins": 5.471583333333339,
+      "LezenStart": 1.1365666666666667,
+      "MonitorenMins": 0.646533333333331,
+      "MonitorenStart": 3.5857833333333335,
+      "OrientatieMins": 0.4854666666666667,
+      "OrientatieStart": 0.5968666666666667,
+      "PlannenMins": 0.0,
+      "PlannenStart": 0,
+      "SchrijvenMins": 20.06886666666667,
+      "SchrijvenStart": 0.016816666666666667
+    },
+    "pplg": [
+      "-",
+      "11.00",
+      0
+    ],
+    "spiderData": [
+      0.11099759996307654,
+      0.552650752982923,
+      0.61
+    ]
+  },
+  "headers": {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json"
+  },
+  "statusCode": 200
+}
