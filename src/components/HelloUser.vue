@@ -1,14 +1,5 @@
-<script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
-})
-</script>
-
 <template>
-  <div class="greetings">
+  <v-row class="greetings">
     <span class="title">
       Dashboard van persoon X
     </span>
@@ -16,9 +7,13 @@ defineProps({
     <span class="undertitle">
       Overzicht van leerproces
     </span>
-  </div>
+  </v-row>
 </template>
-
+<script>
+export default {
+    name: "HelloUser",
+};
+</script>
 <style scoped>
 .title{
     font-weight: bold;
@@ -34,7 +29,6 @@ defineProps({
 .greetings{
     height: 5vh;
     text-align: left;
-    display: table-cell;
-    vertical-align: middle;
+    display: block;
 }
 </style>

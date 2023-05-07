@@ -1,20 +1,19 @@
 <template>
-    <h1>Vue 3 and Fetch Example</h1>
-
-    <template>
-        <div>
-            <div v-for="data in myJson">{{data}}</div>
-        </div>
-    </template>
+    <p v-for="item in metacognition">
+        {{item.data}}
+    </p>
 </template>
 
 <script>
-import json from './example.json'
-export default{
-    data(){
-        return{
-            myJson: json
-        }
-    }
-}
+import timelineData from '@/assets/data/fsh.json'
+
+export default {
+    name: "SendRequests",
+    data() {
+        return {
+            metacognition: timelineData['body']['meta'],
+            cognition: timelineData['body']['cog']
+        };
+    },
+};
 </script>
