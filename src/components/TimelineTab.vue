@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 #tab-info{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: -20px;
 }
 </style>

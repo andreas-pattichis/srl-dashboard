@@ -1,19 +1,28 @@
 <template>
-    <p v-for="item in metacognition">
-        {{item.data}}
+    <p>
+        {{ info }}
     </p>
 </template>
 
 <script>
-import timelineData from '@/assets/data/fsh.json'
+import axios from "axios";
 
 export default {
     name: "SendRequests",
-    data() {
+    data () {
         return {
-            metacognition: timelineData['body']['meta'],
-            cognition: timelineData['body']['cog']
-        };
+            info: null
+        }
     },
+    mounted () {
+        axios
+            .get('https://floralearn.org/flora-lighthouse/api/result',
+                {
+                    params: {
+                        studentNumber: "fsh7_132"
+                    }
+                })
+            .then(response => (this.info = response))
+    }
 };
 </script>
