@@ -4,13 +4,13 @@
            href="#timeline"
            :class="{'is-active': activeTab === 1}"
            @click="activeTab = 1">
-            Timeline
+            Tijdlijn
         </a>
         <a class="tab-button"
            href="#results"
            :class="{'is-active': activeTab === 2}"
            @click="activeTab = 2">
-            Results
+            Resultaten
         </a>
     </v-row>
     <v-row>
@@ -18,12 +18,13 @@
             <tab
                 id="timeline"
                 name="Timeline">
+<!--                {{ user }}-->
                 <TimelineTab />
             </tab>
             <tab
                 id="results"
                 name="Results">
-                <SendRequest />
+<!--                <SendRequest />-->
             </tab>
         </tabs>
     </v-row>
@@ -41,6 +42,14 @@ export default {
             activeTab: 1
         }
     },
+    // mounted () {
+    //     this.$store.dispatch('loadUsers')
+    // },
+    // computed: {
+    //     user() {
+    //         return this.$store.getters.user;
+    //     },
+    // },
 }
 </script>
 <style scoped>

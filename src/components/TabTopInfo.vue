@@ -3,16 +3,23 @@
         <v-col>
             <span class="tab-info-date">20-4-2021</span>
             <br>
-            <span class="tab-info-title">Timeline Essay about X</span>
+            <span class="tab-info-title">Tijdlijn van {{ getUsername() }}</span>
             <br>
-            <span class="tab-info-subtitle">Total time: 45 minutes</span>
+            <span class="tab-info-subtitle">Totale tijd: 45 minuten</span>
         </v-col>
     </v-row>
 </template>
 
 <script>
+import {GET_USERNAME} from "../store/storeconstants";
+
 export default {
-    name: "TabInfo"
+    name: "TabInfo",
+    methods:{
+        getUsername() {
+            return this.$store.getters[`auth/${GET_USERNAME}`]
+        },
+    }
 }
 </script>
 

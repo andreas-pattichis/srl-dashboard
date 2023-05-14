@@ -2,18 +2,20 @@
     <div class="charts">
         <div id="metacognitionChart">
             <apexchart
+                ref="metacognitionChart"
                 type="bar"
                 height="150"
                 :options="metacognitionChartOptions"
-                :series="metacognition"
+                :series="metacognitionSeries"
             ></apexchart>
         </div>
         <div id="metacognitionChart">
             <apexchart
+                ref="cognitionChart"
                 type="bar"
                 height="150"
                 :options="cognitionChartOptions"
-                :series="cognition"
+                :series="cognitionSeries"
             ></apexchart>
         </div>
     </div>
@@ -23,9 +25,11 @@
 // base imports
 import VueApexCharts from "vue3-apexcharts";
 import { ref } from 'vue';
+import {mapState} from "vuex";
 
 // import data
-import timelineData from '@/assets/data/fsh.json'
+// import timelineData from '@/assets/data/fsh.json'
+import {GET_USERNAME} from "../store/storeconstants";
 
 let baseChartOptions = {
     chart: {
@@ -45,7 +49,7 @@ let baseChartOptions = {
             max: 45,
             tickAmount: 9,
             labels: {
-            show: true,
+            show: false,
         },
         axisBorder: {
             show: false
@@ -79,20 +83,12 @@ export default {
     },
     data: function() {
         return {
-            metacognition: timelineData['body']['meta'],
-            cognition: timelineData['body']['cog'],
+            metacognitionSeries: this.$store.getters.user.meta,
+            cognitionSeries: this.$store.getters.user.cog,
             metacognitionChartOptions: ref(baseChartOptions),
-            cognitionChartOptions: ref(baseChartOptions)
+            cognitionChartOptions: ref(baseChartOptions),
         };
-    },
-    computed: {
-        metacognitionChartOptions(){
-            let chart = this.metacognitionChartOptions
-            chart.xaxis.labels.show = false;
-
-            return chart
-        }
-    },
+    }
 }
 
 </script>
