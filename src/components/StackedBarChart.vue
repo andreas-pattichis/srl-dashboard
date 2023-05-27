@@ -34,21 +34,21 @@ import {GET_USERNAME} from "../store/storeconstants";
 let baseChartOptions = {
     chart: {
         stacked: true,
-            toolbar: {
+        toolbar: {
             show: false
         },
     },
     plotOptions: {
         bar: {
             horizontal: true,
-                borderRadius: 10
+            borderRadius: 10
         }
     },
     xaxis: {
         min: 0,
-            max: 45,
-            tickAmount: 9,
-            labels: {
+        max: 45,
+        tickAmount: 9,
+        labels: {
             show: false,
         },
         axisBorder: {

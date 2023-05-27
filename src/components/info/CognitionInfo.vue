@@ -1,7 +1,7 @@
 <template>
     <v-row class="explainer-heading">
         <span>
-            Cognition
+            Cognitie
         </span>
         <v-divider />
     </v-row>

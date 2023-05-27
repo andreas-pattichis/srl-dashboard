@@ -1,7 +1,7 @@
 <template>
     <v-row class="explainer-heading">
         <span>
-            Metacognition
+            Metacognitie
         </span>
         <v-divider />
     </v-row>

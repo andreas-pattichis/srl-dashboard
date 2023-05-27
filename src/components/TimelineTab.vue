@@ -1,7 +1,7 @@
 <template>
     <v-container fluid>
         <v-row id="tab-info">
-            <TabInfo />
+            <TabTopInfo />
         </v-row>
         <v-row>
             <StackedBarChart />
@@ -15,14 +15,14 @@
 
 <script>
 import StackedBarChart from "./StackedBarChart.vue";
-import TabInfo from "./TabTopInfo.vue";
+import TabTopInfo from "./TabTopInfo.vue";
 import TabBottomInfo from "./TabBottomInfo.vue";
 
 export default {
     name: "TimelineTab",
     components: {
         TabBottomInfo,
-        TabInfo,
+        TabTopInfo,
         StackedBarChart
     }
 }

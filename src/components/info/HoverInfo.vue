@@ -4,19 +4,8 @@
             Hover over de tijdlijn voor uitleg
         </span>
         <v-divider />
-        <span>
-            Cognitieve en metacognitieve processen
-        </span>
         <p>
-            Bij het schrijven van een essay maak je gebruik van activiteiten met betrekking tot cognitieve- en metacognitieve processen.
-            De combinatie van deze activiteiten bepalen jouw leerstratie.
-            Een leerstrategie gaat over de manier waarop je een leertaak aanpakt.
-        </p>
-        <span><br>
-            Meer hulp nodig?
-        </span>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Bij het schrijven van een essay maak je gebruik van activiteiten met betrekking tot cognitieve- en metacognitieve processen. De combinatie van deze activiteiten bepalen jouw leerstrategie. Een leerstrategie gaat over de manier waarop je een leertaak aanpakt en uitvoert.
         </p>
     </v-row>
 </template>

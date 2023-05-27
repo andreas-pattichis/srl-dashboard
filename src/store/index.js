@@ -1,6 +1,11 @@
 import { createStore } from 'vuex'
 import auth from './auth/index'
 import api from './api/index'
+import VuexPersistence from "vuex-persist";
+
+const vuexLocal = new VuexPersistence({
+    storage: window.localStorage,
+});
 
 export default createStore({
     state: {
@@ -14,5 +19,6 @@ export default createStore({
     modules: {
         auth,
         api,
-    }
+    },
+    plugins: [vuexLocal.plugin]
 })

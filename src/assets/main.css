@@ -1,1 +1,9 @@
 @import 'base.css';
+
+.v-tab__slider{
+    background: #2bbbde!important;
+    height:4px!important;
+}
+.v-btn__content{
+    margin-bottom:5px!important;
+}

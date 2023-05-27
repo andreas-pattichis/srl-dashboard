@@ -14,7 +14,7 @@
 import {GET_USERNAME} from "../store/storeconstants";
 
 export default {
-    name: "TabInfo",
+    name: "TabTopInfo",
     methods:{
         getUsername() {
             return this.$store.getters[`auth/${GET_USERNAME}`]
@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .tab-info-date{
     font-style: italic;
     font-size: 12pt;
@@ -33,6 +33,8 @@ export default {
     font-size: 16pt;
     font-weight: bold;
     display: inline-block;
+    padding-top:5px;
+    padding-bottom:5px;
 }
 .tab-info-subtitle{
     font-size: 12pt;

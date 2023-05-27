@@ -1,70 +1,59 @@
 <template>
-    <v-row class="tabLinks">
-        <a class="tab-button"
-           href="#timeline"
-           :class="{'is-active': activeTab === 1}"
-           @click="activeTab = 1">
-            Tijdlijn
-        </a>
-        <a class="tab-button"
-           href="#results"
-           :class="{'is-active': activeTab === 2}"
-           @click="activeTab = 2">
-            Resultaten
-        </a>
-    </v-row>
     <v-row>
-        <tabs id="mainTabs" ref="mainTabs" :options="{ defaultTabHash: 'timeline' }">
-            <tab
-                id="timeline"
-                name="Timeline">
-<!--                {{ user }}-->
-                <TimelineTab />
-            </tab>
-            <tab
-                id="results"
-                name="Results">
-<!--                <SendRequest />-->
-            </tab>
-        </tabs>
+        <v-card flat color="transparent" min-width="100%">
+            <v-tabs
+                v-model="tab"
+            >
+                <v-tab value="timeline">Tijdlijn</v-tab>
+                <v-tab value="results">Resultaten</v-tab>
+            </v-tabs>
+
+            <v-card-text>
+                <v-window v-model="tab">
+                    <v-window-item value="timeline">
+                        <TimelineTab />
+                    </v-window-item>
+
+                    <v-window-item value="results">
+                        <ResultsTab />
+                    </v-window-item>
+                </v-window>
+            </v-card-text>
+        </v-card>
     </v-row>
 </template>
 
 <script>
 import TimelineTab from "./TimelineTab.vue";
-import SendRequest from "./SendRequest.vue";
+import ResultsTab from "./ResultsTab.vue";
+import {GET_USERNAME} from "../store/storeconstants";
 
 export default {
-    name: 'WelcomeVIew',
-    components: {SendRequest, TimelineTab},
+    name: 'MainView',
+    components: {ResultsTab, TimelineTab},
     data: function (){
         return{
-            activeTab: 1
+            tab: null,
         }
     },
-    // mounted () {
-    //     this.$store.dispatch('loadUsers')
-    // },
-    // computed: {
-    //     user() {
-    //         return this.$store.getters.user;
-    //     },
-    // },
+    created() {
+        if (!this.$store.getters[`auth/${GET_USERNAME}`]) {
+            this.$router.push('/login')
+        }
+    }
 }
 </script>
 <style scoped>
-.is-active {
-    border-bottom-color: #2bbbde!important;
-}
-.tab-button{
+.v-btn{
     font-family: "Noto Sans";
     font-weight: bold;
     font-size: 16pt;
     color: #2c3e50;
     text-decoration: none;
-    border-bottom:4px solid #EBEBEB;
     margin-right: 20px;
-    padding-bottom:2px;
+    padding-bottom: 2px;
+    text-transform: none;
+    letter-spacing: normal;
 }
 .tabLinks{
     margin-bottom:20px
