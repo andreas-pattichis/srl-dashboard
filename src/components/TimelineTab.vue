@@ -15,8 +15,8 @@
 
 <script>
 import StackedBarChart from "./StackedBarChart.vue";
-import TabTopInfo from "./TabTopInfo.vue";
-import TabBottomInfo from "./TabBottomInfo.vue";
+import TabTopInfo from "./info/TabTopInfo.vue";
+import TabBottomInfo from "./info/TabBottomInfo.vue";
 
 export default {
     name: "TimelineTab",

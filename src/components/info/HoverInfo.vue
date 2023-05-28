@@ -1,18 +1,28 @@
 <template>
     <v-row class="explainer-heading">
         <span>
-            Hover over de tijdlijn voor uitleg
+            {{ $t("EXPLANATIONS.title") }}
         </span>
         <v-divider />
-        <p>
-            Bij het schrijven van een essay maak je gebruik van activiteiten met betrekking tot cognitieve- en metacognitieve processen. De combinatie van deze activiteiten bepalen jouw leerstrategie. Een leerstrategie gaat over de manier waarop je een leertaak aanpakt en uitvoert.
+        <p v-if="getExplanation()">
+            {{ $t(getExplanation()) }}
+        </p>
+        <p v-else>
+            {{ $t("EXPLANATIONS.NIETGEDETECTEERD") }}
         </p>
     </v-row>
 </template>
 
 <script>
+import {GET_EXPLANATION} from "../../store/storeconstants";
+
 export default {
-    name: "HoverInfo"
+    name: "HoverInfo",
+    methods:{
+        getExplanation() {
+            return this.$store.getters[`explanation/${GET_EXPLANATION}`]
+        },
+    }
 }
 </script>
 

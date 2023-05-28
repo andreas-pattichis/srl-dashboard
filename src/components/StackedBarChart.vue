@@ -7,6 +7,7 @@
                 height="150"
                 :options="metacognitionChartOptions"
                 :series="metacognitionSeries"
+                @dataPointMouseEnter="hoverHandler"
             ></apexchart>
         </div>
         <div id="metacognitionChart">
@@ -16,6 +17,7 @@
                 height="150"
                 :options="cognitionChartOptions"
                 :series="cognitionSeries"
+                @dataPointMouseEnter="hoverHandler"
             ></apexchart>
         </div>
     </div>
@@ -25,11 +27,9 @@
 // base imports
 import VueApexCharts from "vue3-apexcharts";
 import { ref } from 'vue';
-import {mapState} from "vuex";
 
 // import data
-// import timelineData from '@/assets/data/fsh.json'
-import {GET_USERNAME} from "../store/storeconstants";
+import {SET_AUTHENTICATION, SET_EXPLANATION} from "../store/storeconstants";
 
 let baseChartOptions = {
     chart: {
@@ -87,8 +87,26 @@ export default {
             cognitionSeries: this.$store.getters.user.cog,
             metacognitionChartOptions: ref(baseChartOptions),
             cognitionChartOptions: ref(baseChartOptions),
+            explanation: this.explanation
         };
-    }
+    },
+    methods: {
+        translateHover(parameter) {
+            // `this` inside methods point to the Vue instance
+            var temp = parameter.split(" ").join("").toUpperCase();
+            this.$store.commit(`explanation/${SET_EXPLANATION}`, "EXPLANATIONS." + temp);
+            this.hoverName = parameter;
+            this.personalMins = parameter + "Mins";
+            this.personalStart = parameter + "Start";
+            // `event` is the native DOM event
+        },
+        hoverHandler(e, chart, opts){
+            this.translateHover(opts.w.config.series[opts.seriesIndex].name);
+            console.log("Hover")
+            console.log(opts);
+            console.log(this.explanation);
+        }
+    },
 }
 
 </script>

@@ -4,6 +4,14 @@
             Anders
         </span>
         <v-divider />
+        <p class="explainer-perc">
+<!--            <span class="explainer-perc-number">-->
+
+<!--            </span>-->
+            <span class="explainer-perc-text">
+                Geen informatie
+            </span>
+        </p>
     </v-row>
 </template>
 

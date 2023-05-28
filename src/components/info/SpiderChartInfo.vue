@@ -3,19 +3,17 @@
         <TabTopInfo />
     </v-row>
     <v-row class="results-item">
-        <TabTopInfo />
-    </v-row>
-    <v-row class="results-item">
-        <TabTopInfo />
+        <LearningGainInfo />
     </v-row>
 </template>
 
 <script>
-import TabTopInfo from "../TabTopInfo.vue";
+import TabTopInfo from "./TabTopInfo.vue";
+import LearningGainInfo from "./LearningGainInfo.vue";
 
 export default {
     name: "SpiderChartInfo",
-    components: {TabTopInfo}
+    components: {LearningGainInfo, TabTopInfo}
 }
 </script>
 
