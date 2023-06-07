@@ -5,7 +5,8 @@ export default {
     namespaced: true,
     state() {
         return {
-            explanation: null
+            explanation: null,
+            process: null
         }
     },
     mutations,

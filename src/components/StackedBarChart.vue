@@ -29,7 +29,7 @@ import VueApexCharts from "vue3-apexcharts";
 import { ref } from 'vue';
 
 // import data
-import {SET_AUTHENTICATION, SET_EXPLANATION} from "../store/storeconstants";
+import {SET_AUTHENTICATION, SET_EXPLANATION, SET_PROCESS} from "../store/storeconstants";
 
 let baseChartOptions = {
     chart: {
@@ -49,10 +49,10 @@ let baseChartOptions = {
         max: 45,
         tickAmount: 9,
         labels: {
-            show: false,
+            show: true,
         },
         axisBorder: {
-            show: false
+            show: true
         },
         axisTicks: {
             show: true,
@@ -87,24 +87,19 @@ export default {
             cognitionSeries: this.$store.getters.user.cog,
             metacognitionChartOptions: ref(baseChartOptions),
             cognitionChartOptions: ref(baseChartOptions),
-            explanation: this.explanation
         };
     },
     methods: {
         translateHover(parameter) {
             // `this` inside methods point to the Vue instance
-            var temp = parameter.split(" ").join("").toUpperCase();
+            var temp = parameter.split(" ").join("");//.toUpperCase();
             this.$store.commit(`explanation/${SET_EXPLANATION}`, "EXPLANATIONS." + temp);
-            this.hoverName = parameter;
-            this.personalMins = parameter + "Mins";
-            this.personalStart = parameter + "Start";
-            // `event` is the native DOM event
+            this.$store.commit(`explanation/${SET_PROCESS}`, parameter);
         },
         hoverHandler(e, chart, opts){
             this.translateHover(opts.w.config.series[opts.seriesIndex].name);
             console.log("Hover")
             console.log(opts);
-            console.log(this.explanation);
         }
     },
 }

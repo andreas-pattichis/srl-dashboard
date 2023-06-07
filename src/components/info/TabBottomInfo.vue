@@ -64,4 +64,12 @@ export default {
     color:#000;
     border-top-width:2px;
 }
+.dot {
+    height: .9em;
+    width: .9em;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
 </style>
