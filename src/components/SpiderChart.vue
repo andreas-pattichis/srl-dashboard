@@ -17,8 +17,8 @@ export default {
         apexchart: VueApexCharts,
     },
     created() {
-        this.pplg = this.$store.getters.user.pplg;
-        this.spiderChartSeries[0].data = this.$store.getters.user.spiderData;
+        this.pplg = this.$store.getters.essays[0].pplg;
+        this.spiderChartSeries[0].data = this.$store.getters.essays[0].spiderData;
     },
     data: function() {
         return {

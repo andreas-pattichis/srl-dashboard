@@ -23,7 +23,7 @@ export default {
     name: "MetacognitionInfo",
     data: function() {
         return {
-            m_perc: this.$store.getters.user.m_perc,
+            m_perc: this.$store.getters.essays[0].m_perc,
             colors: ["lightblue", "blue", "green", "lightgreen"]
         };
     },

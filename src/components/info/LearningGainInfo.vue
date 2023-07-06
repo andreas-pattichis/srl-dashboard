@@ -21,7 +21,7 @@ export default {
     name: "LearningGainInfo",
     data: function() {
         return {
-            pplg: this.$store.getters.user.pplg,
+            pplg: this.$store.getters.essays[0].pplg,
         };
     },
 }

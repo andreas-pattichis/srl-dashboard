@@ -23,7 +23,7 @@ export default {
     name: "CognitionInfo",
     data: function() {
         return {
-            c_perc: this.$store.getters.user.c_perc,
+            c_perc: this.$store.getters.essays[0].c_perc,
             colors: ["red", "pink", "orange"]
         };
     },

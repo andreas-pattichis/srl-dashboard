@@ -74,13 +74,13 @@ export default {
         let series;
         switch(props.type){
             case 'meta':
-                series = this.$store.getters.user.meta;
+                series = this.$store.getters.essays[0].meta;
                 break;
             case 'cog':
-                series = this.$store.getters.user.cog;
+                series = this.$store.getters.essays[0].cog;
                 break;
             default:
-                series = this.$store.getters.user.combined_series;
+                series = this.$store.getters.essays[0].combined_series;
                 break;
         }
 
