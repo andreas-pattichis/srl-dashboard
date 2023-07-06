@@ -4,14 +4,24 @@
             <TabTopInfo />
         </v-row>
         <v-row id="timelines">
-            <TimelineChart type="meta" class="timeline" />
-            <TimelineChart type="cog" class="timeline" />
+            <div v-if="getSelectedEssays().length == 1" class="timeline-container">
+                <TimelineChart :series="getSelectedEssays()[0].meta" class="timeline" />
+                <TimelineChart :series="getSelectedEssays()[0].cog" class="timeline" />
+            </div>
+            <template v-else-if="getSelectedEssays().length > 1">
+                <div v-for="essay in getSelectedEssays()" class="timeline-container">
+                    <h3>{{ essay.name }}</h3>
+                    <TimelineChart :series="essay.combined_series" class="timeline" />
+                </div>
+            </template>
+            <div v-else class="timeline-container">
+                <h1>Er zijn geen betogen geselecteerd.</h1>
+            </div>
         </v-row>
         <v-row>
             <TabBottomInfo />
         </v-row>
     </v-container>
-
 </template>
 
 <script>
@@ -25,19 +35,27 @@ export default {
         TabBottomInfo,
         TabTopInfo,
         TimelineChart,
+    },
+    methods: {
+        getSelectedEssays() {
+            return this.$store.getters.selectedEssays;
+        }
     }
 }
 </script>
 
 <style scoped>
-#tab-info{
+#tab-info {
     margin-top: 5px;
-    margin-bottom: -20px;
 }
+
 #timelines {
     margin-bottom: 50px;
 }
-.timeline {
-    margin-bottom: -50px;
+
+.timeline-container {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: -20px;
 }
 </style>

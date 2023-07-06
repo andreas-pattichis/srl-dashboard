@@ -1,13 +1,7 @@
 <template>
     <div class="timeline">
-        <apexchart
-            ref="timeline"
-            type="bar"
-            height="150"
-            :options="options"
-            :series="series"
-            @dataPointMouseEnter="hoverHandler"
-        ></apexchart>
+        <apexchart ref="timeline" type="bar" height="150" :options="options" :series="series"
+            @dataPointMouseEnter="hoverHandler"></apexchart>
     </div>
 </template>
 
@@ -17,7 +11,7 @@ import VueApexCharts from "vue3-apexcharts";
 import { ref } from 'vue';
 
 // import data
-import {SET_EXPLANATION, SET_PROCESS} from "../store/storeconstants";
+import { SET_EXPLANATION, SET_PROCESS } from "../store/storeconstants";
 
 const baseChartOptions = {
     chart: {
@@ -49,7 +43,7 @@ const baseChartOptions = {
     yaxis: {
         labels: {
             show: false,
-                formatter: function (val) {
+            formatter: function (val) {
                 return (Math.round(val * 100) / 100).toFixed(2) + " min";
             },
         },
@@ -69,23 +63,23 @@ export default {
     components: {
         apexchart: VueApexCharts,
     },
-    props: ['type'],
-    data: function(props) {
-        let series;
-        switch(props.type){
-            case 'meta':
-                series = this.$store.getters.essays[0].meta;
-                break;
-            case 'cog':
-                series = this.$store.getters.essays[0].cog;
-                break;
-            default:
-                series = this.$store.getters.essays[0].combined_series;
-                break;
-        }
+    props: ['series'],
+    data: function (props) {
+        // let series;
+        // switch(props.type){
+        //     case 'meta':
+        //         series = this.$store.getters.essays[0].meta;
+        //         break;
+        //     case 'cog':
+        //         series = this.$store.getters.essays[0].cog;
+        //         break;
+        //     default:
+        //         series = this.$store.getters.essays[0].combined_series;
+        //         break;
+        // }
 
         return {
-            series,
+            // series,
             options: ref(baseChartOptions),
         };
     },
@@ -95,7 +89,7 @@ export default {
             this.$store.commit(`explanation/${SET_EXPLANATION}`, "EXPLANATIONS." + temp);
             this.$store.commit(`explanation/${SET_PROCESS}`, parameter);
         },
-        hoverHandler(e, chart, opts){
+        hoverHandler(e, chart, opts) {
             this.translateHover(opts.w.config.series[opts.seriesIndex].name);
         }
     },
