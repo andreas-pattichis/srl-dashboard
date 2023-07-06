@@ -4,12 +4,16 @@ export default {
   namespaced: false,
   state() {
     return {
-      essays: []
+      essays: [],
+      selectedEssays: []
     }
   },
   getters: {
     essays: (state) => {
       return state.essays
+    },
+    selectedEssays: (state) => {
+      return state.selectedEssays
     }
   },
   actions: {
@@ -34,17 +38,22 @@ export default {
         essayB.name = 'Essay B'
         essayC.name = 'Essay C'
         commit('SET_ESSAYS', [essayA, essayB, essayC])
+        commit('SET_SELECTED_ESSAYS', [essayA])
       } else {
         // Fallback to one essay
         const essay = await loadEssay(studentNumber)
         essay.name = 'Essay'
         commit('SET_ESSAYS', [essay])
+        commit('SET_SELECTED_ESSAYS', [essay])
       }
     }
   },
   mutations: {
     SET_ESSAYS(state, essays) {
       state.essays = essays
+    },
+    SET_SELECTED_ESSAYS(state, selectedEssays) {
+      state.selectedEssays = selectedEssays
     }
   }
 }

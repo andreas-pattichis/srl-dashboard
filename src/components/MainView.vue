@@ -1,9 +1,8 @@
 <template>
     <v-row>
         <v-card flat color="transparent" min-width="100%">
-            <v-tabs
-                v-model="tab"
-            >
+            <EssaySelector />
+            <v-tabs v-model="tab">
                 <v-tab value="timeline">Tijdlijn</v-tab>
                 <v-tab value="results">Resultaten</v-tab>
             </v-tabs>
@@ -26,13 +25,14 @@
 <script>
 import TimelineTab from "./TimelineTab.vue";
 import ResultsTab from "./ResultsTab.vue";
-import {GET_USERNAME} from "../store/storeconstants";
+import EssaySelector from "./EssaySelector.vue";
+import { GET_USERNAME } from "../store/storeconstants";
 
 export default {
     name: 'MainView',
-    components: {ResultsTab, TimelineTab},
-    data: function (){
-        return{
+    components: { ResultsTab, TimelineTab, EssaySelector },
+    data: function () {
+        return {
             tab: null,
         }
     },
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 <style scoped>
-.v-btn{
+.v-btn {
     font-family: "Noto Sans";
     font-weight: bold;
     font-size: 16pt;
@@ -55,10 +55,12 @@ export default {
     text-transform: none;
     letter-spacing: normal;
 }
-.tabLinks{
-    margin-bottom:20px
+
+.tabLinks {
+    margin-bottom: 20px
 }
-#mainTabs{
+
+#mainTabs {
     width: 100%;
 }
 </style>
