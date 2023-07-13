@@ -1,15 +1,15 @@
 <template>
     <v-row class="explainer-heading">
         <span>
-            Cognitie
+            {{ title }}
         </span>
         <v-divider />
-        <p class="explainer-perc" @mouseover="setExplainer(item.name)" v-for="(item, i) in c_perc" :key="i">
-            <span class="dot" :class="[colors[i]]"></span>
+        <p class="explainer-perc" @mouseover="setExplainer(item.name)" v-for="(item, i) in perc" :key="i">
+            <span class="dot" :class="'fraction-' + item.name"></span>
             <span class="explainer-perc-number">
                 {{ Math.round(item.data * 100).toFixed(0) }}%
             </span>
-                <span class="explainer-perc-text">
+            <span class="explainer-perc-text">
                 {{ item.name }}
             </span>
         </p>
@@ -17,19 +17,13 @@
 </template>
 
 <script>
-import {SET_EXPLANATION, SET_PROCESS} from "../../store/storeconstants";
+import { SET_EXPLANATION, SET_PROCESS } from "../../store/storeconstants";
 
 export default {
-    name: "CognitionInfo",
-    data: function() {
-        return {
-            c_perc: this.$store.getters.essays[0].c_perc,
-            colors: ["red", "pink", "orange"]
-        };
-    },
+    name: "FractionInfo",
+    props: ['title', 'perc'],
     methods: {
-        // Perhaps something to come back to later as copy-pasting this method between components ((Meta)cognition, other) is redundant
-        setExplainer: function(process){
+        setExplainer: function (process) {
             var temp = process.split(" ").join("");
             this.$store.commit(`explanation/${SET_EXPLANATION}`, "EXPLANATIONS." + temp);
             this.$store.commit(`explanation/${SET_PROCESS}`, process);
@@ -39,13 +33,31 @@ export default {
 </script>
 
 <style scoped>
-.red{
+.fraction-Orientatie {
+    background-color: #A6CEE3;
+}
+
+.fraction-Plannen {
+    background-color: #1F78B4;
+}
+
+.fraction-Evaluatie {
+    background-color: #33A02C;
+}
+
+.fraction-Monitoren {
+    background-color: #B2DF8A;
+}
+
+.fraction-Lezen {
     background-color: #E31A1C;
 }
-.pink{
+
+.fraction-Herlezen {
     background-color: #FB9A99;
 }
-.orange{
+
+.fraction-Schrijven {
     background-color: #FF7F00;
 }
 </style>

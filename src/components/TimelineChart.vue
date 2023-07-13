@@ -64,22 +64,8 @@ export default {
         apexchart: VueApexCharts,
     },
     props: ['series'],
-    data: function (props) {
-        // let series;
-        // switch(props.type){
-        //     case 'meta':
-        //         series = this.$store.getters.essays[0].meta;
-        //         break;
-        //     case 'cog':
-        //         series = this.$store.getters.essays[0].cog;
-        //         break;
-        //     default:
-        //         series = this.$store.getters.essays[0].combined_series;
-        //         break;
-        // }
-
+    data: function () {
         return {
-            // series,
             options: ref(baseChartOptions),
         };
     },

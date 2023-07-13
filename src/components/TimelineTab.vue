@@ -5,6 +5,7 @@
         </v-row>
         <v-row id="timelines">
             <div v-if="getSelectedEssays().length == 1" class="timeline-container">
+                <h3>{{ getSelectedEssays()[0].name }}</h3>
                 <TimelineChart :series="getSelectedEssays()[0].meta" class="timeline" />
                 <TimelineChart :series="getSelectedEssays()[0].cog" class="timeline" />
             </div>
