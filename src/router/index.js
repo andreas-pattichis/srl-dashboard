@@ -1,4 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
+// const ASSET_BASE_PATH = process.env.ASSET_URL || '';
 
 const routes =  [
     {
@@ -13,7 +14,7 @@ const routes =  [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory("/dashboard/dist"),
     routes: routes,
     linkActiveClass: 'active'
 })
