@@ -27,3 +27,6 @@ vscode
 *.njsproj
 *.sln
 *.sw?
+
+# Env
+.env
