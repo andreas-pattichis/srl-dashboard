@@ -6,3 +6,4 @@ export const GET_EXPLANATION = '[getters] get explanation';
 export const SET_EXPLANATION = '[mutations] set explanation';
 export const GET_PROCESS = '[getters] get process';
 export const SET_PROCESS = '[mutations] set process';
+export const SET_USER = '[mutations] set user data';

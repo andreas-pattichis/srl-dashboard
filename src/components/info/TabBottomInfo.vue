@@ -19,7 +19,7 @@
     <v-row>
         <v-col>
             <button class="btn btn-outline-dark" type="submit" v-on:click.prevent="logout()">
-                Logout
+                Uitloggen
             </button>
         </v-col>
     </v-row>
@@ -40,6 +40,7 @@ export default {
         logout() {
             this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);
             this.$store.commit(`auth/${SET_USERNAME}`, "");
+
             this.output = "Logged out"
             this.$router.push('/login')
         }

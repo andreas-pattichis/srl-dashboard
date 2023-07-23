@@ -26,11 +26,12 @@ export default {
                 if(res.data['statusCode'] === 200){
                     console.log("succeeded")
                     commit('SET_USER', res.data);
-                    return res.data
                 }
                 else{
-                    console.log(res.data['statusCode'])
+                    console.log("Error "+res.data['statusCode'])
                 }
+
+                return res.data['statusCode']
             }
             catch(error) {
                 console.log("Error has occured");
