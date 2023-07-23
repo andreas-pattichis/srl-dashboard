@@ -28,5 +28,5 @@ vscode
 *.sln
 *.sw?
 
-# Env
+# Secret files
 .env
