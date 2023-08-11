@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import auth from './auth/index'
 import api from './api/index'
 import explanation from "./explanation";
+import selection from "./selection";
 import VuexPersistence from "vuex-persist";
 
 const vuexLocal = new VuexPersistence({
@@ -20,7 +21,8 @@ export default createStore({
     modules: {
         auth,
         api,
-        explanation
+        explanation,
+        selection
     },
     plugins: [vuexLocal.plugin]
 })

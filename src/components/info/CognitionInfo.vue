@@ -1,7 +1,7 @@
 <template>
     <v-row class="explainer-heading">
         <span>
-            Cognitie
+            {{ $t("categories.cognition") }}
         </span>
         <v-divider />
         <p class="explainer-perc" @mouseover="setExplainer(item.name)" v-for="(item, i) in c_perc" :key="i">
@@ -10,7 +10,7 @@
                 {{ Math.round(item.data * 100).toFixed(0) }}%
             </span>
                 <span class="explainer-perc-text">
-                {{ item.name }}
+                {{ $t("categories."+item.name) }}
             </span>
         </p>
     </v-row>
@@ -31,7 +31,7 @@ export default {
         // Perhaps something to come back to later as copy-pasting this method between components ((Meta)cognition, other) is redundant
         setExplainer: function(process){
             var temp = process.split(" ").join("");
-            this.$store.commit(`explanation/${SET_EXPLANATION}`, "EXPLANATIONS." + temp);
+            this.$store.commit(`explanation/${SET_EXPLANATION}`, "explanations." + temp);
             this.$store.commit(`explanation/${SET_PROCESS}`, process);
         }
     }

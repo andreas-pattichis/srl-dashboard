@@ -4,49 +4,52 @@
         <v-col cols="4">
             <div>
                 <p class="title">
-                    Dashboard leerproces
+                    {{ $t("login.title") }}
                 </p>
             </div>
             <div>
-                <p class="undertitle">
-                    Startscherm & uitleg
+                <p class="subsubtitle">
+                    {{ $t("login.subsubtitle") }}
                 </p>
             </div>
             <div class="login-info-box">
                 <p class="subtitle">
-                    Welkom op jouw persoonlijke dashboard!
+                    {{ $t("login.subtitle") }}
                 </p>
                 <p>
-                    Dit dashboard geeft inzicht in jouw leerproces tijdens het schrijven van het essay. Om jouw leerproces te bekijken, log in met jouw gebruikersnaam.
+                    {{ $t("login.subtitleText1") }}
                 </p>
                 <p>
-                    Na het werken met het dashboard:
+                    {{ $t("login.subtitleText2") }}
                 </p>
                 <p>
-                    1. weet je meer over de rol van cognitie en metacognitie in leren,
+                    {{ $t("login.subtitleText3") }}
                 </p>
                 <p>
-                    2. weet je meer over jouw eigen leerproces en de leerstrategieën die je hebt gebruikt en
+                    {{ $t("login.subtitleText4") }}
                 </p>
                 <p>
-                    3. kan je reflecteren over waarom je een bepaalde leerstrategie gekozen hebt.
+                    {{ $t("login.subtitleText5") }}
                 </p>
             </div>
         </v-col>
         <v-col cols="2"></v-col>
         <v-col class="login-box" cols="4" offset="2">
             <p class="subtitle">
-                Dashboard login
+                {{ $t("login.login") }}
             </p>
             <form name="login-form">
                 <div class="mb-3 login-input">
-                    <label for="username">Gebruikersnaam </label><br>
+                    <label for="username">{{ $t("login.username") }} </label><br>
                     <input type="text" id="username" v-model="input.username" />
                 </div>
                 <p class="error">{{this.output}}</p>
-                <button class="btn btn-outline-dark" type="submit" v-on:click.prevent="login()">
-                    Inloggen
-                </button>
+                <div>
+                    <button class="btn btn-outline-dark" type="submit" v-on:click.prevent="login()">
+                        <img id="loading" v-if="isLoading()" src="/loading.gif" height="42">
+                        <span v-else>{{ $t("login.loginButton") }}</span>
+                    </button>
+                </div>
             </form>
         </v-col>
         <v-col cols="1"></v-col>
@@ -54,7 +57,7 @@
 </template>
 
 <script>
-import {GET_USERNAME, SET_AUTHENTICATION, SET_USERNAME} from "../store/storeconstants";
+import {GET_USERNAME, IS_LOADING, SET_LOADING, SET_AUTHENTICATION, SET_USERNAME} from "../store/storeconstants";
 
 export default {
     name: 'LoginView',
@@ -69,12 +72,14 @@ export default {
     methods: {
          login() {
             //make sure username OR password are not empty
+            this.$store.commit(`auth/${SET_LOADING}`, true);
             if (this.input.username !== "") {
                 this.$store.commit(`auth/${SET_USERNAME}`, this.input.username);
                 console.log("Waiting for data fetch");
                 this.fetchData();
             } else {
-                this.output = "Gebruikersnaam kan niet leeg zijn"
+                this.output = this.$t("login.usernameEmptyError")
+                this.$store.commit(`auth/${SET_LOADING}`, false);
             }
         },
         fetchData() {
@@ -83,12 +88,13 @@ export default {
             }).then((res) => {
                 console.log(res);
                 if(res !== 400) {
-                    this.output = "Authenticatie succesvol"
+                    this.output = this.$t("login.successMessage")
                     this.authenticate();
                     this.$router.push('/');
                 }
                 else{
-                    this.output = "Er is iets fout gegaan. Probeer het opnieuw"
+                    this.output = this.$t("login.generalError")
+                    this.$store.commit(`auth/${SET_LOADING}`, false);
                 }
             })
             .catch((error) => {
@@ -99,14 +105,24 @@ export default {
         authenticate(){
             //stores true to the set_authentication and username to the set_username
             this.$store.commit(`auth/${SET_AUTHENTICATION}`, true);
-        }
+        },
+        isLoading() {
+            return this.$store.getters[`auth/${IS_LOADING}`]
+        },
     },
+    created() {
+        this.$store.commit(`auth/${SET_LOADING}`, false);
+    }
 }
 </script>
 
 <style scoped>
 .greetings{
     display: none!important;
+}
+#loading{
+    margin-top:-10px;
+    margin-bottom:-10px;
 }
 .login-tab{
     padding:4em 0em;

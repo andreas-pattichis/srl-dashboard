@@ -16,13 +16,6 @@
             <ReflectionInfo />
         </v-col>
     </v-row>
-    <v-row>
-        <v-col>
-            <button class="btn btn-outline-dark" type="submit" v-on:click.prevent="logout()">
-                Uitloggen
-            </button>
-        </v-col>
-    </v-row>
 </template>
 
 <script>
@@ -36,15 +29,6 @@ import {SET_AUTHENTICATION, SET_USERNAME} from "../../store/storeconstants";
 export default {
     name: "TabBottomInfo",
     components: {OtherInfo, MetacognitionInfo, CognitionInfo, HoverInfo, ReflectionInfo},
-    methods: {
-        logout() {
-            this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);
-            this.$store.commit(`auth/${SET_USERNAME}`, "");
-
-            this.output = "Logged out"
-            this.$router.push('/login')
-        }
-    }
 }
 </script>
 

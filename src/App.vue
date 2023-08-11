@@ -1,9 +1,7 @@
 <template>
     <v-container fluid id="app">
-        <v-container v-if="isAuthenticated()" fluid id="outer">
-            <v-row justify="start">
-                <HelloUser />
-            </v-row>
+        <v-container fluid id="outer">
+            <HelloUser />
         </v-container>
         <v-container fluid id="inner">
             <RouterView />
@@ -30,7 +28,6 @@ export default {
 
 <style>
 #inner{
-    margin-top: 50px;
     background-color: #ffffff;
     min-height: 80vh;
     height:100%;

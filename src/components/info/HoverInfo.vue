@@ -4,14 +4,14 @@
             {{ getProcess() }}
         </span>
         <span v-else>
-            {{ $t("EXPLANATIONS.title") }}
+            {{ $t("explanations.title") }}
         </span>
         <v-divider />
         <p v-if="getExplanation()">
             {{ $t(getExplanation()) }}
         </p>
         <p v-else>
-            {{ $t("EXPLANATIONS.NietGedetecteerd") }}
+            {{ $t("explanations.NietGedetecteerd") }}
         </p>
     </v-row>
 </template>
@@ -26,7 +26,9 @@ export default {
             return this.$store.getters[`explanation/${GET_EXPLANATION}`]
         },
         getProcess() {
-            return this.$store.getters[`explanation/${GET_PROCESS}`]
+            let process = this.$store.getters[`explanation/${GET_PROCESS}`];
+            process = process.split(" ").join("");
+            return this.$t("categories."+process)
         },
     }
 }

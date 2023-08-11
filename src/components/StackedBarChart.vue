@@ -29,7 +29,7 @@ import VueApexCharts from "vue3-apexcharts";
 import { ref } from 'vue';
 
 // import data
-import {SET_AUTHENTICATION, SET_EXPLANATION, SET_PROCESS} from "../store/storeconstants";
+import {SET_EXPLANATION, SET_PROCESS} from "../store/storeconstants";
 
 let baseChartOptions = {
     chart: {
@@ -93,13 +93,11 @@ export default {
         translateHover(parameter) {
             // `this` inside methods point to the Vue instance
             var temp = parameter.split(" ").join("");//.toUpperCase();
-            this.$store.commit(`explanation/${SET_EXPLANATION}`, "EXPLANATIONS." + temp);
+            this.$store.commit(`explanation/${SET_EXPLANATION}`, "explanations." + temp);
             this.$store.commit(`explanation/${SET_PROCESS}`, parameter);
         },
         hoverHandler(e, chart, opts){
             this.translateHover(opts.w.config.series[opts.seriesIndex].name);
-            console.log("Hover")
-            console.log(opts);
         }
     },
 }

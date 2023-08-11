@@ -4,8 +4,16 @@
             <v-tabs
                 v-model="tab"
             >
-                <v-tab value="timeline">Tijdlijn</v-tab>
-                <v-tab value="results">Resultaten</v-tab>
+                <v-tab
+                    value="timeline"
+                    @click="updateActiveTab('timeline')">
+                    {{ $t("general.timelineTab") }}
+                </v-tab>
+                <v-tab
+                    value="results"
+                    @click="updateActiveTab('results')">
+                    {{ $t("general.resultsTab") }}
+                </v-tab>
             </v-tabs>
 
             <v-card-text>
@@ -26,19 +34,24 @@
 <script>
 import TimelineTab from "./TimelineTab.vue";
 import ResultsTab from "./ResultsTab.vue";
-import {GET_USERNAME} from "../store/storeconstants";
+import {GET_ACTIVE_TAB, GET_USERNAME, SET_ACTIVE_TAB} from "../store/storeconstants";
 
 export default {
     name: 'MainView',
     components: {ResultsTab, TimelineTab},
     data: function (){
         return{
-            tab: null,
+            tab: this.$store.getters[`selection/${GET_ACTIVE_TAB}`],
         }
     },
     created() {
         if (!this.$store.getters[`auth/${GET_USERNAME}`]) {
             this.$router.push('/login')
+        }
+    },
+    methods: {
+         updateActiveTab(value){
+            this.$store.commit(`selection/${SET_ACTIVE_TAB}`, value);
         }
     }
 }

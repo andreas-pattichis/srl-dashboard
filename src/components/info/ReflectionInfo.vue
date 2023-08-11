@@ -1,23 +1,23 @@
 <template>
     <v-row class="explainer-heading">
         <span>
-            Reflectie
+            {{ $t("categories.reflection") }}
         </span>
         <v-divider />
         <p>
-            Wat valt je op als je naar jouw tijdlijn kijkt?
+            {{ $t("categories.reflectionText1") }}
         </p>
         <v-divider />
         <p>
-            Welke processen komen meer of minder voor en wanneer komen ze voor?
+            {{ $t("categories.reflectionText2") }}
         </p>
         <v-divider />
         <p>
-            Heeft deze aanpak jou wel of niet geholpen bij het schrijven van je essay? Waarom wel of niet?
+            {{ $t("categories.reflectionText3") }}
         </p>
         <v-divider />
         <p>
-            Wat zou je een volgende keer anders doen en waarom denk je dat dit je zou helpen?
+            {{ $t("categories.reflectionText4") }}
         </p>
     </v-row>
 </template>
