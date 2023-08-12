@@ -1,9 +1,10 @@
-version: "3.9"
+version: "3.3"
 services:
-  lighthouse-dashboard:
-    container_name: lighthouse-dashboard
-    image: node:lts
-    working_dir: /var/www/html/app/
+  srl-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: srl-dashboard
     entrypoint: /bin/bash
     ports:
       - "8000:8000"

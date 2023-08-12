@@ -1,1 +1,44 @@
 @import 'base.css';
+
+.v-tab__slider{
+    background: #2bbbde!important;
+    height:4px!important;
+}
+.v-btn__content{
+    margin-bottom:5px!important;
+}
+
+.explainer-perc{
+    display:inline;
+    width:100%;
+    margin-bottom: 20px;
+}
+
+.explainer-perc-number{
+    display: inline-block;
+    width: 40px;
+}
+
+.explainer-perc-text{
+    font-style: italic;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+.subsubtitle{
+    font-weight: normal;
+    font-style: italic;
+    font-size: 14pt;
+}
+
+.subtitle{
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.error{
+    color:red;
+}

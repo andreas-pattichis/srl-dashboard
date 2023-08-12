@@ -1,0 +1,64 @@
+{
+  "locale": {
+    "en": "English",
+    "nl": "Nederlands"
+  },
+  "explanations": {
+    "titel": "Hover for explanation",
+    "NietGedetecteerd": "No cognitive process has been detected. This does not mean you have done nothing. The action you performed could not be detected as a cognitive and/or metacognitive process.",
+    "Orientatie": "Orientation is exploring the learning environment and activating prior knowledge. Examples of orientation activities during essay writing are: scanning the content of the learning environment, determining the learning goals, and looking at the rubric.",
+    "Plannen": "Planning prepares you to execute the actual task. It is about planning time and planning activities, that enables you to reach your learning goals.",
+    "Monitoren": "Monitoring encompasses checking your learning process and controlling the execution of your planned strategies to pursue your learning goals. Am I still learning in the way I intended to learn? Examples of monitoring activities for writing the essay are: using annotations and notes, checking your planning, and checking the timer.",
+    "Evaluatie": "Evaluation activities are closely related to monitoring. In both, you are checking your learning process and behavior, but with evaluation, you add a judgement to these activities. At monitoring, you check whether your learning process is occurring in the way you planned. With evaluation activities, you rate if the things you do are still helpful to pursuing your learning goals and may lead to adjustments in your learning strategy if necessary. Examples of evaluation with writing an essay are: checking the general instruction and/or the rubric to evaluate the relevance of the information you were using or were planning to use in your essay.",
+    "Lezen": "Reading is part of cognitive processes and reflects when and how long you first read a text.",
+    "Herlezen": "The cognitive rereading process reflects when and how long you have read a text again.",
+    "Schrijven": "Writing shows when and how long you were writing.",
+    "Other": "BLANK: No information."
+  },
+  "categories": {
+    "cognition": "Cognition",
+    "metacognition": "Metacognition",
+    "other": "Other",
+    "reflection": "Reflection",
+    "Lezen": "Reading",
+    "Herlezen": "Rereading",
+    "Schrijven": "Writing",
+    "Orientatie": "Orientation",
+    "Plannen": "Planning",
+    "Evaluatie": "Evaluation",
+    "Monitoren": "Monitoring",
+    "NietGedetecteerd": "Not detected",
+    "reflectionText1": "What do you notice when you look at your timeline?",
+    "reflectionText2": "Which processes occur more or less and when do they occur?",
+    "reflectionText3": "Did this approach help you or not when writing your essay? Why or why not and when do they occur?",
+    "reflectionText4": "Wat zou je een volgende keer anders doen en waarom denk je dat dit je zou helpen?"
+  },
+  "login": {
+    "title": "Dashboard learning process",
+    "subsubtitle": "Homescreen & explanation",
+    "subtitle": "Welcome to your personal dashboard!",
+    "subtitleText1": "This dashboard provides insight into your learning process while writing the essay. To view your learning process, log in with your username.",
+    "subtitleText2": "After using the dashboard:",
+    "subtitleText3": "1. you know more about the role of cognition and metacognition in learning,",
+    "subtitleText4": "2. you know more about your own learning process and the learning strategies you have used and",
+    "subtitleText5": "3. can you reflect on why you chose a particular learning strategy.",
+    "login": "Dashboard login",
+    "username": "Username",
+    "loginButton": "Log in",
+    "usernameEmptyError": "Username field cannot be empty",
+    "successMessage": "Authentication successful",
+    "generalError": "Something went wrong. Please try again"
+  },
+  "general": {
+    "logout": "Logout",
+    "timelineTab": "Timeline",
+    "resultsTab": "Results",
+    "dashboardTitle": "User {user} dashboard",
+    "dashboardSubtitle": "Overview of learning process",
+    "timelineTitle": "Timeline of user {user}",
+    "timelineSubtitle": "Total time: 45 minutes",
+    "beforeMeasure": "Before measure",
+    "afterMeasure": "After measure",
+    "learningProfit": "Learning profit"
+  }
+}
