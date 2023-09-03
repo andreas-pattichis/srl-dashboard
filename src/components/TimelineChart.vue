@@ -72,7 +72,7 @@ export default {
     methods: {
         translateHover(parameter) {
             var temp = parameter.split(" ").join("");
-            this.$store.commit(`explanation/${SET_EXPLANATION}`, "EXPLANATIONS." + temp);
+            this.$store.commit(`explanation/${SET_EXPLANATION}`, "explanations." + temp);
             this.$store.commit(`explanation/${SET_PROCESS}`, parameter);
         },
         hoverHandler(e, chart, opts) {

@@ -5,10 +5,10 @@
         </v-col>
         <template v-if="getSelectedEssays().length == 1">
             <v-col cols="3" class="explainer-col px-8">
-                <FractionInfo title="Metacognitie" :perc="getSelectedEssays()[0].m_perc" />
+                <FractionInfo :title="$t('categories.metacognition')" :perc="getSelectedEssays()[0].m_perc" />
             </v-col>
             <v-col cols="3" class="explainer-col px-8">
-                <FractionInfo title="Cognitie" :perc="getSelectedEssays()[0].c_perc" />
+                <FractionInfo :title="$t('categories.cognition')" :perc="getSelectedEssays()[0].c_perc" />
             </v-col>
         </template>
         <template v-else-if="getSelectedEssays().length > 1">
