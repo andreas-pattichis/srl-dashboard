@@ -4,13 +4,13 @@
             {{ title }}
         </span>
         <v-divider />
-        <p class="explainer-perc" @mouseover="setExplainer(item.name)" v-for="(item, i) in perc" :key="i">
-            <span class="dot" :class="'fraction-' + item.name"></span>
+        <p class="explainer-perc" @mouseover="setExplainer(item.name)" v-for="(item, i) in  perc " :key="i">
+            <span class="dot" :class="'fraction-' + item.name.split(' ')[0]"></span>
             <span class="explainer-perc-number">
                 {{ Math.round(item.data * 100).toFixed(0) }}%
             </span>
             <span class="explainer-perc-text">
-                {{ $t("categories." + item.name) }}
+                {{ $t("categories." + item.name.split(" ").join("")) }}
             </span>
         </p>
     </v-row>
@@ -59,5 +59,9 @@ export default {
 
 .fraction-Schrijven {
     background-color: #FF7F00;
+}
+
+.fraction-Verwerking {
+    background-color: #FDBF6F;
 }
 </style>

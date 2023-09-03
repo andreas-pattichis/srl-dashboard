@@ -13,6 +13,7 @@
     "Lezen": "Lezen valt onder cognitieve processen en weergeeft wanneer en hoe lang jij een tekst voor het eerste hebt gelezen.",
     "Herlezen": "Het cognitieve proces herlezen weergeeft wanneer en hoe lang jij een tekst nogmaals hebt gelezen.",
     "Schrijven": "Schrijven toont wanneer en hoe lang jij aan het schrijven was. ",
+    "Verwerking/Organisatie": "Verwerking / Organisatie toont wanneer en hoe lang jij aan het verwerken en het organiseren was.",
     "Other": "BLANK: Geen informatie."
   },
   "categories": {
@@ -23,6 +24,7 @@
     "Lezen": "Lezen",
     "Herlezen": "Herlezen",
     "Schrijven": "Schrijven",
+    "Verwerking/Organisatie": "Verwerking / Organisatie",
     "Orientatie": "Orientatie",
     "Plannen": "Plannen",
     "Evaluatie": "Evaluatie",

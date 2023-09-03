@@ -13,6 +13,7 @@
     "Lezen": "Reading is part of cognitive processes and reflects when and how long you first read a text.",
     "Herlezen": "The cognitive rereading process reflects when and how long you have read a text again.",
     "Schrijven": "Writing shows when and how long you were writing.",
+    "Verwerking/Organisatie": "Processing / Organisation shows when and how long you were processing and organising.",
     "Other": "BLANK: No information."
   },
   "categories": {
@@ -23,6 +24,7 @@
     "Lezen": "Reading",
     "Herlezen": "Rereading",
     "Schrijven": "Writing",
+    "Verwerking/Organisatie": "Processing / Organisation",
     "Orientatie": "Orientation",
     "Plannen": "Planning",
     "Evaluatie": "Evaluation",
