@@ -20,13 +20,6 @@
             <ReflectionInfo />
         </v-col>
     </v-row>
-    <v-row>
-        <v-col>
-            <button class="btn btn-outline-dark" type="submit" v-on:click.prevent="logout()">
-                Logout
-            </button>
-        </v-col>
-    </v-row>
 </template>
 
 <script>

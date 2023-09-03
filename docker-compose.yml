@@ -1,10 +1,10 @@
-version: "3.9"
+version: "3.3"
 services:
-  lighthouse-dashboard:
+  srl-dashboard:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: lighthouse-dashboard
+    container_name: srl-dashboard
     entrypoint: /bin/bash
     ports:
       - "8000:8000"

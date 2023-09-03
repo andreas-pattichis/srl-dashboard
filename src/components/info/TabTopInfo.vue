@@ -3,9 +3,9 @@
         <v-col>
             <span class="tab-info-date">{{ currentDate() }}</span>
             <br>
-            <span class="tab-info-title">Tijdlijn van {{ getUsername() }}</span>
+            <span class="tab-info-title">{{ $t("general.timelineTitle", { user: getUsername() }) }}</span>
             <br>
-            <span class="tab-info-subtitle">Totale tijd: 45 minuten</span>
+            <span class="tab-info-subtitle">{{ $t("general.timelineSubtitle") }}</span>
         </v-col>
     </v-row>
 </template>

@@ -5,8 +5,8 @@ export default {
     namespaced: true,
     state() {
         return {
-            explanation: import.meta.env.VITE_DEFAULT_EXPLANATION,
-            process: import.meta.env.VITE_DEFAULT_PROCESS
+            locale: import.meta.env.VITE_DEFAULT_LOCALE,
+            tab: import.meta.env.VITE_DEFAULT_TAB
         }
     },
     mutations,

@@ -2,16 +2,16 @@
     <v-row class="results-item">
         <v-row no-gutters>
             <v-col cols="6">
-                <span>Voor meting</span>
+                <span>{{ $t("general.beforeMeasure") }}</span>
                 <br>
                 <span class="tab-info-title">{{ pplg[0] }}</span>
                 <br><br>
-                <span>Na meting</span>
+                <span>{{ $t("general.afterMeasure") }}</span>
                 <br>
                 <span class="tab-info-title">{{ pplg[1] }}</span>
             </v-col>
             <v-col cols="6" id="learning-gain-profit-col">
-                <span class="learning-gain-profit-text">Leerwinst</span>
+                <span class="learning-gain-profit-text">{{ $t("general.learningProfit") }}</span>
                 <span class="tab-info-title tab-info-big-title learning-gain-profit-text">{{ pplg[2] }}</span>
             </v-col>
         </v-row>
