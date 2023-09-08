@@ -1,6 +1,7 @@
 <template>
     <v-row>
         <v-card flat color="transparent" min-width="100%">
+            <EssaySelector />
             <v-tabs
                 v-model="tab"
             >
@@ -34,11 +35,12 @@
 <script>
 import TimelineTab from "./TimelineTab.vue";
 import ResultsTab from "./ResultsTab.vue";
+import EssaySelector from "./EssaySelector.vue";
 import {GET_ACTIVE_TAB, GET_USERNAME, SET_ACTIVE_TAB} from "../store/storeconstants";
 
 export default {
     name: 'MainView',
-    components: {ResultsTab, TimelineTab},
+    components: { ResultsTab, TimelineTab, EssaySelector },
     data: function (){
         return{
             tab: this.$store.getters[`selection/${GET_ACTIVE_TAB}`],
@@ -57,7 +59,7 @@ export default {
 }
 </script>
 <style scoped>
-.v-btn{
+.v-btn {
     font-family: "Noto Sans";
     font-weight: bold;
     font-size: 16pt;
@@ -68,10 +70,12 @@ export default {
     text-transform: none;
     letter-spacing: normal;
 }
-.tabLinks{
-    margin-bottom:20px
+
+.tabLinks {
+    margin-bottom: 20px
 }
-#mainTabs{
+
+#mainTabs {
     width: 100%;
 }
 </style>

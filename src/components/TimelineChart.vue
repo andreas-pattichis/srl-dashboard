@@ -1,25 +1,7 @@
 <template>
-    <div class="charts">
-        <div id="metacognitionChart">
-            <apexchart
-                ref="metacognitionChart"
-                type="bar"
-                height="150"
-                :options="metacognitionChartOptions"
-                :series="metacognitionSeries"
-                @dataPointMouseEnter="hoverHandler"
-            ></apexchart>
-        </div>
-        <div id="metacognitionChart">
-            <apexchart
-                ref="cognitionChart"
-                type="bar"
-                height="150"
-                :options="cognitionChartOptions"
-                :series="cognitionSeries"
-                @dataPointMouseEnter="hoverHandler"
-            ></apexchart>
-        </div>
+    <div class="timeline">
+        <apexchart ref="timeline" type="bar" height="150" :options="options" :series="series"
+            @dataPointMouseEnter="hoverHandler"></apexchart>
     </div>
 </template>
 
@@ -29,9 +11,9 @@ import VueApexCharts from "vue3-apexcharts";
 import { ref } from 'vue';
 
 // import data
-import {SET_EXPLANATION, SET_PROCESS} from "../store/storeconstants";
+import { SET_EXPLANATION, SET_PROCESS } from "../store/storeconstants";
 
-let baseChartOptions = {
+const baseChartOptions = {
     chart: {
         stacked: true,
         toolbar: {
@@ -61,7 +43,7 @@ let baseChartOptions = {
     yaxis: {
         labels: {
             show: false,
-                formatter: function (val) {
+            formatter: function (val) {
                 return (Math.round(val * 100) / 100).toFixed(2) + " min";
             },
         },
@@ -77,26 +59,23 @@ let baseChartOptions = {
     },
 }
 export default {
-    name: "StackedBarChart",
+    name: "TimelineChart",
     components: {
         apexchart: VueApexCharts,
     },
-    data: function() {
+    props: ['series'],
+    data: function () {
         return {
-            metacognitionSeries: this.$store.getters.user.meta,
-            cognitionSeries: this.$store.getters.user.cog,
-            metacognitionChartOptions: ref(baseChartOptions),
-            cognitionChartOptions: ref(baseChartOptions),
+            options: ref(baseChartOptions),
         };
     },
     methods: {
         translateHover(parameter) {
-            // `this` inside methods point to the Vue instance
-            var temp = parameter.split(" ").join("");//.toUpperCase();
+            var temp = parameter.split(" ").join("");
             this.$store.commit(`explanation/${SET_EXPLANATION}`, "explanations." + temp);
             this.$store.commit(`explanation/${SET_PROCESS}`, parameter);
         },
-        hoverHandler(e, chart, opts){
+        hoverHandler(e, chart, opts) {
             this.translateHover(opts.w.config.series[opts.seriesIndex].name);
         }
     },
@@ -105,11 +84,7 @@ export default {
 </script>
 
 <style scoped>
-#metacognitionChart{
-    margin-bottom: -50px;
-}
-.charts{
-    margin-bottom: 50px;
+.timeline {
     width: 100%;
 }
 </style>

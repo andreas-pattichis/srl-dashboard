@@ -1,10 +1,6 @@
 <template>
     <div id="chart">
-        <apexchart
-            type="radar"
-            :options="spiderChartOptions"
-            :series="spiderChartSeries"
-        ></apexchart>
+        <apexchart type="radar" :options="spiderChartOptions" :series="[{ 'data': spiderData }]"></apexchart>
     </div>
 </template>
 
@@ -16,13 +12,9 @@ export default {
     components: {
         apexchart: VueApexCharts,
     },
-    created() {
-        this.pplg = this.$store.getters.user.pplg;
-        this.spiderChartSeries[0].data = this.$store.getters.user.spiderData;
-    },
-    data: function() {
+    props: ['pplg', 'spiderData'],
+    data: function () {
         return {
-            pplg: null,
             spiderChartOptions: {
                 chart: {
                     width: '100%',
@@ -46,11 +38,6 @@ export default {
                     enabled: true,
                 },
             },
-            spiderChartSeries: [
-                {
-                    data: null,
-                },
-            ],
         };
     }
 };
