@@ -59,6 +59,11 @@
     "timelineSubtitle": "Total time: 45 minutes",
     "beforeMeasure": "Before measure",
     "afterMeasure": "After measure",
-    "learningProfit": "Learning profit"
+    "learningProfit": "Learning profit",
+    "minute": "minute",
+    "minutes": "minutes",
+    "and": "and",
+    "second": "second",
+    "seconds": "seconds"
   }
 }

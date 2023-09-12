@@ -59,6 +59,11 @@
     "timelineSubtitle": "Totale tijd: 45 minuten",
     "beforeMeasure": "Voor meting",
     "afterMeasure": "Na meting",
-    "learningProfit": "Leerwinst"
+    "learningProfit": "Leerwinst",
+    "minute": "minuut",
+    "minutes": "minuten",
+    "and": "en",
+    "second": "seconde",
+    "seconds": "seconden"
   }
 }

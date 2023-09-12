@@ -6,7 +6,6 @@ export default {
   state() {
     return {
       explanation: import.meta.env.VITE_DEFAULT_EXPLANATION,
-      process: import.meta.env.VITE_DEFAULT_PROCESS,
       selectedProcess: null
     }
   },

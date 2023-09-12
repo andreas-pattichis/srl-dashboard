@@ -26,12 +26,11 @@
 import ReflectionInfo from "./ReflectionInfo.vue";
 import HoverInfo from "./HoverInfo.vue";
 import FractionInfo from "./FractionInfo.vue";
-import OtherInfo from "./OtherInfo.vue";
 import { SET_AUTHENTICATION, SET_USERNAME } from "../../store/storeconstants";
 
 export default {
     name: "TabBottomInfo",
-    components: { OtherInfo, FractionInfo, HoverInfo, ReflectionInfo },
+    components: { FractionInfo, HoverInfo, ReflectionInfo },
     methods: {
         logout() {
             this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);

@@ -4,36 +4,31 @@
             {{ title }}
         </span>
         <v-divider />
-        <p class="explainer-perc" @mouseover="setExplainer(item.name)" @click="setSelectedProcess(item.name)"
-            v-for="(item, i) in perc" :key="i">
+        <p class="explainer-perc" @mouseover="setExplainer(item.name.replace(/\s+/g, ''))"
+            @click="setSelectedProcess(item.name.replace(/\s+/g, ''))" v-for="(item, i) in perc" :key="i">
             <span class="dot"
-                :class="getSelectedProcess() == null || getSelectedProcess() == item.name ? 'fraction-' + item.name : ''"></span>
+                :class="getSelectedProcess() == null || getSelectedProcess() == item.name.replace(/\s+/g, '') ? 'fraction-' + item.name.replace(/\s+/g, '') : ''"></span>
             <span class="explainer-perc-number">
                 {{ Math.round(item.data * 100).toFixed(0) }}%
             </span>
             <span class="explainer-perc-text">
-                {{ $t("categories." + item.name) }}
+                {{ $t("categories." + item.name.replace(/\s+/g, '')) }}
             </span>
         </p>
     </v-row>
 </template>
 
 <script>
-import { SET_EXPLANATION, SET_PROCESS, SET_SELECTED_PROCESS, GET_SELECTED_PROCESS } from "../../store/storeconstants";
+import { SET_EXPLANATION, SET_SELECTED_PROCESS, GET_SELECTED_PROCESS } from "../../store/storeconstants";
 
 export default {
     name: "FractionInfo",
     props: ['title', 'perc'],
     methods: {
-        setExplanation(parameter) {
-            var temp = parameter.split(" ").join("");
-            this.$store.commit(`explanation/${SET_EXPLANATION}`, "explanations." + temp);
-            this.$store.commit(`explanation/${SET_PROCESS}`, parameter);
-        },
         setExplainer: function (process) {
             const selectedProcess = this.$store.getters[`explanation/${GET_SELECTED_PROCESS}`];
             if (selectedProcess == null) {
-                this.setExplanation(process);
+                this.$store.commit(`explanation/${SET_EXPLANATION}`, process);
             }
         },
         getSelectedProcess: function () {
