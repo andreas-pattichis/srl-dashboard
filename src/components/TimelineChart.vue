@@ -1,5 +1,5 @@
 <template>
-    <div class="timeline">
+    <div :style="{ width: zoom + '%' }">
         <apexchart ref="timeline" type="bar" height="150" :options="options" :series="mapSeries(series)"
             @dataPointMouseEnter="hoverHandler" @dataPointSelection="selectHandler"></apexchart>
     </div>
@@ -17,7 +17,7 @@ export default {
     components: {
         apexchart: VueApexCharts,
     },
-    props: ['series'],
+    props: ['series', 'zoom'],
     data: function () {
         const component = this;
         return {
@@ -38,6 +38,7 @@ export default {
                     min: 0,
                     max: 45,
                     tickAmount: 9,
+                    tickPlacement: 'on',
                     labels: {
                         show: true,
                     },
@@ -115,12 +116,11 @@ export default {
             });
         },
     },
+    watch: {
+        zoom: function () {
+            this.$forceUpdate();
+        },
+    },
 }
 
 </script>
-
-<style scoped>
-.timeline {
-    width: 100%;
-}
-</style>
