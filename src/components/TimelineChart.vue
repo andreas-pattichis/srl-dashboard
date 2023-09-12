@@ -1,7 +1,7 @@
 <template>
     <div class="timeline">
-        <apexchart ref="timeline" type="bar" height="150" :options="options" :series="series"
-            @dataPointMouseEnter="hoverHandler"></apexchart>
+        <apexchart ref="timeline" type="bar" height="150" :options="options" :series="mapColours(series)"
+            @dataPointMouseEnter="hoverHandler" @dataPointSelection="selectHandler"></apexchart>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ import VueApexCharts from "vue3-apexcharts";
 import { ref } from 'vue';
 
 // import data
-import { SET_EXPLANATION, SET_PROCESS } from "../store/storeconstants";
+import { SET_EXPLANATION, SET_PROCESS, SET_SELECTED_PROCESS, GET_SELECTED_PROCESS } from "../store/storeconstants";
 
 const baseChartOptions = {
     chart: {
@@ -57,6 +57,11 @@ const baseChartOptions = {
     dataLabels: {
         enabled: false,
     },
+    states: {
+        active: {
+            allowMultipleDataPointsSelection: false,
+        },
+    },
 }
 export default {
     name: "TimelineChart",
@@ -70,14 +75,43 @@ export default {
         };
     },
     methods: {
-        translateHover(parameter) {
+        setExplanation(parameter) {
             var temp = parameter.split(" ").join("");
             this.$store.commit(`explanation/${SET_EXPLANATION}`, "explanations." + temp);
             this.$store.commit(`explanation/${SET_PROCESS}`, parameter);
         },
         hoverHandler(e, chart, opts) {
-            this.translateHover(opts.w.config.series[opts.seriesIndex].name);
-        }
+            const selectedProcess = this.$store.getters[`explanation/${GET_SELECTED_PROCESS}`];
+            if (selectedProcess == null) {
+                this.setExplanation(opts.w.config.series[opts.seriesIndex].name);
+            }
+        },
+        selectHandler(e, chart, opts) {
+            const selectedProcess = this.$store.getters[`explanation/${GET_SELECTED_PROCESS}`];
+            const process = opts.w.globals.seriesNames[opts.seriesIndex];
+
+            if (opts.selectedDataPoints[opts.seriesIndex].includes(opts.dataPointIndex)) {
+                chart.toggleDataPointSelection(opts.seriesIndex, opts.dataPointIndex);
+                if (selectedProcess != process) {
+                    this.$store.commit(`explanation/${SET_SELECTED_PROCESS}`, process);
+                    this.setExplanation(process);
+                }
+            } else {
+                if (selectedProcess == process) {
+                    this.$store.commit(`explanation/${SET_SELECTED_PROCESS}`, null);
+                }
+            }
+        },
+        mapColours(series) {
+            const selectedProcess = this.$store.getters[`explanation/${GET_SELECTED_PROCESS}`];
+            return series.map((dataPoint) => {
+                return {
+                    name: dataPoint.name,
+                    data: dataPoint.data,
+                    color: selectedProcess != null && dataPoint.name != selectedProcess ? "#ebebeb" : dataPoint.color
+                };
+            });
+        },
     },
 }
 
