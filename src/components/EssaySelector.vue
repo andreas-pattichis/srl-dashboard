@@ -1,5 +1,5 @@
 <template>
-    <v-select v-model="selectedEssays" :items="essays" item-title="name" label="Betoog selecteren" return-object
+    <v-select v-model="selectedEssays" :items="essays" item-title="name" :label="$t('general.selectEssays')" return-object
         multiple></v-select>
 </template>
 

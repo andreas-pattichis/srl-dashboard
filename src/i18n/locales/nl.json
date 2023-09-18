@@ -55,12 +55,13 @@
     "logout": "Uitloggen",
     "timelineTab": "Tijdlijn",
     "resultsTab": "Resultaten",
-    "dashboardTitle": "Dashboard van persoon {user}",
+    "dashboardTitle": "Dashboard van {user}",
     "dashboardSubtitle": "Overzicht van leerproces",
     "timelineTitle": "Tijdlijn van {user}",
     "timelineSubtitle": "Totale tijd: 45 minuten",
     "beforeMeasure": "Voor meting",
     "afterMeasure": "Na meting",
-    "learningProfit": "Leerwinst"
+    "learningProfit": "Leerwinst",
+    "selectEssays": "Betogen selecteren"
   }
 }

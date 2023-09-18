@@ -55,12 +55,13 @@
     "logout": "Logout",
     "timelineTab": "Timeline",
     "resultsTab": "Results",
-    "dashboardTitle": "User {user} dashboard",
+    "dashboardTitle": "Dashboard of {user}",
     "dashboardSubtitle": "Overview of learning process",
-    "timelineTitle": "Timeline of user {user}",
+    "timelineTitle": "Timeline of {user}",
     "timelineSubtitle": "Total time: 45 minutes",
     "beforeMeasure": "Before measure",
     "afterMeasure": "After measure",
-    "learningProfit": "Learning profit"
+    "learningProfit": "Learning profit",
+    "selectEssays": "Select essay(s)"
   }
 }
