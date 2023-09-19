@@ -18,11 +18,8 @@ export default {
   },
   actions: {
     async loadUsers({ commit }, studentNumber) {
-      const loadEssay = async (essayNumber) => {
-        let res = await axios.get('https://floralearn.org/flora-lighthouse/api/result', {
-          params: {
-            studentNumber: essayNumber
-          }
+      const loadEssay = async () => {
+        let res = await axios.get(import.meta.env.VITE_API_URL+'/tracedata/results/'+studentNumber, {
         })
 
         if (res.data['statusCode'] === 200) return res.data['body']
