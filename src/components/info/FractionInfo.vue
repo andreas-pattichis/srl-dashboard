@@ -40,7 +40,7 @@ export default {
                 this.$store.commit(`explanation/${SET_SELECTED_PROCESS}`, null);
             } else {
                 this.$store.commit(`explanation/${SET_SELECTED_PROCESS}`, process);
-                this.setExplanation(process);
+                this.$store.commit(`explanation/${SET_EXPLANATION}`, process);
             }
         },
     }
