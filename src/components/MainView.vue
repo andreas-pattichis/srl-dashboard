@@ -2,8 +2,12 @@
     <v-row>
         <v-card flat color="transparent" min-width="100%">
             <EssaySelector />
-            <v-tabs v-model="tab">
-                <v-tab value="timeline" @click="updateActiveTab('timeline')">
+            <v-tabs
+                v-model="tab"
+            >
+                <v-tab
+                    value="timeline"
+                    @click="updateActiveTab('timeline')">
                     {{ $t("general.timelineTab") }}
                 </v-tab>
                 <!-- <v-tab

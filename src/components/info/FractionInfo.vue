@@ -7,7 +7,7 @@
         <p class="explainer-perc" @mouseover="setExplainer(item.name.replace(/\s+/g, ''))"
             @click="setSelectedProcess(item.name.replace(/\s+/g, ''))" v-for="(item, i) in perc" :key="i">
             <span class="dot"
-                :class="getSelectedProcess() == null || getSelectedProcess() == item.name.replace(/\s+/g, '') ? 'fraction-' + item.name.replace(/\s+/g, '') : ''"></span>
+                :class="getSelectedProcess() == null || getSelectedProcess() == item.name.replace(/\s+/g, '') ? 'fraction-' + item.name.replace(/\s+/g, '').replace('/', '') : ''"></span>
             <span class="explainer-perc-number">
                 {{ Math.round(item.data * 100).toFixed(0) }}%
             </span>
@@ -74,5 +74,9 @@ export default {
 
 .fraction-Schrijven {
     background-color: #FF7F00;
+}
+
+.fraction-VerwerkingOrganisatie {
+    background-color: #FDBF6F;
 }
 </style>
