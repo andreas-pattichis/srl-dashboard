@@ -62,6 +62,11 @@
     "beforeMeasure": "Before measure",
     "afterMeasure": "After measure",
     "learningProfit": "Learning profit",
-    "selectEssays": "Select essay(s)"
+    "selectEssays": "Select essay(s)",
+    "minute": "minute",
+    "minutes": "minutes",
+    "and": "and",
+    "second": "second",
+    "seconds": "seconds"
   }
 }

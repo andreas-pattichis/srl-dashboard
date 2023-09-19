@@ -1,13 +1,13 @@
 <template>
     <v-row class="explainer-row">
-        <v-col cols="3" class="explainer-col px-8">
+        <v-col cols="4" class="explainer-col px-8">
             <HoverInfo />
         </v-col>
         <template v-if="getSelectedEssays().length == 1">
-            <v-col cols="3" class="explainer-col px-8">
+            <v-col cols="4" class="explainer-col px-8">
                 <FractionInfo :title="$t('categories.metacognition')" :perc="getSelectedEssays()[0].m_perc" />
             </v-col>
-            <v-col cols="3" class="explainer-col px-8">
+            <v-col cols="4" class="explainer-col px-8">
                 <FractionInfo :title="$t('categories.cognition')" :perc="getSelectedEssays()[0].c_perc" />
             </v-col>
         </template>
@@ -16,9 +16,9 @@
                 <FractionInfo :title="essay.name" :perc="essay.combined_perc" />
             </v-col>
         </template>
-        <v-col cols="3" class="explainer-col px-8">
+        <!-- <v-col cols="3" class="explainer-col px-8">
             <ReflectionInfo />
-        </v-col>
+        </v-col> -->
     </v-row>
 </template>
 
@@ -26,12 +26,11 @@
 import ReflectionInfo from "./ReflectionInfo.vue";
 import HoverInfo from "./HoverInfo.vue";
 import FractionInfo from "./FractionInfo.vue";
-import OtherInfo from "./OtherInfo.vue";
 import { SET_AUTHENTICATION, SET_USERNAME } from "../../store/storeconstants";
 
 export default {
     name: "TabBottomInfo",
-    components: { OtherInfo, FractionInfo, HoverInfo, ReflectionInfo },
+    components: { FractionInfo, HoverInfo, ReflectionInfo },
     methods: {
         logout() {
             this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);

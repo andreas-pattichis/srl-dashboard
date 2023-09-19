@@ -4,30 +4,45 @@
             {{ title }}
         </span>
         <v-divider />
-        <p class="explainer-perc" @mouseover="setExplainer(item.name)" v-for="(item, i) in  perc " :key="i">
-            <span class="dot" :class="'fraction-' + item.name.split(' ')[0]"></span>
+        <p class="explainer-perc" @mouseover="setExplainer(item.name.replace(/\s+/g, ''))"
+            @click="setSelectedProcess(item.name.replace(/\s+/g, ''))" v-for="(item, i) in perc" :key="i">
+            <span class="dot"
+                :class="getSelectedProcess() == null || getSelectedProcess() == item.name.replace(/\s+/g, '') ? 'fraction-' + item.name.replace(/\s+/g, '').replace('/', '') : ''"></span>
             <span class="explainer-perc-number">
                 {{ Math.round(item.data * 100).toFixed(0) }}%
             </span>
             <span class="explainer-perc-text">
-                {{ $t("categories." + item.name.split(" ").join("")) }}
+                {{ $t("categories." + item.name.replace(/\s+/g, '')) }}
             </span>
         </p>
     </v-row>
 </template>
 
 <script>
-import { SET_EXPLANATION, SET_PROCESS } from "../../store/storeconstants";
+import { SET_EXPLANATION, SET_SELECTED_PROCESS, GET_SELECTED_PROCESS } from "../../store/storeconstants";
 
 export default {
     name: "FractionInfo",
     props: ['title', 'perc'],
     methods: {
         setExplainer: function (process) {
-            var temp = process.split(" ").join("");
-            this.$store.commit(`explanation/${SET_EXPLANATION}`, "explanations." + temp);
-            this.$store.commit(`explanation/${SET_PROCESS}`, process);
-        }
+            const selectedProcess = this.$store.getters[`explanation/${GET_SELECTED_PROCESS}`];
+            if (selectedProcess == null) {
+                this.$store.commit(`explanation/${SET_EXPLANATION}`, process);
+            }
+        },
+        getSelectedProcess: function () {
+            return this.$store.getters[`explanation/${GET_SELECTED_PROCESS}`];
+        },
+        setSelectedProcess: function (process) {
+            const selectedProcess = this.$store.getters[`explanation/${GET_SELECTED_PROCESS}`];
+            if (selectedProcess == process) {
+                this.$store.commit(`explanation/${SET_SELECTED_PROCESS}`, null);
+            } else {
+                this.$store.commit(`explanation/${SET_SELECTED_PROCESS}`, process);
+                this.setExplanation(process);
+            }
+        },
     }
 }
 </script>
@@ -61,7 +76,7 @@ export default {
     background-color: #FF7F00;
 }
 
-.fraction-Verwerking {
+.fraction-VerwerkingOrganisatie {
     background-color: #FDBF6F;
 }
 </style>
