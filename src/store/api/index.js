@@ -19,30 +19,19 @@ export default {
   actions: {
     async loadUsers({ commit }, studentNumber) {
       const loadEssay = async () => {
-        let res = await axios.get(import.meta.env.VITE_API_URL+'/tracedata/results/'+studentNumber, {
-        })
+        let res = await axios.get(
+          import.meta.env.VITE_API_URL + '/tracedata/results/' + studentNumber,
+          {}
+        )
 
         if (res.data['statusCode'] === 200) return res.data['body']
         return null
       }
 
-      // Try loading essays A, B, and C
-      const essayA = await loadEssay(studentNumber + 'a')
-      const essayB = await loadEssay(studentNumber + 'b')
-      const essayC = await loadEssay(studentNumber + 'c')
-      if (essayA != null && essayB != null && essayC != null) {
-        essayA.name = 'Essay A'
-        essayB.name = 'Essay B'
-        essayC.name = 'Essay C'
-        commit('SET_ESSAYS', [essayA, essayB, essayC])
-        commit('SET_SELECTED_ESSAYS', [essayA])
-      } else {
-        // Fallback to one essay
-        const essay = await loadEssay(studentNumber)
-        essay.name = 'Essay'
-        commit('SET_ESSAYS', [essay])
-        commit('SET_SELECTED_ESSAYS', [essay])
-      }
+      const essay = await loadEssay(studentNumber)
+      essay.name = 'Essay'
+      commit('SET_ESSAYS', [essay])
+      commit('SET_SELECTED_ESSAYS', [essay])
     }
   },
   mutations: {
