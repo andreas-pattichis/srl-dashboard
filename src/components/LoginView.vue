@@ -43,7 +43,7 @@
                     <label for="username">{{ $t("login.username") }} </label><br>
                     <input type="text" id="username" v-model="input.username" />
                 </div>
-                <p class="error">{{this.output}}</p>
+                <p class="error">{{ this.output }}</p>
                 <div>
                     <button class="btn btn-outline-dark" type="submit" v-on:click.prevent="login()">
                         <img id="loading" v-if="isLoading()" src="/loading.gif" height="42">
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import {GET_USERNAME, IS_LOADING, SET_LOADING, SET_AUTHENTICATION, SET_USERNAME} from "../store/storeconstants";
+import { GET_USERNAME, IS_LOADING, SET_LOADING, SET_AUTHENTICATION, SET_USERNAME } from "../store/storeconstants";
 
 export default {
     name: 'LoginView',
@@ -70,7 +70,7 @@ export default {
         }
     },
     methods: {
-         login() {
+        login() {
             //make sure username OR password are not empty
             this.$store.commit(`auth/${SET_LOADING}`, true);
             if (this.input.username !== "") {
@@ -83,26 +83,26 @@ export default {
             }
         },
         fetchData() {
-            this.$store.dispatch('loadUsers',this.$store.getters[`auth/${GET_USERNAME}`], {
-                root:true
+            this.$store.dispatch('loadUsers', this.$store.getters[`auth/${GET_USERNAME}`], {
+                root: true
             }).then((res) => {
                 console.log(res);
-                if(res !== 400) {
+                if (res !== 400) {
                     this.output = this.$t("login.successMessage")
                     this.authenticate();
                     this.$router.push('/');
                 }
-                else{
+                else {
                     this.output = this.$t("login.generalError")
                     this.$store.commit(`auth/${SET_LOADING}`, false);
                 }
             })
-            .catch((error) => {
-                // catch the error
-                alert(error)
-            })
+                .catch((error) => {
+                    this.output = this.$t("login.generalError");
+                    this.$store.commit(`auth/${SET_LOADING}`, false);
+                })
         },
-        authenticate(){
+        authenticate() {
             //stores true to the set_authentication and username to the set_username
             this.$store.commit(`auth/${SET_AUTHENTICATION}`, true);
         },
@@ -117,46 +117,54 @@ export default {
 </script>
 
 <style scoped>
-.greetings{
-    display: none!important;
+.greetings {
+    display: none !important;
 }
-#loading{
-    margin-top:-10px;
-    margin-bottom:-10px;
+
+#loading {
+    margin-top: -10px;
+    margin-bottom: -10px;
 }
-.login-tab{
-    padding:4em 0em;
+
+.login-tab {
+    padding: 4em 0em;
 }
-.login-info-box .subtitle{
-    margin-top:2em;
+
+.login-info-box .subtitle {
+    margin-top: 2em;
 }
-.login-info-box p:not(.subtitle){
-    margin-top:15px;
+
+.login-info-box p:not(.subtitle) {
+    margin-top: 15px;
 }
-.login-box{
-    background:#EBEBEB;
+
+.login-box {
+    background: #EBEBEB;
     border-radius: 25px;
     padding: 4em;
 }
-.login-box label{
+
+.login-box label {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 12px;
 }
-.login-box input{
+
+.login-box input {
     border-bottom: 2px solid #2c3e50;
     margin-top: 10px;
     width: 50%;
 }
-.login-input{
+
+.login-input {
     margin-top: 20px;
 }
-.login-box button{
-    color:white;
-    background-color:#2c3e50;
+
+.login-box button {
+    color: white;
+    background-color: #2c3e50;
     padding: 10px 40px;
     border-radius: 25px;
     margin-top: 30px;
     width: 50%;
-}
-</style>
+}</style>
