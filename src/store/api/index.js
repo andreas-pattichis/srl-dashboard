@@ -18,20 +18,16 @@ export default {
   },
   actions: {
     async loadUsers({ commit }, studentNumber) {
-      const loadEssay = async () => {
-        let res = await axios.get(
-          import.meta.env.VITE_API_URL + '/tracedata/results/' + studentNumber,
-          {}
-        )
+      let res = await axios.get(
+        import.meta.env.VITE_API_URL + '/tracedata/results/' + studentNumber,
+        {}
+      )
 
-        if (res.data['statusCode'] === 200) return res.data['body']
-        return null
+      if (res.data['statusCode'] === 200) {
+        const essays = res.data['body']
+        commit('SET_ESSAYS', essays)
+        commit('SET_SELECTED_ESSAYS', essays)
       }
-
-      const essay = await loadEssay(studentNumber)
-      essay.name = 'Essay'
-      commit('SET_ESSAYS', [essay])
-      commit('SET_SELECTED_ESSAYS', [essay])
     }
   },
   mutations: {
