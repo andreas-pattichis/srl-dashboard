@@ -7,7 +7,7 @@ export default {
         return {
             authenticated: false,
             loading: false,
-            study: "",
+            error: null,
             username: "",
         }
     },
