@@ -40,13 +40,8 @@
             </p>
             <form name="login-form">
                 <div class="mb-3 login-input">
-                    <label for="study">{{ $t("login.study") }} </label><br>
-                    <v-select id="study" :items="studies" v-model="input.study"></v-select>
-                    <input type="text" id="study-custom" class="w-100 mb-4" v-model="input.study_custom"
-                        :placeholder="$t('login.study')" v-if="input.study == 'custom'" />
-                    <br />
                     <label for="username">{{ $t("login.username") }} </label><br>
-                    <input type="text" id="username" class="w-100" v-model="input.username" />
+                    <input type="text" id="username" class="w-100" v-model="username" />
                 </div>
                 <p class="error">{{ this.output }}</p>
                 <div>
@@ -62,24 +57,13 @@
 </template>
 
 <script>
-import { GET_STUDY, GET_USERNAME, IS_LOADING, SET_LOADING, SET_AUTHENTICATION, SET_STUDY, SET_USERNAME } from "../store/storeconstants";
+import { GET_USERNAME, IS_LOADING, SET_LOADING, SET_AUTHENTICATION, SET_USERNAME } from "../store/storeconstants";
 
 export default {
     name: 'LoginView',
     data() {
         return {
-            studies: [
-                { title: "cella", value: "cella" },
-                { title: "FLH1", value: "FLH1" },
-                { title: "FLH2", value: "FLH2" },
-                { title: "rus2", value: "rus2" },
-                { title: this.$t("login.studyOther"), value: "custom" },
-            ],
-            input: {
-                study: "",
-                study_custom: "",
-                username: "",
-            },
+            username: "",
             output: "",
         }
     },
@@ -87,46 +71,36 @@ export default {
         login() {
             //make sure username OR password are not empty
             this.$store.commit(`auth/${SET_LOADING}`, true);
-            if (this.input.username !== "") {
-                if (this.input.study !== "" && (this.input.study !== "custom" || this.input.study_custom !== "")) {
-                    this.$store.commit(`auth/${SET_STUDY}`, this.input.study == "custom" ? this.input.study_custom : this.input.study);
-                    this.$store.commit(`auth/${SET_USERNAME}`, this.input.username);
-                    this.fetchData();
-                } else {
-                    this.output = this.$t("login.studyEmptyError")
-                    this.$store.commit(`auth/${SET_LOADING}`, false);
-                }
+            if (this.username !== "") {
+                this.$store.commit(`auth/${SET_USERNAME}`, this.username);
+                this.fetchData();
             } else {
                 this.output = this.$t("login.usernameEmptyError")
                 this.$store.commit(`auth/${SET_LOADING}`, false);
             }
         },
         fetchData() {
-            this.$store.dispatch('loadUsers', { study: this.$store.getters[`auth/${GET_STUDY}`], username: this.$store.getters[`auth/${GET_USERNAME}`] }, {
+            this.$store.dispatch('loadTraceData', { username: this.$store.getters[`auth/${GET_USERNAME}`] }, {
                 root: true
-            }).then((response) => {
-                if (response.status === 200) {
-                    this.output = this.$t("login.successMessage")
-                    this.authenticate();
-                    this.$router.push('/');
-                }
+            }).then((res) => {
+                this.$store.commit(`auth/${SET_LOADING}`, false);
+                this.$store.commit(`auth/${SET_AUTHENTICATION}`, true);
+                this.$router.push('/');
             })
-                .catch((error) => {
-                    this.output = "Error: " + error.response.data.detail;
+                .catch((res) => {
+                    if(res.status === 404){
+                        this.output = this.$t("login.incorrectUsernameError");
+                    }
+                    else{
+                        this.output = this.$t("login.generalError");
+                    }
                     this.$store.commit(`auth/${SET_LOADING}`, false);
                 })
-        },
-        authenticate() {
-            //stores true to the set_authentication and username to the set_username
-            this.$store.commit(`auth/${SET_AUTHENTICATION}`, true);
         },
         isLoading() {
             return this.$store.getters[`auth/${IS_LOADING}`]
         },
     },
-    created() {
-        this.$store.commit(`auth/${SET_LOADING}`, false);
-    }
 }
 </script>
 
