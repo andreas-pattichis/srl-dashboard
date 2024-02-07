@@ -104,20 +104,15 @@ export default {
         fetchData() {
             this.$store.dispatch('loadUsers', { study: this.$store.getters[`auth/${GET_STUDY}`], username: this.$store.getters[`auth/${GET_USERNAME}`] }, {
                 root: true
-            }).then((res) => {
-                console.log(res);
-                if (res !== 400) {
+            }).then((response) => {
+                if (response.status === 200) {
                     this.output = this.$t("login.successMessage")
                     this.authenticate();
                     this.$router.push('/');
                 }
-                else {
-                    this.output = this.$t("login.generalError")
-                    this.$store.commit(`auth/${SET_LOADING}`, false);
-                }
             })
                 .catch((error) => {
-                    this.output = this.$t("login.generalError");
+                    this.output = "Error: " + error.response.data.detail;
                     this.$store.commit(`auth/${SET_LOADING}`, false);
                 })
         },

@@ -22,10 +22,6 @@
                     <v-window-item value="timeline">
                         <TimelineTab />
                     </v-window-item>
-
-                    <!-- <v-window-item value="results">
-                        <ResultsTab />
-                    </v-window-item> -->
                 </v-window>
             </v-card-text>
         </v-card>
@@ -34,20 +30,19 @@
 
 <script>
 import TimelineTab from "./TimelineTab.vue";
-import ResultsTab from "./ResultsTab.vue";
 import EssaySelector from "./EssaySelector.vue";
-import {GET_ACTIVE_TAB, GET_USERNAME, SET_ACTIVE_TAB} from "../store/storeconstants";
+import {GET_ACTIVE_TAB, IS_USER_AUTHENTICATED, SET_ACTIVE_TAB} from "../store/storeconstants";
 
 export default {
     name: 'MainView',
-    components: { ResultsTab, TimelineTab, EssaySelector },
+    components: { TimelineTab, EssaySelector },
     data: function (){
         return{
             tab: this.$store.getters[`selection/${GET_ACTIVE_TAB}`],
         }
     },
     created() {
-        if (!this.$store.getters[`auth/${GET_USERNAME}`]) {
+        if (!this.$store.getters[`auth/${IS_USER_AUTHENTICATED}`]) {
             this.$router.push('/login')
         }
     },

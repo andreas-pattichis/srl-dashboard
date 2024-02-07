@@ -17,18 +17,23 @@ export default {
     }
   },
   actions: {
-    async loadUsers({ commit }, input) {
+    loadUsers({ commit }, input) {
       const { study, username } = input
-      let res = await axios.get(
+      let request = axios.get(
         import.meta.env.VITE_API_URL + `/tracedata/results/${study}/${username}`,
         {}
       )
 
-      if (res.data['statusCode'] === 200) {
-        const essays = res.data['body']
-        commit('SET_ESSAYS', essays)
-        commit('SET_SELECTED_ESSAYS', essays)
-      }
+      request.then((response) => {
+        console.log(response)
+        if (response.status === 200) {
+          const essays = response.data['body']
+          commit('SET_ESSAYS', essays)
+          commit('SET_SELECTED_ESSAYS', essays)
+        }
+      })
+
+      return request
     }
   },
   mutations: {
