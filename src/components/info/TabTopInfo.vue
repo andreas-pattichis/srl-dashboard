@@ -1,8 +1,6 @@
 <template>
     <v-row no-gutters>
         <v-col>
-            <span class="tab-info-date">{{ currentDate() }}</span>
-            <br>
             <span class="tab-info-title">{{ $t("general.timelineTitle", { user: getUsername() }) }}</span>
             <br>
             <span class="tab-info-subtitle">{{ $t("general.timelineSubtitle") }}</span>
@@ -25,11 +23,6 @@ export default {
         getUsername() {
             return this.$store.getters[`auth/${GET_USERNAME}`]
         },
-        currentDate() {
-            const current = new Date();
-            const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
-            return date;
-        }
     }
 }
 </script>
