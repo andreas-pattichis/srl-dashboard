@@ -4,8 +4,21 @@
             {{ title }}
         </span>
         <v-divider />
-        <p class="explainer-perc" @mouseover="setExplainer(item.name.replace(/\s+/g, ''))"
-            @click="setSelectedProcess(item.name.replace(/\s+/g, ''))" v-for="(item, i) in perc" :key="i">
+        <strong v-if="m_perc && c_perc" style="margin-bottom: 10px">{{$t('categories.metacognition')}}</strong>
+        <p v-if="m_perc" class="explainer-perc" @mouseover="setExplainer(item.name.replace(/\s+/g, ''))"
+            @click="setSelectedProcess(item.name.replace(/\s+/g, ''))" v-for="(item, i) in m_perc" :key="i">
+            <span class="dot"
+                :class="getSelectedProcess() == null || getSelectedProcess() == item.name.replace(/\s+/g, '') ? 'fraction-' + item.name.replace(/\s+/g, '').replace('/', '') : ''"></span>
+            <span class="explainer-perc-number">
+                {{ Math.round(item.data * 100).toFixed(0) }}%
+            </span>
+            <span class="explainer-perc-text">
+                {{ $t("categories." + item.name.replace(/\s+/g, '')) }}
+            </span>
+        </p>
+        <strong v-if="m_perc && c_perc" style="margin-bottom: 10px">{{$t('categories.cognition')}}</strong>
+        <p v-if="c_perc" class="explainer-perc" @mouseover="setExplainer(item.name.replace(/\s+/g, ''))"
+            @click="setSelectedProcess(item.name.replace(/\s+/g, ''))" v-for="(item, i) in c_perc" :key="i">
             <span class="dot"
                 :class="getSelectedProcess() == null || getSelectedProcess() == item.name.replace(/\s+/g, '') ? 'fraction-' + item.name.replace(/\s+/g, '').replace('/', '') : ''"></span>
             <span class="explainer-perc-number">
@@ -23,7 +36,7 @@ import { SET_EXPLANATION, SET_SELECTED_PROCESS, GET_SELECTED_PROCESS } from "../
 
 export default {
     name: "FractionInfo",
-    props: ['title', 'perc'],
+    props: ['title', 'm_perc', 'c_perc'],
     methods: {
         setExplainer: function (process) {
             const selectedProcess = this.$store.getters[`explanation/${GET_SELECTED_PROCESS}`];
