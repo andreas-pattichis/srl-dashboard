@@ -1,7 +1,7 @@
 <template>
     <template v-if="getSelectedEssays().length >= 1">
         <div v-for="essay in getSelectedEssays()" class="timeline-container">
-            <h3>{{ essay.name }}</h3>
+            <h3>{{ $i18n.locale == 'nl' ? essay.name_nl : essay.name_en }}</h3>
             <v-container fluid fill-height>
                 <v-row id="results">
                     <v-col col="1"></v-col>

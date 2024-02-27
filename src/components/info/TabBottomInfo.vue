@@ -13,7 +13,7 @@
         </template>
         <template v-else-if="getSelectedEssays().length > 1">
             <v-col :cols="6 / getSelectedEssays().length" class="explainer-col px-8" v-for="essay in getSelectedEssays()">
-                <FractionInfo :title="essay.name" :perc="essay.combined_perc" />
+                <FractionInfo :title="$i18n.locale == 'nl' ? essay.name_nl : essay.name_en" :perc="essay.combined_perc" />
             </v-col>
         </template>
         <!-- <v-col cols="3" class="explainer-col px-8">
