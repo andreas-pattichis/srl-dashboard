@@ -10,11 +10,6 @@
                     @click="updateActiveTab('timeline')">
                     {{ $t("general.timelineTab") }}
                 </v-tab>
-                <!-- <v-tab
-                    value="results"
-                    @click="updateActiveTab('results')">
-                    {{ $t("general.resultsTab") }}
-                </v-tab> -->
             </v-tabs>
 
             <v-card-text>

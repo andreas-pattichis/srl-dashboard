@@ -12,25 +12,21 @@
             </v-col>
         </template>
         <template v-else-if="getSelectedEssays().length > 1">
-            <v-col :cols="6 / getSelectedEssays().length" class="explainer-col px-8" v-for="essay in getSelectedEssays()">
+            <v-col :cols="Math.floor(8 / getSelectedEssays().length)" class="explainer-col px-8" v-for="essay in getSelectedEssays()">
                 <FractionInfo :title="$i18n.locale == 'nl' ? essay.name_nl : essay.name_en" :c_perc="essay.c_perc" :m_perc="essay.m_perc" />
             </v-col>
         </template>
-        <!-- <v-col cols="3" class="explainer-col px-8">
-            <ReflectionInfo />
-        </v-col> -->
     </v-row>
 </template>
 
 <script>
-import ReflectionInfo from "./ReflectionInfo.vue";
 import HoverInfo from "./HoverInfo.vue";
 import FractionInfo from "./FractionInfo.vue";
 import { SET_AUTHENTICATION, SET_USERNAME } from "../../store/storeconstants";
 
 export default {
     name: "TabBottomInfo",
-    components: { FractionInfo, HoverInfo, ReflectionInfo },
+    components: { FractionInfo, HoverInfo },
     methods: {
         logout() {
             this.$store.commit(`auth/${SET_AUTHENTICATION}`, false);
