@@ -1,78 +1,199 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <!-- Cluster Section -->
-      <v-col cols="12" md="8" class="cluster-background">
+      <v-col cols="12" md="7" class="cluster-background">
         <div class="cluster-section">
-          <div class="primary-cluster">
-            <h2>Primary Cluster:</h2>
-            <h3>Confident Producer</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <v-progress-linear :value="80" color="blue" height="20"></v-progress-linear>
+          <div class="primary-cluster cluster-layout">
+            <div class="cluster-content">
+              <h3>{{ $t('clusters.primaryClusterTitle') }}</h3>
+              <h2>{{ $t(primaryClusterLabel + '.title') }}</h2>
+              <p>{{ $t(primaryClusterLabel + '.description') }}</p>
+            </div>
+            <div class="cluster-image">
+              <img :src="clusterAImageUrl" alt="Confident Producer">
+            </div>
           </div>
-          <div class="secondary-cluster">
-            <h2>Secondary Cluster:</h2>
-            <h3>Reflective Writer</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <v-progress-linear :value="20" color="green" height="20"></v-progress-linear>
-          </div>
-        </div>
-      </v-col>
 
-      <!-- Questions Section -->
-      <v-col cols="12" md="4" class="questions-background">
-        <div class="questions-section">
-          <div v-for="n in 5" :key="n" class="question-item">
-            <label :for="'question' + n">Question {{ n }}:</label>
-            <input :id="'question' + n" type="text" placeholder="Type your answer">
+          <!-- Graph Placement -->
+          <div class="bar-chart">
+            <div class="bar primary" :style="{ width: primaryWidth + '%' }">
+              <span :class="{ 'label': true, 'visible': showLabels }">{{ primaryPercentage }}%</span>
+            </div>
+            <div class="bar secondary" :style="{ width: secondaryWidth + '%' }">
+              <span :class="{ 'label': true, 'visible': showLabels }">{{ secondaryPercentage }}%</span>
+            </div>
+            <div class="bar other" :style="{ width: otherWidth + '%' }">
+              <span :class="{ 'label': true, 'visible': showLabels }">{{ otherPercentage }}%</span>
+            </div>
+          </div>
+
+          <div class="secondary-cluster cluster-layout">
+            <div class="cluster-content">
+              <h3>{{ $t('clusters.secondaryClusterTitle') }}</h3>
+              <h2>{{ $t(secondaryClusterLabel + '.title') }}</h2>
+              <p>{{ $t(secondaryClusterLabel + '.description') }}</p>
+            </div>
+            <div class="cluster-image">
+              <img :src="clusterBImageUrl" alt="Reflective Writer">
+            </div>
           </div>
         </div>
       </v-col>
+      <!-- Questions Section -->
+      <ClusterQuestions
+        :primary-cluster-label="primaryClusterLabel"
+        :secondary-cluster-label="secondaryClusterLabel"
+      />
     </v-row>
   </v-container>
 </template>
 
 <script>
+import clusterImageA from '@/assets/cluster1.svg';  // Ensure the path matches your file structure
+import clusterImageB from '@/assets/cluster2.svg';  // Ensure the path matches your file structure
+import ClusterQuestions from './ClusterQuestions.vue'; // Ensure the path is correct
+
 export default {
   name: "ClusterTab",
+  components: {
+    ClusterQuestions
+  },
   data() {
     return {
-      // Define any reactive data here if needed
+      primaryClusterLabel: 'efficientScribbler',
+      secondaryClusterLabel: 'reflectiveWriter',
+      primaryWidth: 0, // Start with 0% width
+      secondaryWidth: 0,
+      otherWidth: 0,
+      // Data for percentages
+      primaryPercentage: 59,
+      secondaryPercentage: 28,
+      showLabels: false,  // Controls the visibility of the labels
+      clusterAImageUrl: clusterImageA,// Now using imported images
+      clusterBImageUrl: clusterImageB // Now using imported images
     };
   },
-  methods: {
-    // Define any methods if needed
+  computed: {
+    // Calculate the other percentage based on the primary and secondary
+    otherPercentage() {
+      return 100 - this.primaryPercentage - this.secondaryPercentage;
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.primaryWidth = this.primaryPercentage;
+        this.secondaryWidth = this.secondaryPercentage;
+        this.otherWidth = this.otherPercentage;
+        setTimeout(() => {
+          this.showLabels = true;  // Show labels after the bar animation
+        }, 900);  // Corresponds to the width transition time
+      }, 10); // Delay can be adjusted based on how you want the animation to start
+    });
   }
 }
 </script>
 
 <style scoped>
+.bar-chart {
+    display: flex;
+    width: 100%; /* Control the overall width of the bar chart */
+    height: 35px; /* Control the height of the bar chart */
+    background-color: #f0f0f0; /* Light grey background */
+    border-radius: 20px; /* Rounded edges */
+    overflow: hidden; /* Ensures the child divs conform to the border radius */
+    margin-bottom: 30px; /* Spacing between the bar chart and the next section */
+    margin-top: 30px; /* Spacing between the bar chart and the next section */
+}
+
+.bar {
+    height: 100%;
+    transition: width 1.2s ease-out;
+    display: flex;
+    align-items: center; /* Centers the label vertically within the bar */
+    position: relative; /* Ensure the span is relative to bar */
+}
+
+.primary {
+    background-color: #feefbd; /* Blue */
+}
+
+.secondary {
+    background-color: #2a8db5; /* Green */
+}
+
+.other {
+    background-color: #d1d1d1; /* Yellow */
+}
+
+.label {
+  margin-left: 15px;
+  color: #636c76;
+  font-weight: bold;
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.visible {
+  opacity: 1; /* Make label fully visible after transition delay */
+}
+
 .cluster-background {
   background-color: #F5F5F5; /* Light gray background */
   padding: 20px; /* Padding for inner spacing */
   border-radius: 10px; /* Rounded corners */
 }
 
-.questions-background {
-  background-color: #EDF0F7; /* White background */
-  padding: 20px; /* Padding for inner spacing */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+.cluster-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.cluster-content {
+  flex: 1;
+}
+
+.cluster-image {
+  flex-shrink: 0; /* Prevents the image from shrinking */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .cluster-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cluster-image {
+    padding-left: 0;
+    padding-top: 10px;
+  }
+}
+
+img {
+  max-width: 150px; /* Increased from 100px to 150px */
+  width: 100%; /* Ensures the image uses the full width of its container */
+  height: auto; /* Maintains the aspect ratio of the image */
 }
 
 .cluster-section .primary-cluster,
 .cluster-section .secondary-cluster {
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
 
 .primary-cluster h2,
 .secondary-cluster h2 {
-  color: #636C76;
+  color: #2C3E50;
+  //color: #636C76;
 }
 
 .primary-cluster h3,
 .secondary-cluster h3 {
-  color: #2C3E50;
+  color: #636C76;
+  //color: #2C3E50;
 }
 
 .primary-cluster p,
@@ -81,17 +202,4 @@ export default {
   font-size: 14px;
 }
 
-.v-progress-linear {
-  margin-top: 10px;
-}
-
-.questions-section .question-item {
-  margin-bottom: 20px;
-}
-
-.questions-section input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-}
 </style>

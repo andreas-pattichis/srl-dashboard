@@ -1,13 +1,15 @@
 <template>
   <v-container fluid>
-    <v-row id="faq-header">
-      <h1>{{ $t('faq.title') }}</h1>
+    <v-row no-gutters id="faq-header" class="align-start">
+      <v-col cols="12">
+        <h1>{{ $t('faq.title') }}</h1>
+      </v-col>
     </v-row>
-    <v-row id="faqs">
-      <div v-for="n in numberOfFaqs" :key="n" class="faq-item">
+    <v-row no-gutters id="faqs">
+      <v-col cols="12" v-for="n in numberOfFaqs" :key="n" class="faq-item">
         <h2>{{ $t(`faq.question${n}`) }}</h2>
         <p>{{ $t(`faq.answer${n}`) }}</p>
-      </div>
+      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -25,8 +27,8 @@ export default {
 
 <style scoped>
 #faq-header {
-  margin-top: 10px;
-  text-align: center;
+  margin-top: 0px;
+  text-align: left;
 }
 
 #faqs {

@@ -80,5 +80,66 @@
     "answer2": "Een leergroep verwijst naar een groep studenten die samenwerken om een bepaald onderwerp of project te verkennen.",
     "question3": "Welke soorten leergroepen zijn er?",
     "answer3": "Er bestaan verschillende soorten leergroepen afhankelijk van de onderwijsinstelling, inclusief groepen voor wetenschap, geesteswetenschappen en kunsten."
+  },
+  "clusters": {
+    "primaryClusterTitle": "Primaire Cluster",
+    "secondaryClusterTitle": "Secundaire Cluster",
+    "answerPlaceholder": "Typ hier je antwoord..."
+  },
+  "reflectiveWriter": {
+    "title": "De Reflectieve Schrijvers",
+    "description": "Dit cluster kenmerkt zich door een evenwichtige benadering van schrijven. Studenten in dit cluster besteden veel tijd aan het nadenken over hun schrijfproces en gebruiken strategieën om hun aanpak te monitoren en aan te passen. Ze vertonen een matige hoeveelheid pauzes voor planning en evaluatie tijdens het schrijven.",
+    "reflectiveQuestion1": "Hoe effectief vond je je planning voor deze schrijftaak?",
+    "reflectiveQuestion2": "Kun je een moment beschrijven waarop je je aanpak tijdens het schrijven hebt aangepast? Wat stimuleerde deze verandering?",
+    "reflectiveQuestion3": "Welke metacognitieve strategieën heb je gebruikt tijdens het schrijven?",
+    "reflectiveQuestion4": "Beschrijf hoe je de feedback van peers of docenten hebt geïntegreerd in je werk.",
+    "reflectiveQuestion5": "Wat heb je geleerd over je eigen schrijfproces door deze taak?",
+    "reflectiveQuestion6": "Hoe beoordeel je de effectiviteit van je pauzes voor planning en evaluatie tijdens het schrijven?",
+    "reflectiveQuestion7": "Op welke manier heb je tijdens het schrijven jouw voortgang geëvalueerd?",
+    "reflectiveQuestion8": "Hoe zou je jouw ervaring met het zelfreguleren van jouw schrijfproces beschrijven?",
+    "reflectiveQuestion9": "Welke specifieke uitdagingen ben je tegengekomen bij het schrijven en hoe heb je deze aangepakt?",
+    "reflectiveQuestion10": "Hoe zou je jouw motivatie tijdens de schrijftaak beschrijven en welke factoren beïnvloedden deze?"
+  },
+  "efficientScribbler": {
+    "title": "De Efficiënte Scribblers",
+    "description": "Leden van dit cluster concentreren zich vooral op het schrijven zelf, waarbij ze veel tijd besteden aan het denken over de schrijftaken. Ze zijn minder betrokken bij het monitoren of aanpassen van hun proces, wat kan leiden tot gemiste kansen voor reflectie en verbetering.",
+    "reflectiveQuestion1": "Hoe plan je normaal gesproken je schrijftaken?",
+    "reflectiveQuestion2": "Kun je een situatie beschrijven waarin je moest stoppen en nadenken over je aanpak? Wat gebeurde er?",
+    "reflectiveQuestion3": "Wat doe je als je vastloopt tijdens het schrijven?",
+    "reflectiveQuestion4": "Hoe vaak beoordeel je jouw voortgang tijdens het schrijven?",
+    "reflectiveQuestion5": "Reflecteer op een stuk feedback dat je recent hebt gekregen. Hoe heb je het gebruikt om je werk te verbeteren?",
+    "reflectiveQuestion6": "Beschrijf een recente schrijftaak waarbij je je aanpak halverwege moest veranderen. Wat leidde tot deze verandering?",
+    "reflectiveQuestion7": "Wat zou je anders doen in je voorbereidingsproces voor schrijftaken op basis van je ervaringen tot nu toe?",
+    "reflectiveQuestion8": "Op welke manier evalueren je je keuzes tijdens het schrijven?",
+    "reflectiveQuestion9": "Hoe bepaal je of een schrijftaak succesvol is afgerond?",
+    "reflectiveQuestion10": "Hoe zorg je ervoor dat je voldoende tijd besteedt aan het denken over je schrijfproces, in plaats van alleen te schrijven?"
+  },
+  "confidentProducer": {
+    "title": "De Zelfverzekerde Producenten",
+    "description": "Studenten in dit cluster benaderen hun schrijftaken met een gematigde cognitieve inspanning. Ze geven de voorkeur aan een directere schrijfaanpak zonder veel strategieën toe te passen voor monitoring of aanpassing. Mogelijk besteden ze aan het begin tijd aan oriëntatie en planning, wat de noodzaak voor frequente revisies tijdens het schrijfproces vermindert.",
+    "reflectiveQuestion1": "Hoe bereid je je voor op een schrijftaak en hoe beïnvloedt dit je uitvoering?",
+    "reflectiveQuestion2": "Beschrijf een situatie waarin je plannen niet het gewenste resultaat opleverden. Wat heb je daarvan geleerd?",
+    "reflectiveQuestion3": "Welke strategieën gebruik je om gefocust te blijven tijdens lange schrijfsessies?",
+    "reflectiveQuestion4": "Hoe vaak herzie je je schrijfwerk en op basis van welke criteria?",
+    "reflectiveQuestion5": "Hoe reageer je op feedback van anderen en hoe integreer je dit in je werk?",
+    "reflectiveQuestion6": "Wat zijn de grootste uitdagingen die je tegenkomt bij het schrijven en hoe ga je hiermee om?",
+    "reflectiveQuestion7": "Kun je een moment herinneren waarop je je aanpak succesvol hebt aangepast? Wat triggerde deze verandering?",
+    "reflectiveQuestion8": "Hoe evalueer je of een schrijfstrategie effectief is?",
+    "reflectiveQuestion9": "Beschrijf hoe je je tijd en middelen beheert tijdens het schrijven van een opdracht.",
+    "reflectiveQuestion10": "Welke persoonlijke doelen stel je voor je schrijftaken en hoe monitor je je voortgang ten opzichte van deze doelen?"
+  },
+  "thoughtfulPlanner": {
+    "title": "De Doordachte Planners",
+    "description": "Dit cluster omvat studenten die een gestructureerde benadering van schrijven hanteren. Ze plannen regelmatig, evalueren en passen hun schrijfproces aan. Deze studenten hebben een sterke focus op het monitoren en optimaliseren van hun schrijfproces en zijn actief bezig met reflecteren op hun vooruitgang om aanpassingen te maken.",
+    "reflectiveQuestion1": "Hoe heb je de doelen voor deze taak bepaald en hoe effectief waren deze doelen in het sturen van je activiteiten?",
+    "reflectiveQuestion2": "Welke strategieën heb je vooraf gepland voor deze taak en hoe heb je deze tijdens het proces aangepast?",
+    "reflectiveQuestion3": "Reflecteer op een moment waarop je een strategie moest herzien vanwege onvoorziene omstandigheden.",
+    "reflectiveQuestion4": "Hoe beoordeel je de effectiviteit van je planningstechnieken?",
+    "reflectiveQuestion5": "Beschrijf hoe je feedback hebt gebruikt om je werk tijdens de taak bij te sturen.",
+    "reflectiveQuestion6": "Wat doe je als je merkt dat je oorspronkelijke plan niet effectief is?",
+    "reflectiveQuestion7": "Hoe monitor je je voortgang tijdens een taak en hoe beïnvloedt dit je verdere acties?",
+    "reflectiveQuestion8": "Kun je een situatie beschrijven waarin je evaluatie van je werk je leerstrategieën heeft veranderd?",
+    "reflectiveQuestion9": "Hoe ga je om met tegenslagen tijdens het plannen en uitvoeren van je taken?",
+    "reflectiveQuestion10": "Op welke manier reflecteer je op je leerproces na het voltooien van een taak en hoe gebruik je deze reflecties voor toekomstige taken?"
   }
 }
