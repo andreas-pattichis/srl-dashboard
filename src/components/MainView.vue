@@ -8,17 +8,20 @@
                 <v-tab
                     value="timeline"
                     @click="updateActiveTab('timeline')">
-                    {{ $t("general.timelineTab") }}
+                    <v-icon left class="tab-icon">mdi-format-list-bulleted</v-icon>
+                    <span class="tab-text">{{ $t("general.timelineTab") }}</span>
                 </v-tab>
                 <v-tab
                     value="cluster"
                     @click="updateActiveTab('cluster')">
-                    {{ $t("general.clusterTab") }}
+                    <v-icon left class="tab-icon">mdi-google-circles-communities</v-icon>
+                    <span class="tab-text">{{ $t("general.clusterTab") }}</span>
                 </v-tab>
                 <v-tab
                     value="faqs"
                     @click="updateActiveTab('faqs')">
-                    {{ $t("general.faqsTab") }}
+                    <v-icon left class="tab-icon">mdi-help</v-icon>
+                    <span class="tab-text">{{ $t("general.faqsTab") }}</span>
                 </v-tab>
 
             </v-tabs>
@@ -68,6 +71,15 @@ export default {
 }
 </script>
 <style scoped>
+.tab-icon {
+    font-size: 15px; /* Icon size */
+    margin-right: 5px;
+}
+
+.tab-text {
+    font-size: 20px; /* Text size */
+}
+
 .v-btn {
     font-family: "Noto Sans";
     font-weight: bold;
