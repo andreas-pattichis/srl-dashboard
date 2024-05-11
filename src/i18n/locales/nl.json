@@ -55,6 +55,8 @@
   "general": {
     "logout": "Uitloggen",
     "timelineTab": "Tijdlijn",
+    "clusterTab": "Cluster",
+    "faqsTab": "FAQs",
     "resultsTab": "Resultaten",
     "dashboardTitle": "Dashboard van {user}",
     "dashboardSubtitle": "Overzicht van leerproces",
@@ -69,5 +71,14 @@
     "and": "en",
     "second": "seconde",
     "seconds": "seconden"
+  },
+  "faq": {
+    "title": "FAQs",
+    "question1": "Wat is zelfregulerend leren?",
+    "answer1": "Zelfregulerend leren houdt in dat studenten proactief verschillende vaardigheden gebruiken om hun academische doelen te bereiken.",
+    "question2": "Wat is een leergroep?",
+    "answer2": "Een leergroep verwijst naar een groep studenten die samenwerken om een bepaald onderwerp of project te verkennen.",
+    "question3": "Welke soorten leergroepen zijn er?",
+    "answer3": "Er bestaan verschillende soorten leergroepen afhankelijk van de onderwijsinstelling, inclusief groepen voor wetenschap, geesteswetenschappen en kunsten."
   }
 }

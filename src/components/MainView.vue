@@ -10,12 +10,29 @@
                     @click="updateActiveTab('timeline')">
                     {{ $t("general.timelineTab") }}
                 </v-tab>
+                <v-tab
+                    value="cluster"
+                    @click="updateActiveTab('cluster')">
+                    {{ $t("general.clusterTab") }}
+                </v-tab>
+                <v-tab
+                    value="faqs"
+                    @click="updateActiveTab('faqs')">
+                    {{ $t("general.faqsTab") }}
+                </v-tab>
+
             </v-tabs>
 
             <v-card-text>
                 <v-window v-model="tab">
                     <v-window-item value="timeline">
                         <TimelineTab />
+                    </v-window-item>
+                    <v-window-item value="cluster">
+                        <ClusterTab />
+                    </v-window-item>
+                    <v-window-item value="faqs">
+                        <FAQsTab />
                     </v-window-item>
                 </v-window>
             </v-card-text>
@@ -25,12 +42,14 @@
 
 <script>
 import TimelineTab from "./TimelineTab.vue";
+import ClusterTab from "./ClusterTab.vue";
+import FAQsTab from "./FAQsTab.vue";
 import EssaySelector from "./EssaySelector.vue";
 import {GET_ACTIVE_TAB, IS_USER_AUTHENTICATED, SET_ACTIVE_TAB} from "../store/storeconstants";
 
 export default {
     name: 'MainView',
-    components: { TimelineTab, EssaySelector },
+    components: { ClusterTab, TimelineTab, FAQsTab, EssaySelector },
     data: function (){
         return{
             tab: this.$store.getters[`selection/${GET_ACTIVE_TAB}`],

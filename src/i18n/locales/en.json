@@ -55,6 +55,8 @@
   "general": {
     "logout": "Logout",
     "timelineTab": "Timeline",
+    "clusterTab": "Cluster",
+    "faqsTab": "FAQs",
     "resultsTab": "Results",
     "dashboardTitle": "Dashboard of {user}",
     "dashboardSubtitle": "Overview of learning process",
@@ -69,5 +71,20 @@
     "and": "and",
     "second": "second",
     "seconds": "seconds"
+  },
+  "faq": {
+    "title": "FAQs",
+    "question1": "What is Self Regulated Learning?",
+    "answer1": "Self-regulated learning involves students' proactive use of different skills to achieve their academic goals.",
+    "question2": "What is a Learning Cluster?",
+    "answer2": "A learning cluster refers to a group of students working collaboratively to explore a particular topic or project.",
+    "question3": "What Clusters are there?",
+    "answer3": "Various clusters exist depending on the educational institution, including science, humanities, and arts clusters."
+  },
+  "clusters": {
+    "primaryClusterTitle": "Primary Cluster",
+    "secondaryClusterTitle": "Secondary Cluster",
+    "primaryClusterSubtitle": "Confident Producer",
+    "secondaryClusterSubtitle": "Reflective Writer"
   }
 }
