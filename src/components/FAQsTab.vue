@@ -187,4 +187,5 @@ export default {
 .faq-item h2:hover {
   color: #0056b3; /* Changes question text color on hover to match theme */
 }
+
 </style>
