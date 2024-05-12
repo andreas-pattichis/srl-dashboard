@@ -180,12 +180,11 @@ export default {
 
 .faq-item:hover {
   background-color: #e6f7ff; /* Light blue background on hover */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Slightly larger shadow for a "lifted" effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow for a "lifted" effect */
   transform: scale(1.03); /* Slightly increases the size of the FAQ item */
 }
 
 .faq-item h2:hover {
   color: #0056b3; /* Changes question text color on hover to match theme */
 }
-
 </style>
