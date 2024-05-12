@@ -73,7 +73,7 @@
     "seconds": "seconden"
   },
   "faq": {
-    "title": "FAQs",
+    "title": "Veelgestelde vragen",
     "question1": "Wat is zelfregulerend leren?",
     "answer1": "Zelfregulerend leren houdt in dat studenten proactief verschillende vaardigheden gebruiken om hun academische doelen te bereiken.",
     "question2": "Wat is een leergroep?",
@@ -82,6 +82,7 @@
     "answer3": "Er bestaan verschillende soorten leergroepen afhankelijk van de onderwijsinstelling, inclusief groepen voor wetenschap, geesteswetenschappen en kunsten."
   },
   "clusters": {
+    "reflectiveQuestionsTitle": "Reflectieve Vragen",
     "primaryClusterTitle": "Primaire Cluster",
     "secondaryClusterTitle": "Secundaire Cluster",
     "answerPlaceholder": "Typ hier je antwoord..."
