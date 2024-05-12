@@ -17,14 +17,20 @@
 
           <!-- Graph Placement -->
           <div class="bar-chart">
-            <div class="bar primary" :style="{ width: primaryWidth + '%' }">
-              <span :class="{ 'label': true, 'visible': showLabels }">{{ primaryPercentage }}%</span>
+            <div class="bar primary" :style="{ width: primaryWidth + '%', backgroundColor: barColors.primary }">
+              <span class="label" :class="{ 'visible': showLabels }" :style="{ color: calculateTextColor(barColors.primary) }">
+                {{ primaryPercentage }}%
+              </span>
             </div>
-            <div class="bar secondary" :style="{ width: secondaryWidth + '%' }">
-              <span :class="{ 'label': true, 'visible': showLabels }">{{ secondaryPercentage }}%</span>
+            <div class="bar secondary" :style="{ width: secondaryWidth + '%', backgroundColor: barColors.secondary }">
+              <span class="label" :class="{ 'visible': showLabels }" :style="{ color: calculateTextColor(barColors.secondary) }">
+                {{ secondaryPercentage }}%
+              </span>
             </div>
-            <div class="bar other" :style="{ width: otherWidth + '%' }">
-              <span :class="{ 'label': true, 'visible': showLabels }">{{ otherPercentage }}%</span>
+            <div class="bar other" :style="{ width: otherWidth + '%', backgroundColor: barColors.other }">
+              <span class="label" :class="{ 'visible': showLabels }" :style="{ color: calculateTextColor(barColors.other) }">
+                {{ otherPercentage }}%
+              </span>
             </div>
           </div>
 
@@ -78,6 +84,23 @@ export default {
     // Calculate the other percentage based on the primary and secondary
     otherPercentage() {
       return 100 - this.primaryPercentage - this.secondaryPercentage;
+    },
+    barColors() {
+      return {
+        primary: '#feefbd',
+        secondary: '#2a8db5',
+        other: '#d1d1d1'
+      };
+    }
+  },
+  methods: {
+    calculateTextColor(backgroundColor) {
+      const color = backgroundColor.replace('#', '');
+      const r = parseInt(color.substr(0, 2), 16);
+      const g = parseInt(color.substr(2, 2), 16);
+      const b = parseInt(color.substr(4, 2), 16);
+      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+      return brightness > 125 ? '#636c76' : '#ffffff';
     }
   },
   mounted() {
@@ -92,7 +115,7 @@ export default {
       }, 10); // Delay can be adjusted based on how you want the animation to start
     });
   }
-}
+};
 </script>
 
 <style scoped>
