@@ -79,8 +79,9 @@ export default {
 }
 
 .input-background {
-  background-color: #edf0f7; /* Light grey */
+  background-color: #ffffff; /* Light grey */
   color: #333; /* Dark grey text for contrast */
+  //background-color: #edf0f7; /* Light grey */
 }
 
 </style>
