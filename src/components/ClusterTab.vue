@@ -48,8 +48,8 @@
       </v-col>
       <!-- Questions Section -->
       <ClusterQuestions
-        :primary-cluster-label="primaryClusterLabel"
-        :secondary-cluster-label="secondaryClusterLabel"
+          :primary-cluster-label="primaryClusterLabel"
+          :secondary-cluster-label="secondaryClusterLabel"
       />
     </v-row>
   </v-container>
@@ -120,34 +120,34 @@ export default {
 
 <style scoped>
 .bar-chart {
-    display: flex;
-    width: 100%; /* Control the overall width of the bar chart */
-    height: 35px; /* Control the height of the bar chart */
-    background-color: #f0f0f0; /* Light grey background */
-    border-radius: 20px; /* Rounded edges */
-    overflow: hidden; /* Ensures the child divs conform to the border radius */
-    margin-bottom: 30px; /* Spacing between the bar chart and the next section */
-    margin-top: 30px; /* Spacing between the bar chart and the next section */
+  display: flex;
+  width: 100%; /* Control the overall width of the bar chart */
+  height: 35px; /* Control the height of the bar chart */
+  background-color: #f0f0f0; /* Light grey background */
+  border-radius: 20px; /* Rounded edges */
+  overflow: hidden; /* Ensures the child divs conform to the border radius */
+  margin-bottom: 30px; /* Spacing between the bar chart and the next section */
+  margin-top: 30px; /* Spacing between the bar chart and the next section */
 }
 
 .bar {
-    height: 100%;
-    transition: width 1.2s ease-out;
-    display: flex;
-    align-items: center; /* Centers the label vertically within the bar */
-    position: relative; /* Ensure the span is relative to bar */
+  height: 100%;
+  transition: width 1.2s ease-out;
+  display: flex;
+  align-items: center; /* Centers the label vertically within the bar */
+  position: relative; /* Ensure the span is relative to bar */
 }
 
 .primary {
-    background-color: #feefbd; /* Blue */
+  background-color: #feefbd; /* Blue */
 }
 
 .secondary {
-    background-color: #2a8db5; /* Green */
+  background-color: #2a8db5; /* Green */
 }
 
 .other {
-    background-color: #d1d1d1; /* Yellow */
+  background-color: #E0E0E0;
 }
 
 .label {
@@ -183,16 +183,23 @@ export default {
   flex-shrink: 0; /* Prevents the image from shrinking */
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 20px;
+  max-width: 150px; /* Limits the width of the image */
+  width: 100%; /* Ensures the image uses the full width of its container */
+  height: auto; /* Maintains the aspect ratio of the image */
 }
 
 @media (max-width: 768px) {
   .cluster-layout {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Center aligns all children, including images */
   }
+
   .cluster-image {
-    padding-left: 0;
-    padding-top: 10px;
+    padding-top: 0;
+    margin-top: 10px; /* Adds space above the image when in column layout */
+    width: 80%; /* Allows the image to scale appropriately */
+    max-width: 150px; /* Increases maximum width for better visibility */
   }
 }
 
@@ -200,6 +207,7 @@ img {
   max-width: 150px; /* Increased from 100px to 150px */
   width: 100%; /* Ensures the image uses the full width of its container */
   height: auto; /* Maintains the aspect ratio of the image */
+
 }
 
 .cluster-section .primary-cluster,
@@ -210,19 +218,34 @@ img {
 .primary-cluster h2,
 .secondary-cluster h2 {
   color: #2C3E50;
-  //color: #636C76;
 }
 
 .primary-cluster h3,
 .secondary-cluster h3 {
   color: #636C76;
-  //color: #2C3E50;
 }
 
 .primary-cluster p,
 .secondary-cluster p {
   color: #666;
   font-size: 14px;
+}
+
+/* Additional styles for spacing */
+.cluster-content h3 {
+  margin-bottom: 10px; /* Adds space below the h3 element */
+}
+
+.cluster-content h2 {
+  margin-top: 10px; /* Adds space above the h2 element */
+  margin-bottom: 20px; /* Adds space below the h2 element */
+}
+
+.cluster-content p {
+  font-size: 0.95rem;
+  color: #616161;
+  margin-bottom: 20px;
+  text-align: justify;
 }
 
 </style>

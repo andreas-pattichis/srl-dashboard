@@ -73,7 +73,7 @@
     "seconds": "seconds"
   },
   "faq": {
-    "title": "FAQs",
+    "title": "Frequently Asked Questions",
     "question1": "What is Self Regulated Learning?",
     "answer1": "Self-regulated learning involves students' proactive use of different skills to achieve their academic goals.",
     "question2": "What is a Learning Cluster?",
@@ -82,6 +82,7 @@
     "answer3": "Various clusters exist depending on the educational institution, including science, humanities, and arts clusters."
   },
   "clusters": {
+    "reflectiveQuestionsTitle": "Reflective Questions",
     "primaryClusterTitle": "Primary Cluster",
     "secondaryClusterTitle": "Secondary Cluster",
     "answerPlaceholder": "Type your answer here...",
