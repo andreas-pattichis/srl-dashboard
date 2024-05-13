@@ -14,7 +14,7 @@
                 <v-tab
                     value="cluster"
                     @click="updateActiveTab('cluster')">
-                    <v-icon left class="tab-icon">mdi-google-circles-communities</v-icon>
+                    <v-icon left class="tab-icon">mdi-account</v-icon>
                     <span class="tab-text">{{ $t("general.clusterTab") }}</span>
                 </v-tab>
                 <v-tab

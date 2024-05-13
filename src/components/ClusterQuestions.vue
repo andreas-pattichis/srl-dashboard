@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="5" class="questions-background">
-    <div class="questions-section">
+    <div v-if="!submitted" class="questions-section" :style="{ maxHeight: maxHeight }">
       <h3 class="section-title">{{ $t('clusters.reflectiveQuestionsTitle') }}</h3>
       <transition-group name="question-fade" tag="div">
         <div v-for="n in numberOfQuestions" :key="n" class="question-item">
@@ -9,10 +9,16 @@
                     class="input-background"></textarea>
         </div>
       </transition-group>
+      <!--  Centered Button  -->
+      <div class="d-flex justify-center">
+        <v-btn @click="submitAnswers" color="primary" dark>
+          {{ $t('clusters.submitAnswers') }}
+        </v-btn>
+      </div>
     </div>
-    <!--  Centered Button  -->
-    <div class="d-flex justify-center">
-      <v-btn color="primary" dark>{{ $t('clusters.submitAnswers') }}</v-btn>
+    <!-- Display tick icon when submitted -->
+    <div v-else class="success-icon-layout">
+      <v-icon large color="gray">mdi-check-circle</v-icon>
     </div>
   </v-col>
 </template>
@@ -22,10 +28,16 @@ export default {
   name: "QuestionsSection",
   props: {
     primaryClusterLabel: String,
+    maxHeight: String,
     // secondaryClusterLabel: String,
     numberOfQuestions: {
       type: Number,
       default: 10
+    }
+  },
+  data() {
+    return {
+      submitted: false
     }
   },
   methods: {
@@ -33,6 +45,11 @@ export default {
       // Construct the key based on the cluster label and question number
       const key = `${this.primaryClusterLabel}.reflectiveQuestion${n}`;
       return this.$t(key); // Fetch the translated question text
+    },
+    submitAnswers() {
+      // Implement submission logic here
+      // alert('Submitting answers...');
+      this.submitted = true; // Change state to show the tick icon
     }
   }
 }
@@ -47,11 +64,11 @@ export default {
 }
 
 .questions-section {
-    max-height: 420px;
+    //max-height: 420px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #c9cad8 #edf0f7;
-    margin-bottom: 20px;
+    //margin-bottom: 20px;
 }
 
 /* Targets the scrollbar itself */
@@ -106,7 +123,6 @@ export default {
     border-color: #2a8db5;
     box-shadow: 0 2px 8px rgba(0, 100, 200, 0.2);
 }
-
 
 .question-item {
     margin-bottom: 30px; /* Increased spacing between questions */
@@ -200,6 +216,30 @@ export default {
     background-color: #ffffff; /* Light grey */
     color: #333; /* Dark grey text for contrast */
     //background-color: #edf0f7; /* Light grey */
+}
+
+@keyframes fadeInScaleUp {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-icon-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Match the height of the container to center vertically */
+    font-size: 35px; /* Icon size */
+    animation: fadeInScaleUp 0.5s ease-out forwards; /* Apply the animation */
 }
 
 </style>
