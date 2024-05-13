@@ -83,6 +83,7 @@
   },
   "clusters": {
     "primaryClusterTitle": "Primaire Cluster",
+    "submitAnswers": "Submit",
     "secondaryClusterTitle": "Secundaire Cluster",
     "answerPlaceholder": "Typ hier je antwoord..."
   },

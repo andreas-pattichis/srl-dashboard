@@ -6,6 +6,10 @@
         <input :id="'question' + n" type="text" :placeholder="$t('clusters.answerPlaceholder')" class="input-background">
       </div>
     </div>
+    <!--  Centered Button  -->
+    <div class="d-flex justify-center">
+      <v-btn color="primary" dark>{{ $t('clusters.submitAnswers') }}</v-btn>
+    </div>
   </v-col>
 </template>
 
@@ -43,6 +47,7 @@ export default {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #c9cad8 #edf0f7;
+    margin-bottom: 20px;
 }
 
 /* Targets the scrollbar itself */
