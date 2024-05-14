@@ -249,9 +249,18 @@ export default {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 5px; /* Add some spacing from the text areas */
-  display: block; /* Make the button full width */
+  //display: block; /* Make the button full width */
   width: 100%; /* Make the button full width */
   text-align: center; /* Center the text */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px; /* Set a fixed height */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  font-weight: 600; /* Bold font weight */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 1px; /* Increase letter spacing */
 }
 
 .custom-submit-button:hover {
