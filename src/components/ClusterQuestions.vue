@@ -243,7 +243,7 @@ export default {
   background-color: #2C3E50; /* Matching the color scheme of the website */
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
