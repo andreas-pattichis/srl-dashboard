@@ -83,8 +83,8 @@
   },
   "clusters": {
     "reflectiveQuestionsTitle": "Reflective Questions",
-    "primaryClusterTitle": "Primary Cluster",
-    "secondaryClusterTitle": "Secondary Cluster",
+    "primaryClusterTitle": "Primary Cluster of {user}",
+    "secondaryClusterTitle": "Secondary Cluster of {user}",
     "answerPlaceholder": "Type your answer here...",
     "submitAnswers": "Submit",
     "reflectiveQuestion1": "What were your goals at the beginning of this task, and to what extent have you achieved them?",

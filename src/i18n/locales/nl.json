@@ -83,9 +83,9 @@
   },
   "clusters": {
     "reflectiveQuestionsTitle": "Reflectieve Vragen",
-    "primaryClusterTitle": "Primaire Cluster",
+    "primaryClusterTitle": "Primaire Cluster van {user}",
     "submitAnswers": "Indienen",
-    "secondaryClusterTitle": "Secundaire Cluster",
+    "secondaryClusterTitle": "Secundaire Cluster van {user}",
     "answerPlaceholder": "Typ hier je antwoord...",
     "answersSubmitted": "Antwoorden zijn ingediend!",
     "answerRequired": "Het antwoord op deze vraag is vereist."

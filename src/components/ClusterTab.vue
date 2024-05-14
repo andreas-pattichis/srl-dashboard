@@ -6,7 +6,8 @@
         <div v-resize="updateMaxHeight" class="cluster-section" ref="clusterSection">
           <div class="primary-cluster cluster-layout">
             <div class="cluster-content">
-              <h3>{{ $t('clusters.primaryClusterTitle') }}</h3>
+              <!--              <h3>{{ $t('clusters.primaryClusterTitle') }}</h3>-->
+              <h3>{{ $t("clusters.primaryClusterTitle", {user: getUsername()}) }}</h3>
               <h2>{{ $t(primaryClusterLabel + '.title') }}</h2>
               <p>{{ $t(primaryClusterLabel + '.description') }}</p>
             </div>
@@ -18,17 +19,20 @@
           <!-- Graph Placement -->
           <div class="bar-chart">
             <div class="bar primary" :style="{ width: primaryWidth + '%', backgroundColor: barColors.primary }">
-              <span class="label" :class="{ 'visible': showLabels }" :style="{ color: calculateTextColor(barColors.primary) }">
+              <span class="label" :class="{ 'visible': showLabels }"
+                    :style="{ color: calculateTextColor(barColors.primary) }">
                 {{ primaryPercentage }}%
               </span>
             </div>
             <div class="bar secondary" :style="{ width: secondaryWidth + '%', backgroundColor: barColors.secondary }">
-              <span class="label" :class="{ 'visible': showLabels }" :style="{ color: calculateTextColor(barColors.secondary) }">
+              <span class="label" :class="{ 'visible': showLabels }"
+                    :style="{ color: calculateTextColor(barColors.secondary) }">
                 {{ secondaryPercentage }}%
               </span>
             </div>
             <div class="bar other" :style="{ width: otherWidth + '%', backgroundColor: barColors.other }">
-              <span class="label" :class="{ 'visible': showLabels }" :style="{ color: calculateTextColor(barColors.other) }">
+              <span class="label" :class="{ 'visible': showLabels }"
+                    :style="{ color: calculateTextColor(barColors.other) }">
                 {{ otherPercentage }}%
               </span>
             </div>
@@ -36,7 +40,7 @@
 
           <div class="secondary-cluster cluster-layout">
             <div class="cluster-content">
-              <h3>{{ $t('clusters.secondaryClusterTitle') }}</h3>
+              <h3>{{ $t("clusters.secondaryClusterTitle", {user: getUsername()}) }}</h3>
               <h2>{{ $t(secondaryClusterLabel + '.title') }}</h2>
               <p>{{ $t(secondaryClusterLabel + '.description') }}</p>
             </div>
@@ -59,7 +63,8 @@
 <script>
 import clusterImageA from '@/assets/cluster1.svg';  // Ensure the path matches your file structure
 import clusterImageB from '@/assets/cluster2.svg';  // Ensure the path matches your file structure
-import ClusterQuestions from './ClusterQuestions.vue'; // Ensure the path is correct
+import ClusterQuestions from './ClusterQuestions.vue';
+import {GET_USERNAME} from "@/store/storeconstants"; // Ensure the path is correct
 
 export default {
   name: "ClusterTab",
@@ -96,6 +101,9 @@ export default {
     },
   },
   methods: {
+    getUsername() {
+      return this.$store.getters[`auth/${GET_USERNAME}`]
+    },
     calculateTextColor(backgroundColor) {
       const color = backgroundColor.replace('#', '');
       const r = parseInt(color.substr(0, 2), 16);
@@ -221,9 +229,9 @@ img {
   width: 100%; /* Ensures the image uses the full width of its container */
   height: auto; /* Maintains the aspect ratio of the image */
   -webkit-user-select: none; /* Chrome, Safari, and Opera */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* Internet Explorer/Edge */
-  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 .cluster-section .primary-cluster,
@@ -240,12 +248,16 @@ img {
 .secondary-cluster h3 {
   color: #636C76;
   margin-bottom: 10px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 .primary-cluster p,
 .secondary-cluster p {
   color: #666;
-  font-size: 14px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0;
 }
 
 /* Additional styles for spacing */
