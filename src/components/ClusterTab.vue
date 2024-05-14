@@ -239,6 +239,7 @@ img {
 .primary-cluster h3,
 .secondary-cluster h3 {
   color: #636C76;
+  margin-bottom: 10px;
 }
 
 .primary-cluster p,
