@@ -5,8 +5,9 @@
       <transition-group name="question-fade" tag="div">
         <div v-for="n in numberOfQuestions" :key="n" class="question-item">
           <label :for="'question' + n">{{ getQuestion(n) }}</label>
-          <textarea :id="'question' + n" :placeholder="$t('clusters.answerPlaceholder')"
-                    class="input-background"></textarea>
+          <textarea :id="'question' + n" :placeholder="$t('clusters.answerPlaceholder')" class="input-background"
+                    v-model="answers[n - 1]"></textarea>
+          <span v-if="errors[n - 1]" class="error-message">{{ errors[n - 1] }}</span>
         </div>
       </transition-group>
       <!--  Centered Button  -->
@@ -19,7 +20,9 @@
     <!-- Display tick icon when submitted -->
     <div v-else class="success-icon-layout">
       <v-icon large color="gray">mdi-check-circle</v-icon>
+      <p class="submission-message">{{ $t('clusters.answersSubmitted') }}</p>
     </div>
+
   </v-col>
 </template>
 
@@ -37,19 +40,38 @@ export default {
   },
   data() {
     return {
-      submitted: false
+      submitted: false,
+      answers: Array(this.numberOfQuestions).fill(''),
+      errors: Array(this.numberOfQuestions).fill('')
     }
   },
   methods: {
     getQuestion(n) {
-      // Construct the key based on the cluster label and question number
       const key = `${this.primaryClusterLabel}.reflectiveQuestion${n}`;
       return this.$t(key); // Fetch the translated question text
     },
     submitAnswers() {
-      // Implement submission logic here
-      // alert('Submitting answers...');
-      this.submitted = true; // Change state to show the tick icon
+      this.errors = Array(this.numberOfQuestions).fill('');
+      let valid = true;
+      let firstUnansweredIndex = -1;
+
+      for (let i = 0; i < this.numberOfQuestions; i++) {
+        if (!this.answers[i]) {
+          this.errors[i] = this.$t('clusters.answerRequired'); // Assuming you have a translation key for the error message
+          valid = false;
+          if (firstUnansweredIndex === -1) {
+            firstUnansweredIndex = i;
+          }
+        }
+      }
+
+      if (valid) {
+        this.submitted = true; // Change state to show the tick icon
+      } else if (firstUnansweredIndex !== -1) {
+        this.$nextTick(() => {
+          document.getElementById('question' + (firstUnansweredIndex + 1)).scrollIntoView({behavior: 'smooth'});
+        });
+      }
     }
   }
 }
@@ -232,6 +254,7 @@ export default {
 
 .success-icon-layout {
   display: flex;
+  flex-direction: column; /* Align items vertically */
   justify-content: center;
   align-items: center;
   height: 100%; /* Match the height of the container to center vertically */
@@ -266,5 +289,26 @@ export default {
 .custom-submit-button:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
+
+.error-message {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: bold;
+}
+
+.submission-message {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #2C3E50;
+  text-align: center;
+  font-weight: bold; /* Make the text bold */
+  margin-bottom: 0; /* Remove any bottom margin */
+}
+
+.v-icon {
+  margin-bottom: 10px; /* Add space between the icon and the message */
+}
+
 
 </style>
