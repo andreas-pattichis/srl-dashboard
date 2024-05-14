@@ -11,7 +11,7 @@
       </transition-group>
       <!--  Centered Button  -->
       <div class="d-flex justify-center">
-        <v-btn @click="submitAnswers" color="primary" dark>
+        <v-btn @click="submitAnswers" class="custom-submit-button" dark>
           {{ $t('clusters.submitAnswers') }}
         </v-btn>
       </div>
@@ -215,7 +215,6 @@ export default {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #ffffff; /* Light grey */
     color: #333; /* Dark grey text for contrast */
-    //background-color: #edf0f7; /* Light grey */
 }
 
 @keyframes fadeInScaleUp {
@@ -240,6 +239,25 @@ export default {
     height: 100%; /* Match the height of the container to center vertically */
     font-size: 35px; /* Icon size */
     animation: fadeInScaleUp 0.5s ease-out forwards; /* Apply the animation */
+}
+
+.custom-submit-button {
+  background-color: #2C3E50; /* Matching the color scheme of the website */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 5px; /* Add some spacing from the text areas */
+  display: block; /* Make the button full width */
+  width: 100%; /* Make the button full width */
+  text-align: center; /* Center the text */
+}
+
+.custom-submit-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }
 
 </style>
