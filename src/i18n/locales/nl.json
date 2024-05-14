@@ -88,7 +88,10 @@
     "secondaryClusterTitle": "Secundaire Cluster van {user}",
     "answerPlaceholder": "Typ hier je antwoord...",
     "answersSubmitted": "Antwoorden zijn ingediend!",
-    "answerRequired": "Het antwoord op deze vraag is vereist."
+    "answerRequired": "Het antwoord op deze vraag is vereist.",
+    "primaryLegendClusterLabel": "Primaire Cluster",
+    "secondaryLegendClusterLabel": "Secundair Cluster",
+    "otherLegendClusterLabel": "Andere Clusters"
   },
   "reflectiveWriter": {
     "title": "De Reflectieve Schrijvers",

@@ -96,7 +96,10 @@
     "reflectiveQuestion7": "Can you identify moments when your motivation changed? What caused these changes?",
     "reflectiveQuestion8": "Reflect on how you managed your emotions during the execution of the task.",
     "answersSubmitted": "Answers have been submitted!",
-    "answerRequired": "The answer to this question is required."
+    "answerRequired": "The answer to this question is required.",
+    "primaryLegendClusterLabel": "Primary Cluster",
+    "secondaryLegendClusterLabel": "Secondary Cluster",
+    "otherLegendClusterLabel": "Other Clusters"
   },
   "reflectiveWriter": {
     "title": "Reflective Writer",

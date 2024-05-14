@@ -24,6 +24,7 @@
                 {{ primaryPercentage }}%
               </span>
             </div>
+            <!-- Graph Placement -->
             <div class="bar secondary" :style="{ width: secondaryWidth + '%', backgroundColor: barColors.secondary }">
               <span class="label" :class="{ 'visible': showLabels }"
                     :style="{ color: calculateTextColor(barColors.secondary) }">
@@ -38,6 +39,22 @@
             </div>
           </div>
 
+          <!-- Legend Placement -->
+          <div class="legend">
+            <div class="legend-item">
+              <span class="legend-color" style="background-color: #feefbd;"></span>
+              <p>{{ $t("clusters.primaryLegendClusterLabel") }}</p>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background-color: #2a8db5;"></span>
+              <p>{{ $t("clusters.secondaryLegendClusterLabel") }}</p>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background-color: #d1d1d1;"></span>
+              <p>{{ $t("clusters.otherLegendClusterLabel") }}</p>
+            </div>
+          </div>
+
           <div class="secondary-cluster cluster-layout">
             <div class="cluster-content">
               <h3>{{ $t("clusters.secondaryClusterTitle", {user: getUsername()}) }}</h3>
@@ -48,6 +65,8 @@
               <img :src="clusterBImageUrl" alt="Reflective Writer" draggable="false">
             </div>
           </div>
+
+
         </div>
       </v-col>
       <!-- Questions Section -->
@@ -61,10 +80,10 @@
 </template>
 
 <script>
-import clusterImageA from '@/assets/cluster1.svg';  // Ensure the path matches your file structure
-import clusterImageB from '@/assets/cluster2.svg';  // Ensure the path matches your file structure
+import clusterImageA from '@/assets/cluster1.svg';
+import clusterImageB from '@/assets/cluster2.svg';
 import ClusterQuestions from './ClusterQuestions.vue';
-import {GET_USERNAME} from "@/store/storeconstants"; // Ensure the path is correct
+import {GET_USERNAME} from "@/store/storeconstants";
 
 export default {
   name: "ClusterTab",
@@ -144,7 +163,7 @@ export default {
   background-color: #f0f0f0; /* Light grey background */
   border-radius: 20px; /* Rounded edges */
   overflow: hidden; /* Ensures the child divs conform to the border radius */
-  margin-bottom: 30px; /* Spacing between the bar chart and the next section */
+  margin-bottom: 10px; /* Spacing between the bar chart and the next section */
   margin-top: 30px; /* Spacing between the bar chart and the next section */
 }
 
@@ -272,5 +291,27 @@ img {
   margin-bottom: 20px;
   text-align: justify;
 }
+
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px; /* Add margin at the top of the legend */
+  margin-bottom: 30px; /* Add margin at the bottom of the legend */
+  text-align: center; /* Center the legend items */
+  font-weight: bold;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
 
 </style>
