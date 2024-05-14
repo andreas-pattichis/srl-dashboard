@@ -64,11 +64,9 @@ export default {
 }
 
 .questions-section {
-    //max-height: 420px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #c9cad8 #edf0f7;
-    //margin-bottom: 20px;
 }
 
 /* Targets the scrollbar itself */
