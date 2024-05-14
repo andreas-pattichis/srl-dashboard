@@ -93,7 +93,8 @@
     "reflectiveQuestion5": "What would you do differently next time based on your experiences?",
     "reflectiveQuestion6": "How do you assess your time management for this task?",
     "reflectiveQuestion7": "Can you identify moments when your motivation changed? What caused these changes?",
-    "reflectiveQuestion8": "Reflect on how you managed your emotions during the execution of the task."
+    "reflectiveQuestion8": "Reflect on how you managed your emotions during the execution of the task.",
+    "answersSubmitted": "Answers have been submitted!"
   },
   "reflectiveWriter": {
     "title": "Reflective Writer",

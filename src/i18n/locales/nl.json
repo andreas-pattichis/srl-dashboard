@@ -85,7 +85,8 @@
     "reflectiveQuestionsTitle": "Reflectieve Vragen",
     "primaryClusterTitle": "Primaire Cluster",
     "secondaryClusterTitle": "Secundaire Cluster",
-    "answerPlaceholder": "Typ hier je antwoord..."
+    "answerPlaceholder": "Typ hier je antwoord...",
+    "answersSubmitted": "Antwoorden zijn ingediend!"
   },
   "reflectiveWriter": {
     "title": "De Reflectieve Schrijvers",

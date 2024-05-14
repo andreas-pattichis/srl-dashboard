@@ -6,22 +6,34 @@
         <div v-for="n in numberOfQuestions" :key="n" class="question-item">
           <label :for="'question' + n">{{ getQuestion(n) }}</label>
           <textarea :id="'question' + n" :placeholder="$t('clusters.answerPlaceholder')"
-                    class="input-background"></textarea>
+                    class="input-background" v-model="answers[n]"></textarea>
         </div>
       </transition-group>
+      <v-btn class="submit-button" @click="handleSubmit">Submit</v-btn>
     </div>
   </v-col>
+  <transition name="fade">
+    <div v-if="showPopup" class="popup">
+      <p>{{ $t('clusters.answersSubmitted') }}</p>
+    </div>
+  </transition>
 </template>
+
 
 <script>
 export default {
   name: "QuestionsSection",
   props: {
     primaryClusterLabel: String,
-    // secondaryClusterLabel: String,
     numberOfQuestions: {
       type: Number,
       default: 10
+    }
+  },
+  data() {
+    return {
+      answers: Array(this.numberOfQuestions).fill(''),
+      showPopup: false
     }
   },
   methods: {
@@ -29,10 +41,20 @@ export default {
       // Construct the key based on the cluster label and question number
       const key = `${this.primaryClusterLabel}.reflectiveQuestion${n}`;
       return this.$t(key); // Fetch the translated question text
+    },
+    handleSubmit() {
+      console.log(this.answers); // Log all answers
+      this.showPopup = true;
+      setTimeout(() => {
+        this.showPopup = false;
+      }, 2000); // Show popup for 2 seconds
+      this.answers = Array(this.numberOfQuestions).fill(''); // Clear all answers
+      window.scrollTo({top: 0, behavior: 'smooth'}); // Scroll to the top
     }
   }
 }
 </script>
+
 
 <style scoped>
 .questions-background {
@@ -193,7 +215,46 @@ export default {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #ffffff; /* Light grey */
   color: #333; /* Dark grey text for contrast */
-  //background-color: #edf0f7; /* Light grey */
 }
 
+.submit-button {
+  background-color: #2C3E50; /* Matching the color scheme of the website */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Add some spacing from the text areas */
+  display: block; /* Make the button full width */
+  width: 100%; /* Make the button full width */
+  text-align: center; /* Center the text */
+}
+
+.submit-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2C3E50; /* Matching the color scheme of the website */
+  color: white;
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  font-size: 16px;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 </style>
