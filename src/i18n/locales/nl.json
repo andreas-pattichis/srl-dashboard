@@ -84,6 +84,7 @@
   "clusters": {
     "reflectiveQuestionsTitle": "Reflectieve Vragen",
     "primaryClusterTitle": "Primaire Cluster",
+    "submitAnswers": "Indienen",
     "secondaryClusterTitle": "Secundaire Cluster",
     "answerPlaceholder": "Typ hier je antwoord...",
     "answersSubmitted": "Antwoorden zijn ingediend!"

@@ -3,7 +3,7 @@
     <v-row>
       <!-- Cluster Section -->
       <v-col cols="12" md="7" class="cluster-background">
-        <div class="cluster-section">
+        <div v-resize="updateMaxHeight" class="cluster-section" ref="clusterSection">
           <div class="primary-cluster cluster-layout">
             <div class="cluster-content">
               <h3>{{ $t('clusters.primaryClusterTitle') }}</h3>
@@ -11,7 +11,7 @@
               <p>{{ $t(primaryClusterLabel + '.description') }}</p>
             </div>
             <div class="cluster-image">
-              <img :src="clusterAImageUrl" alt="Confident Producer">
+              <img :src="clusterAImageUrl" alt="Confident Producer" draggable="false">
             </div>
           </div>
 
@@ -41,13 +41,14 @@
               <p>{{ $t(secondaryClusterLabel + '.description') }}</p>
             </div>
             <div class="cluster-image">
-              <img :src="clusterBImageUrl" alt="Reflective Writer">
+              <img :src="clusterBImageUrl" alt="Reflective Writer" draggable="false">
             </div>
           </div>
         </div>
       </v-col>
       <!-- Questions Section -->
       <ClusterQuestions
+          :max-height="maxHeight"
           :primary-cluster-label="primaryClusterLabel"
           :secondary-cluster-label="secondaryClusterLabel"
       />
@@ -67,6 +68,7 @@ export default {
   },
   data() {
     return {
+      maxHeight: '0px', // Initialize maxHeight to QuestionsSection
       primaryClusterLabel: 'efficientScribbler',
       secondaryClusterLabel: 'reflectiveWriter',
       primaryWidth: 0, // Start with 0% width
@@ -91,7 +93,7 @@ export default {
         secondary: '#2a8db5',
         other: '#d1d1d1'
       };
-    }
+    },
   },
   methods: {
     calculateTextColor(backgroundColor) {
@@ -101,6 +103,13 @@ export default {
       const b = parseInt(color.substr(4, 2), 16);
       const brightness = (r * 299 + g * 587 + b * 114) / 1000;
       return brightness > 125 ? '#636c76' : '#ffffff';
+    },
+    initialize() {
+      // Initialization logic here
+      this.updateMaxHeight();
+    },
+    updateMaxHeight() {
+      this.maxHeight = `${this.$refs.clusterSection.offsetHeight}px`;
     }
   },
   mounted() {
@@ -112,6 +121,7 @@ export default {
         setTimeout(() => {
           this.showLabels = true;  // Show labels after the bar animation
         }, 900);  // Corresponds to the width transition time
+        this.initialize();  // Also initialize if the component is mounted and active
       }, 10); // Delay can be adjusted based on how you want the animation to start
     });
   }
@@ -157,6 +167,9 @@ export default {
   font-size: 15px;
   opacity: 0;
   transition: opacity 0.5s ease-in;
+  user-select: none; /* Prevent text selection */
+  -webkit-user-select: none; /* Safari specific */
+  pointer-events: none; /* Prevent mouse events, useful if there's interactivity */
 }
 
 .visible {
@@ -176,7 +189,7 @@ export default {
 }
 
 .cluster-content {
-  flex: 1;
+  flex: 1; /* Allows the content to grow and shrink */
 }
 
 .cluster-image {
@@ -184,7 +197,7 @@ export default {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
-  max-width: 150px; /* Limits the width of the image */
+  max-width: 180px; /* Limits the width of the image */
   width: 100%; /* Ensures the image uses the full width of its container */
   height: auto; /* Maintains the aspect ratio of the image */
 }
@@ -207,7 +220,10 @@ img {
   max-width: 150px; /* Increased from 100px to 150px */
   width: 100%; /* Ensures the image uses the full width of its container */
   height: auto; /* Maintains the aspect ratio of the image */
-
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 .cluster-section .primary-cluster,
@@ -232,13 +248,9 @@ img {
 }
 
 /* Additional styles for spacing */
-.cluster-content h3 {
-  margin-bottom: 10px; /* Adds space below the h3 element */
-}
-
 .cluster-content h2 {
-  margin-top: 10px; /* Adds space above the h2 element */
-  margin-bottom: 20px; /* Adds space below the h2 element */
+  margin-top: 0; /* Removes default margin above the h2 element */
+  margin-bottom: 10px; /* Adds space below the h2 element */
 }
 
 .cluster-content p {
