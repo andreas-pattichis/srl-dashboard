@@ -89,9 +89,9 @@
     "answerPlaceholder": "Typ hier je antwoord...",
     "answersSubmitted": "Antwoorden zijn ingediend!",
     "answerRequired": "Het antwoord op deze vraag is vereist.",
-    "primaryLegendClusterLabel": "Primaire Cluster",
-    "secondaryLegendClusterLabel": "Secundair Cluster",
-    "otherLegendClusterLabel": "Andere Clusters"
+    "primaryLegendClusterLabel": "Waarschijnlijkheid Primaire Cluster",
+    "secondaryLegendClusterLabel": "Waarschijnlijkheid Secundaire Cluster",
+    "otherLegendClusterLabel": "Waarschijnlijkheid Andere Clusters"
   },
   "reflectiveWriter": {
     "title": "De Reflectieve Schrijvers",
