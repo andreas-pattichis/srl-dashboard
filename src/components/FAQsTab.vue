@@ -56,9 +56,6 @@ export default {
 }
 </script>
 
-
-
-
 <style scoped>
 #faq-header {
   margin-top: 0px;
@@ -120,6 +117,7 @@ export default {
   color: #333; /* Darker for better readability */
   font-size: 16px; /* Adjusted for readability */
   line-height: 1.8; /* Line height for better readability */
+  text-align: justify;
 }
 
 .faq-answer ol {
