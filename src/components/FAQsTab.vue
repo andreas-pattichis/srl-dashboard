@@ -8,13 +8,17 @@
     <v-row no-gutters id="faqs">
       <v-col cols="12" v-for="(faq, index) in faqs" :key="index" class="faq-item">
         <h2 @click="toggleAnswer(index)">
+          <span class="faq-icon">Q</span>
           {{ faq.question }}
+          <v-icon v-if="!faq.show" class="toggle-icon">mdi-plus</v-icon>
+          <v-icon v-else class="toggle-icon">mdi-minus</v-icon>
         </h2>
         <div v-if="faq.show" v-html="faq.answer" class="faq-answer"></div>
       </v-col>
     </v-row>
   </v-container>
 </template>
+
 
 <script>
 export default {
@@ -56,9 +60,10 @@ export default {
 }
 </script>
 
+
 <style scoped>
 #faq-header {
-  margin-top: 0px;
+  margin-top: 0;
   text-align: center;
   padding-bottom: 20px; /* Adds padding below the header for separation */
 }
@@ -69,23 +74,23 @@ export default {
 }
 
 .faq-item {
-  margin-bottom: 30px; /* Increased spacing between items */
-  padding: 20px; /* Padding inside each FAQ item */
-  background-color: #f9f9f9; /* Subtle background to differentiate sections */
+  margin-bottom: 20px; /* Increased spacing between items */
+  padding: 15px; /* Padding inside each FAQ item */
+  background-color: #f1f1f1; /* Light gray background for better separation */
+  border: 1px solid #ccc; /* Stronger border for better visibility */
   border-radius: 8px; /* Rounded corners for a softer look */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds depth with a subtle shadow */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for background and shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions for background, shadow, and scale */
 }
 
 .faq-item:hover {
-  background-color: #e6f7ff; /* Light blue background on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow for a "lifted" effect */
-  transform: scale(1.03); /* Slightly increases the size of the FAQ item */
+  background-color: #e0e0e0; /* Slightly darker background on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds depth with a subtle shadow */
+  transform: scale(1.02); /* Slightly enlarges the item on hover */
 }
 
 .faq-item h2 {
   margin: 0; /* Removes default margin */
-  font-size: 20px; /* Increases size for better visibility */
+  font-size: 20px; /* Adjust size for better visibility */
   color: #2C3E50; /* A darker, richer color for questions */
   font-weight: bold;
   display: flex;
@@ -93,37 +98,54 @@ export default {
   cursor: pointer; /* Indicates interactivity */
 }
 
-.faq-item h2:before {
-  content: 'Q'; /* Icon before the question */
-  background-color: #0056b3; /* Changed to a blue that matches the overall theme */
+.faq-item .faq-icon {
+  background-color: #0056b3; /* Blue color to match the overall theme */
   color: white;
   width: 30px;
   height: 30px;
-  margin-right: 15px; /* Adjusted spacing */
+  margin-right: 10px; /* Adjusted spacing */
   font-size: 16px; /* Adjust font size within the icon */
   display: inline-flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.faq-item h2:hover {
-  color: #0056b3; /* Changes question text color on hover to match theme */
+.faq-item .toggle-icon {
+  margin-left: auto;
+  font-size: 24px;
+  color: #0056b3; /* Icon color to match the overall theme */
+  transition: transform 0.3s ease; /* Smooth transition for rotation */
 }
 
 .faq-answer {
-  margin-top: 15px; /* Spacing between question and answer */
-  padding-left: 20px; /* Indentation for answers */
-  padding-right: 20px; /* Indentation for answers */
+  margin-top: 10px; /* Spacing between question and answer */
+  padding: 15px; /* Indentation for answers */
+  background-color: #ffffff; /* White background for answers */
   color: #333; /* Darker for better readability */
   font-size: 16px; /* Adjusted for readability */
-  line-height: 1.8; /* Line height for better readability */
+  line-height: 1.6; /* Line height for better readability */
   text-align: justify;
+  border-top: 1px solid #ddd; /* Separator between question and answer */
+  border-radius: 0 0 8px 8px; /* Rounded bottom corners for answer section */
+  animation: fadeIn 0.3s ease-in-out; /* Fade-in animation for answers */
 }
 
-.faq-answer ol {
-  padding-left: 20px; /* Adds padding to the left for numbered list */
-  list-style-type: decimal; /* Uses decimal numbers for the list */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-answer ol, .faq-answer ul {
+  padding-left: 25px; /* Adds padding to the left for numbered and bulleted lists */
+  margin-left: 15px; /* Adds margin to the left to separate lists from the border */
 }
 
 .faq-answer li {
@@ -165,8 +187,8 @@ export default {
 /* Responsive tweaks for mobile devices */
 @media (max-width: 768px) {
   .faq-item {
-    padding: 15px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 15px;
   }
 
   .faq-item h2 {
@@ -182,7 +204,7 @@ export default {
     padding-left: 15px; /* Adjusted padding for numbered list on mobile */
   }
 
-  .faw-answer ul {
+  .faq-answer ul {
     padding-left: 15px; /* Adjusted padding for bulleted list on mobile */
   }
 
