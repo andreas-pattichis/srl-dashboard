@@ -77,8 +77,8 @@ export default {
   margin-bottom: 20px; /* Increased spacing between items */
   padding: 15px; /* Padding inside each FAQ item */
   background-color: #f1f1f1; /* Light gray background for better separation */
-  border: 1px solid #ccc; /* Stronger border for better visibility */
-  border-radius: 8px; /* Rounded corners for a softer look */
+  border: 1px solid #ddd; /* Light border for a clean look */
+  border-radius: 15px; /* Rounded corners for a softer look */
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions for background, shadow, and scale */
 }
 
@@ -128,7 +128,7 @@ export default {
   line-height: 1.6; /* Line height for better readability */
   text-align: justify;
   border-top: 1px solid #ddd; /* Separator between question and answer */
-  border-radius: 0 0 8px 8px; /* Rounded bottom corners for answer section */
+  border-radius: 0 0 15px 15px; /* Rounded bottom corners for answer section */
   animation: fadeIn 0.3s ease-in-out; /* Fade-in animation for answers */
 }
 
