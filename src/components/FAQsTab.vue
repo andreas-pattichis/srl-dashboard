@@ -114,6 +114,7 @@ export default {
 .faq-answer {
   margin-top: 15px; /* Spacing between question and answer */
   padding-left: 20px; /* Indentation for answers */
+  padding-right: 20px; /* Indentation for answers */
   color: #333; /* Darker for better readability */
   font-size: 16px; /* Adjusted for readability */
   line-height: 1.8; /* Line height for better readability */
@@ -179,6 +180,10 @@ export default {
 
   .faq-answer ol {
     padding-left: 15px; /* Adjusted padding for numbered list on mobile */
+  }
+
+  .faw-answer ul {
+    padding-left: 15px; /* Adjusted padding for bulleted list on mobile */
   }
 
   .faq-answer table, .faq-answer th, .faq-answer td {
