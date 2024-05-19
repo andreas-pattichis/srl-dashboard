@@ -179,11 +179,12 @@ export default {
 
 <style scoped>
 .section-title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   color: #2C3E50;
   margin-bottom: 30px;
   text-align: center;
+  margin-top: 10px;
 }
 
 

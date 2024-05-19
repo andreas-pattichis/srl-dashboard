@@ -90,7 +90,7 @@ export default {
 
 <style scoped>
 #faq-header {
-  margin-top: 0;
+  margin-top: 10px;
   text-align: center;
   padding-bottom: 20px; /* Adds padding below the header for separation */
 }

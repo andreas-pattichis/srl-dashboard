@@ -211,9 +211,10 @@ export default {
 }
 
 .section-title {
-  font-size: 24px;
+  font-size: 26px;
   margin-bottom: 30px;
   color: #2C3E50;
+  margin-top: 10px;
 }
 
 .input-background {
