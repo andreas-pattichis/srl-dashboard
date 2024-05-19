@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12" md="5" class="questions-background">
     <div v-if="!submitted" class="questions-section" :style="{ maxHeight: maxHeight }">
-      <h3 class="section-title">{{ $t('clusters.reflectiveQuestionsTitle') }}</h3>
+      <h3 class="section-title" align="center">{{ $t('clusters.reflectiveQuestionsTitle') }}</h3>
       <transition-group name="question-fade" tag="div">
         <div v-for="n in numberOfQuestions" :key="n" class="question-item">
           <label :for="'question' + n">{{ getQuestion(n) }}</label>
@@ -82,7 +82,6 @@ export default {
   background-color: #EDF0F7;
   padding: 20px;
   border-radius: 10px;
-  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .questions-section {
@@ -212,8 +211,8 @@ export default {
 }
 
 .section-title {
-  font-size: 22px;
-  margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 30px;
   color: #2C3E50;
 }
 
@@ -229,6 +228,8 @@ export default {
 .question-item label {
   font-weight: 600;
   color: #333;
+  font-size: 16px;
+  margin-bottom: 12px;
 }
 
 .input-background {

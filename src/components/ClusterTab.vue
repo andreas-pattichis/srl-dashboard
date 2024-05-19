@@ -3,6 +3,7 @@
     <v-row>
       <!-- Cluster Section -->
       <v-col cols="12" md="7" class="cluster-background">
+        <h2 class="section-title">{{ $t("clusters.clusterAssessmentTitle") }}</h2> <!-- Added Title -->
         <div v-resize="updateMaxHeight" class="cluster-section" ref="clusterSection">
           <div class="primary-cluster cluster-layout">
             <div class="cluster-content">
@@ -15,6 +16,7 @@
               <img :src="clusterAImageUrl" alt="Confident Producer" draggable="false">
             </div>
           </div>
+
 
           <!-- Graph Placement -->
           <div class="bar-chart">
@@ -176,6 +178,15 @@ export default {
 </script>
 
 <style scoped>
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2C3E50;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
 /* Keyframes for bar chart animation */
 @keyframes growWidth {
   from {
@@ -361,6 +372,7 @@ img {
   margin-bottom: 10px;
   font-weight: bold;
   letter-spacing: 0.5px;
+  font-size: 16px;
 }
 
 .primary-cluster p,
