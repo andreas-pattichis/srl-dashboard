@@ -43,17 +43,18 @@
           <div class="legend">
             <div class="legend-item">
               <span class="legend-color" style="background-color: #feefbd;"></span>
-              <p>{{ $t("clusters.primaryLegendClusterLabel") }}</p>
+              <span class="legend-label">{{ $t("clusters.primaryLegendClusterLabel") }}</span>
             </div>
             <div class="legend-item">
               <span class="legend-color" style="background-color: #2a8db5;"></span>
-              <p>{{ $t("clusters.secondaryLegendClusterLabel") }}</p>
+              <span class="legend-label">{{ $t("clusters.secondaryLegendClusterLabel") }}</span>
             </div>
             <div class="legend-item">
               <span class="legend-color" style="background-color: #d1d1d1;"></span>
-              <p>{{ $t("clusters.otherLegendClusterLabel") }}</p>
+              <span class="legend-label">{{ $t("clusters.otherLegendClusterLabel") }}</span>
             </div>
           </div>
+
 
           <div class="secondary-cluster cluster-layout">
             <div class="cluster-content">
@@ -102,7 +103,7 @@ export default {
       primaryPercentage: 59,
       secondaryPercentage: 28,
       showLabels: false,  // Controls the visibility of the labels
-      clusterAImageUrl: clusterImageA,// Now using imported images
+      clusterAImageUrl: clusterImageA, // Now using imported images
       clusterBImageUrl: clusterImageB // Now using imported images
     };
   },
@@ -121,7 +122,7 @@ export default {
   },
   methods: {
     getUsername() {
-      return this.$store.getters[`auth/${GET_USERNAME}`]
+      return this.$store.getters[`auth/${GET_USERNAME}`];
     },
     calculateTextColor(backgroundColor) {
       const color = backgroundColor.replace('#', '');
@@ -134,28 +135,57 @@ export default {
     initialize() {
       // Initialization logic here
       this.updateMaxHeight();
+      this.animateBars();
     },
     updateMaxHeight() {
       this.maxHeight = `${this.$refs.clusterSection.offsetHeight}px`;
-    }
-  },
-  mounted() {
-    this.$nextTick(() => {
+    },
+    animateBars() {
+      this.primaryWidth = 0;
+      this.secondaryWidth = 0;
+      this.otherWidth = 0;
+      this.showLabels = false;
+
       setTimeout(() => {
         this.primaryWidth = this.primaryPercentage;
         this.secondaryWidth = this.secondaryPercentage;
         this.otherWidth = this.otherPercentage;
+
         setTimeout(() => {
           this.showLabels = true;  // Show labels after the bar animation
         }, 900);  // Corresponds to the width transition time
-        this.initialize();  // Also initialize if the component is mounted and active
       }, 10); // Delay can be adjusted based on how you want the animation to start
-    });
+    }
+  },
+  watch: {
+    // Watch a route or a prop that changes when the tab is activated
+    '$route' (to, from) {
+      if (to.name === 'ClusterTab') {
+        this.initialize();
+      }
+    }
+  },
+  activated() {
+    // Called when the component is activated in <keep-alive>
+    this.initialize();
+  },
+  mounted() {
+    this.initialize();
   }
 };
 </script>
 
 <style scoped>
+/* Keyframes for bar chart animation */
+@keyframes growWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
+
 .bar-chart {
   display: flex;
   width: 100%; /* Control the overall width of the bar chart */
@@ -163,13 +193,13 @@ export default {
   background-color: #f0f0f0; /* Light grey background */
   border-radius: 20px; /* Rounded edges */
   overflow: hidden; /* Ensures the child divs conform to the border radius */
-  margin-bottom: 10px; /* Spacing between the bar chart and the next section */
+  margin-bottom: 20px; /* Spacing between the bar chart and the next section */
   margin-top: 30px; /* Spacing between the bar chart and the next section */
 }
 
 .bar {
   height: 100%;
-  transition: width 1.2s ease-out;
+  animation: growWidth 1.2s ease-out forwards;
   display: flex;
   align-items: center; /* Centers the label vertically within the bar */
   position: relative; /* Ensure the span is relative to bar */
@@ -177,14 +207,17 @@ export default {
 
 .primary {
   background-color: #feefbd; /* Blue */
+  --target-width: 59%; /* Set the target width using CSS variables */
 }
 
 .secondary {
   background-color: #2a8db5; /* Green */
+  --target-width: 28%; /* Set the target width using CSS variables */
 }
 
 .other {
   background-color: #E0E0E0;
+  --target-width: 13%; /* Set the target width using CSS variables */
 }
 
 .label {
@@ -201,6 +234,65 @@ export default {
 
 .visible {
   opacity: 1; /* Make label fully visible after transition delay */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Add margin at the top of the legend */
+  margin-bottom: 40px; /* Add margin at the bottom of the legend */
+  text-align: center; /* Center the legend items */
+  gap: 25px; /* Add spacing between legend items */
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px; /* Add padding for better spacing */
+  border: 1px solid #ddd; /* Lighter border for a softer look */
+  border-radius: 10px; /* Rounded corners for a polished look */
+  background-color: #f9f9f9; /* Slightly darker background for better contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow for more depth */
+  opacity: 0; /* Start with opacity 0 for animation */
+  animation: fadeIn 0.8s ease-in-out forwards; /* Apply the fade-in animation */
+}
+
+.legend-item:nth-child(1) {
+  animation-delay: 0.2s; /* Delay for the first item */
+}
+
+.legend-item:nth-child(2) {
+  animation-delay: 0.4s; /* Delay for the second item */
+}
+
+.legend-item:nth-child(3) {
+  animation-delay: 0.6s; /* Delay for the third item */
+}
+
+.legend-color {
+  width: 20px; /* Slightly larger for better visibility */
+  height: 20px; /* Slightly larger for better visibility */
+  margin-right: 10px; /* Increase space between color and label */
+  border-radius: 50%; /* Make the color indicators round */
+  border: 1px solid #ccc; /* Add border for better definition */
+}
+
+.legend-label {
+  font-size: 1rem; /* Increase font size */
+  font-weight: 600; /* Increase font weight */
+  color: #333; /* Darker text color for better readability */
 }
 
 .cluster-background {
@@ -291,27 +383,4 @@ img {
   margin-bottom: 20px;
   text-align: justify;
 }
-
-.legend {
-  display: flex;
-  justify-content: center;
-  margin-top: 14px; /* Add margin at the top of the legend */
-  margin-bottom: 30px; /* Add margin at the bottom of the legend */
-  text-align: center; /* Center the legend items */
-  font-weight: bold;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  margin-right: 15px;
-}
-
-.legend-color {
-  width: 15px;
-  height: 15px;
-  margin-right: 5px;
-}
-
-
 </style>
