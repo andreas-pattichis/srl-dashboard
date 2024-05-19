@@ -55,7 +55,34 @@ export default {
     },
     convertNewLines(text) {
       return text.replace(/\n/g, '<br>');
+    },
+    animateFAQs() {
+      this.$nextTick(() => {
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach((item, index) => {
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            item.style.transition = `opacity 0.5s ease-in-out ${index * 0.2}s, transform 0.5s ease-in-out ${index * 0.2}s`;
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 100);
+        });
+      });
     }
+  },
+  watch: {
+    '$route'(to, from) {
+      if (to.name === 'FAQsTab') {
+        this.animateFAQs();
+      }
+    }
+  },
+  activated() {
+    this.animateFAQs();
+  },
+  mounted() {
+    this.animateFAQs();
   }
 }
 </script>
@@ -69,6 +96,7 @@ export default {
 }
 
 #faqs {
+  animation: fadeIn 0.8s ease-in-out; /* Fade-in animation for the FAQ items */
   margin-top: 20px;
   padding: 0 15px; /* Adds padding to the sides for better alignment */
 }
@@ -79,7 +107,7 @@ export default {
   background-color: #f1f1f1; /* Light gray background for better separation */
   border: 1px solid #ddd; /* Light border for a clean look */
   border-radius: 15px; /* Rounded corners for a softer look */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions for background, shadow, and scale */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions for background, shadow, scale, opacity, and position */
 }
 
 .faq-item:hover {
@@ -135,7 +163,7 @@ export default {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -212,4 +240,5 @@ export default {
     font-size: 14px; /* Smaller table text on mobile */
   }
 }
+
 </style>
