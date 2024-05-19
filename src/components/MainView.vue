@@ -4,6 +4,7 @@
       <EssaySelector/>
       <v-tabs
           v-model="tab"
+          align-tabs="center"
       >
         <v-tab
             value="timeline"
