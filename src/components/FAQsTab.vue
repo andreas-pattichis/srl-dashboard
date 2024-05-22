@@ -25,32 +25,25 @@ export default {
   name: "FAQsTab",
   data() {
     return {
-      faqs: [
-        {
-          question: this.$t('faq.question1'),
-          answer: this.convertNewLines(this.$t('faq.answer1')),
-          show: false
-        },
-        {
-          question: this.$t('faq.question2'),
-          answer: this.convertNewLines(this.$t('faq.answer2')),
-          show: false
-        },
-        {
-          question: this.$t('faq.question3'),
-          answer: this.convertNewLines(this.$t('faq.answer3')),
-          show: false
-        }
-      ],
+      faqsData: [],
+      showStates: {},
       lastToggled: null
     };
   },
+  computed: {
+    faqs() {
+      return this.faqsData.map((faq, index) => ({
+        ...faq,
+        show: this.showStates[index] || false
+      }));
+    }
+  },
   methods: {
     toggleAnswer(index) {
+      this.showStates[index] = !this.showStates[index];
       if (this.lastToggled !== null && this.lastToggled !== index) {
-        this.faqs[this.lastToggled].show = false;
+        this.showStates[this.lastToggled] = false;
       }
-      this.faqs[index].show = !this.faqs[index].show;
       this.lastToggled = index;
     },
     convertNewLines(text) {
@@ -75,6 +68,16 @@ export default {
     '$route'(to, from) {
       if (to.name === 'FAQsTab') {
         this.animateFAQs();
+      }
+    },
+    '$i18n.locale': {
+      immediate: true,
+      handler() {
+        this.faqsData = [
+          { question: this.$t('faq.question1'), answer: this.convertNewLines(this.$t('faq.answer1')) },
+          { question: this.$t('faq.question2'), answer: this.convertNewLines(this.$t('faq.answer2')) },
+          { question: this.$t('faq.question3'), answer: this.convertNewLines(this.$t('faq.answer3')) },
+        ];
       }
     }
   },
@@ -158,6 +161,7 @@ export default {
   border-top: 1px solid #ddd; /* Separator between question and answer */
   border-radius: 0 0 15px 15px; /* Rounded bottom corners for answer section */
   animation: fadeIn 0.3s ease-in-out; /* Fade-in animation for answers */
+  //overflow: auto
 }
 
 @keyframes fadeIn {
@@ -171,13 +175,16 @@ export default {
   }
 }
 
-.faq-answer ol, .faq-answer ul {
-  padding-left: 25px; /* Adds padding to the left for numbered and bulleted lists */
-  margin-left: 15px; /* Adds margin to the left to separate lists from the border */
+.faq-answer ul, .faq-answer ol {
+  padding-left: 35px; /* Increased padding for better indentation */
+  margin-left: 0; /* Adjust if necessary to align with the rest of the text */
+  list-style-type: disc; /* Ensure bullets show as discs */
 }
 
 .faq-answer li {
-  margin-bottom: 10px; /* Adds spacing between list items */
+  margin-bottom: 10px; /* Maintains spacing between list items */
+  text-indent: -15px; /* Adjusts the starting position of text in list items */
+  padding-left: 15px; /* Adds padding to align text nicely under the first line if needed */
 }
 
 .faq-answer strong {

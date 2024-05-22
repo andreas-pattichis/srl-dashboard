@@ -100,7 +100,7 @@
     "answerRequired": "The answer to this question is required.",
     "primaryLegendClusterLabel": "Primary Cluster's Probability",
     "secondaryLegendClusterLabel": "Secondary Cluster's Probability",
-    "otherLegendClusterLabel": "Other Clusters' Probability"
+    "otherLegendClusterLabel": "Other Cluster's Probability"
   },
   "reflectiveWriter": {
     "title": "Reflective Writer",

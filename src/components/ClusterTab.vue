@@ -140,7 +140,7 @@ export default {
       this.animateBars();
     },
     updateMaxHeight() {
-      this.maxHeight = `${this.$refs.clusterSection.offsetHeight}px`;
+      this.maxHeight = `${this.$refs.clusterSection.offsetHeight+65}px`;
     },
     animateBars() {
       this.primaryWidth = 0;
@@ -156,7 +156,8 @@ export default {
         setTimeout(() => {
           this.showLabels = true;  // Show labels after the bar animation
         }, 900);  // Corresponds to the width transition time
-      }, 10); // Delay can be adjusted based on how you want the animation to start
+        this.initialize();
+      }, 50); // Delay can be adjusted based on how you want the animation to start
     }
   },
   watch: {
@@ -186,7 +187,6 @@ export default {
   text-align: center;
   margin-top: 10px;
 }
-
 
 /* Keyframes for bar chart animation */
 @keyframes growWidth {
