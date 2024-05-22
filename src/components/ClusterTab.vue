@@ -9,8 +9,8 @@
             <div class="cluster-content">
               <!--              <h3>{{ $t('clusters.primaryClusterTitle') }}</h3>-->
               <h3>{{ $t("clusters.primaryClusterTitle", {user: getUsername()}) }}</h3>
-              <h2>{{ $t(primaryClusterLabel + '.title') }}</h2>
-              <p>{{ $t(primaryClusterLabel + '.description') }}</p>
+              <h2>{{ $t(clusterResults.primaryClusterLabel + '.title') }}</h2>
+              <p>{{ $t(clusterResults.primaryClusterLabel + '.description') }}</p>
             </div>
             <div class="cluster-image">
               <img :src="clusterAImageUrl" alt="Confident Producer" draggable="false">
@@ -23,20 +23,20 @@
             <div class="bar primary" :style="{ width: primaryWidth + '%', backgroundColor: barColors.primary }">
               <span class="label" :class="{ 'visible': showLabels }"
                     :style="{ color: calculateTextColor(barColors.primary) }">
-                {{ primaryPercentage }}%
+                {{ clusterResults.primaryPercentage }}%
               </span>
             </div>
             <!-- Graph Placement -->
             <div class="bar secondary" :style="{ width: secondaryWidth + '%', backgroundColor: barColors.secondary }">
               <span class="label" :class="{ 'visible': showLabels }"
                     :style="{ color: calculateTextColor(barColors.secondary) }">
-                {{ secondaryPercentage }}%
+                {{ clusterResults.secondaryPercentage }}%
               </span>
             </div>
             <div class="bar other" :style="{ width: otherWidth + '%', backgroundColor: barColors.other }">
               <span class="label" :class="{ 'visible': showLabels }"
                     :style="{ color: calculateTextColor(barColors.other) }">
-                {{ otherPercentage }}%
+                {{ clusterResults.otherPercentage }}%
               </span>
             </div>
           </div>
@@ -61,8 +61,8 @@
           <div class="secondary-cluster cluster-layout">
             <div class="cluster-content">
               <h3>{{ $t("clusters.secondaryClusterTitle", {user: getUsername()}) }}</h3>
-              <h2>{{ $t(secondaryClusterLabel + '.title') }}</h2>
-              <p>{{ $t(secondaryClusterLabel + '.description') }}</p>
+              <h2>{{ $t(clusterResults.secondaryClusterLabel + '.title') }}</h2>
+              <p>{{ $t(clusterResults.secondaryClusterLabel + '.description') }}</p>
             </div>
             <div class="cluster-image">
               <img :src="clusterBImageUrl" alt="Reflective Writer" draggable="false">
@@ -75,8 +75,8 @@
       <!-- Questions Section -->
       <ClusterQuestions
           :max-height="maxHeight"
-          :primary-cluster-label="primaryClusterLabel"
-          :secondary-cluster-label="secondaryClusterLabel"
+          :primary-cluster-label="clusterResults.primaryClusterLabel"
+          :secondary-cluster-label="clusterResults.secondaryClusterLabel"
       />
     </v-row>
   </v-container>
@@ -96,14 +96,11 @@ export default {
   data() {
     return {
       maxHeight: '0px', // Initialize maxHeight to QuestionsSection
-      primaryClusterLabel: 'efficientScribbler',
-      secondaryClusterLabel: 'reflectiveWriter',
+      // primaryClusterLabel: 'efficientScribbler',
+      // secondaryClusterLabel: 'reflectiveWriter',
       primaryWidth: 0, // Start with 0% width
       secondaryWidth: 0,
       otherWidth: 0,
-      // Data for percentages
-      primaryPercentage: 59,
-      secondaryPercentage: 28,
       showLabels: false,  // Controls the visibility of the labels
       clusterAImageUrl: clusterImageA, // Now using imported images
       clusterBImageUrl: clusterImageB // Now using imported images
@@ -111,8 +108,31 @@ export default {
   },
   computed: {
     // Calculate the other percentage based on the primary and secondary
-    otherPercentage() {
-      return 100 - this.primaryPercentage - this.secondaryPercentage;
+    selectedEssays() {
+      return this.getSelectedEssays();
+    },
+    clusterResults() {
+      let primaryClusterLabel = '';
+      let secondaryClusterLabel = '';
+      let primaryPercentage = 0;
+      let secondaryPercentage = 0;
+      let otherPercentage = 0;
+      this.selectedEssays.forEach(essay => {
+        const clusterProbs = essay.cluster_probs
+        primaryPercentage = clusterProbs[0]; // Ensure addition as float
+        secondaryPercentage = clusterProbs[1]; // Ensure addition as float
+        const clusterNames = essay.cluster_names
+        primaryClusterLabel = clusterNames[0]; // Ensure addition as float
+        secondaryClusterLabel = clusterNames[1]; // Ensure addition as float
+      });
+      otherPercentage = 1 - (primaryPercentage + secondaryPercentage);
+      return {
+        primaryClusterLabel: primaryClusterLabel,
+        secondaryClusterLabel: secondaryClusterLabel,
+        primaryPercentage: parseFloat(primaryPercentage * 100).toFixed(0),
+        secondaryPercentage: parseFloat(secondaryPercentage * 100).toFixed(0),
+        otherPercentage:  parseFloat(otherPercentage * 100).toFixed(0)
+      };
     },
     barColors() {
       return {
