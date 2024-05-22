@@ -145,13 +145,14 @@ export default {
 
 .faq-item .toggle-icon {
   margin-left: auto;
+  margin-right: 5px;
   font-size: 24px;
   color: #0056b3; /* Icon color to match the overall theme */
   transition: transform 0.3s ease; /* Smooth transition for rotation */
 }
 
 .faq-answer {
-  margin-top: 10px; /* Spacing between question and answer */
+  margin-top: 0px; /* Spacing between question and answer */
   padding: 15px; /* Indentation for answers */
   background-color: #ffffff; /* White background for answers */
   color: #333; /* Darker for better readability */
@@ -161,7 +162,6 @@ export default {
   border-top: 1px solid #ddd; /* Separator between question and answer */
   border-radius: 0 0 15px 15px; /* Rounded bottom corners for answer section */
   animation: fadeIn 0.3s ease-in-out; /* Fade-in animation for answers */
-  //overflow: auto
 }
 
 @keyframes fadeIn {
@@ -183,7 +183,7 @@ export default {
 
 .faq-answer li {
   margin-bottom: 10px; /* Maintains spacing between list items */
-  text-indent: -15px; /* Adjusts the starting position of text in list items */
+  text-indent: 0px !important; /* Adjusts the starting position of text in list items */
   padding-left: 15px; /* Adds padding to align text nicely under the first line if needed */
 }
 
