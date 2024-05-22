@@ -123,6 +123,9 @@ export default {
     },
   },
   methods: {
+    getSelectedEssays() {
+      return this.$store.getters.selectedEssays;
+    },
     getUsername() {
       return this.$store.getters[`auth/${GET_USERNAME}`];
     },
@@ -156,24 +159,13 @@ export default {
         setTimeout(() => {
           this.showLabels = true;  // Show labels after the bar animation
         }, 900);  // Corresponds to the width transition time
-        this.initialize();
-      }, 50); // Delay can be adjusted based on how you want the animation to start
+      }, 10); // Delay can be adjusted based on how you want the animation to start
     }
-  },
-  watch: {
-    // Watch a route or a prop that changes when the tab is activated
-    '$route' (to, from) {
-      if (to.name === 'ClusterTab') {
-        this.initialize();
-      }
-    }
-  },
-  activated() {
-    // Called when the component is activated in <keep-alive>
-    this.initialize();
   },
   mounted() {
-    this.initialize();
+    setTimeout(() => {
+      this.initialize();
+    }, 50);  // Corresponds to the width transition time
   }
 };
 </script>
