@@ -87,6 +87,7 @@
     "primaryClusterTitle": "Primary Cluster of {user}",
     "secondaryClusterTitle": "Secondary Cluster of {user}",
     "answerPlaceholder": "Type your answer here...",
+    "nextQuestion": "Next Question",
     "submitAnswers": "Submit",
     "reflectiveQuestion1": "What were your goals at the beginning of this task, and to what extent have you achieved them?",
     "reflectiveQuestion2": "What strategies did you use, and how effective were they?",

@@ -27,6 +27,9 @@
 </template>
 
 <script>
+import { submitQuestions } from '@/services/reflectiveQuestions';
+import { GET_USERNAME } from '@/store/storeconstants'
+
 export default {
   name: "QuestionsSection",
   props: {
@@ -66,7 +69,24 @@ export default {
       }
 
       if (valid) {
-        this.submitted = true; // Change state to show the tick icon
+        const clusterData = {
+          user_id: this.$store.getters[`auth/${GET_USERNAME}`],
+          essay_id: this.$store.getters.selectedEssays[0].course_id,
+          responses: this.answers.map((answer, index) => ({
+            question_id: index, // Assuming questions are identified by their order
+            answer: answer
+          }))
+        };
+
+        submitQuestions(clusterData)
+          .then(() => {
+            this.submitted = true; // Show success message or icon
+          })
+          .catch(error => {
+            console.log('Submitting answers:', clusterData)
+            console.error('Failed to submit answers:', error);
+          });
+
       } else if (firstUnansweredIndex !== -1) {
         this.$nextTick(() => {
           document.getElementById('question' + (firstUnansweredIndex + 1)).scrollIntoView({behavior: 'smooth'});
