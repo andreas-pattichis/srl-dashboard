@@ -106,57 +106,39 @@
   "reflectiveWriter": {
     "title": "Reflective Writer",
     "description": "This cluster is characterized by a balanced approach to writing. Students in this cluster spend a lot of time thinking about their writing process and use strategies to monitor and adjust their approach. They exhibit a moderate amount of pauses for planning and evaluation during writing.",
-    "reflectiveQuestion1": "How effective did you find your planning for this writing task?",
-    "reflectiveQuestion2": "Can you describe a moment when you adjusted your approach during writing? What prompted this change?",
-    "reflectiveQuestion3": "What metacognitive strategies did you use during writing?",
-    "reflectiveQuestion4": "Describe how you integrated feedback from peers or teachers into your work.",
-    "reflectiveQuestion5": "What did you learn about your own writing process through this task?",
-    "reflectiveQuestion6": "How do you assess the effectiveness of your breaks for planning and evaluation during writing?",
-    "reflectiveQuestion7": "In what way did you evaluate your progress during writing?",
-    "reflectiveQuestion8": "How would you describe your experience with self-regulating your writing process?",
-    "reflectiveQuestion9": "What specific challenges did you encounter while writing, and how did you address them?",
-    "reflectiveQuestion10": "How would you describe your motivation during the writing task, and what factors influenced it?"
+    "numberQuestions": "5",
+    "reflectiveQuestion1": "To what extent did your planning contribute to the creation of this assignment?",
+    "reflectiveQuestion2": "Can you describe a time when you adjusted your approach while writing? What caused you to change your approach?",
+    "reflectiveQuestion3": "What steps do you have while writing the essay to evaluate your progress? How did these steps lead to a desired result?",
+    "reflectiveQuestion4": "What challenges/problems did you encounter while writing the essay? How did you handle/solve these?",
+    "reflectiveQuestion5": "What would you do differently next time based on this experience?"
   },
   "efficientScribbler": {
     "title": "Efficient Scribbler",
     "description": "Members of this cluster mainly focus on the writing itself, spending a lot of time thinking about the writing tasks. They are less involved in monitoring or adjusting their process, which can lead to missed opportunities for reflection and improvement.",
-    "reflectiveQuestion1": "How do you normally plan your writing tasks?",
+    "numberQuestions": "4",
+    "reflectiveQuestion1": "How did you make sure you spent enough time thinking about the writing process?",
     "reflectiveQuestion2": "Can you describe a situation where you had to stop and think about your approach? What happened?",
-    "reflectiveQuestion3": "What do you do when you get stuck during writing?",
-    "reflectiveQuestion4": "How often do you assess your progress during writing?",
-    "reflectiveQuestion5": "Reflect on a piece of feedback you recently received. How have you used it to improve your work?",
-    "reflectiveQuestion6": "Describe a recent writing task where you had to change your approach mid-way. What led to this change?",
-    "reflectiveQuestion7": "What would you do differently in your preparation process for writing tasks based on your experiences so far?",
-    "reflectiveQuestion8": "In what ways do you evaluate your choices during writing?",
-    "reflectiveQuestion9": "How do you determine if a writing task has been successfully completed?",
-    "reflectiveQuestion10": "How do you ensure that you spend enough time thinking about your writing process, instead of just writing?"
+    "reflectiveQuestion3": "What would you do differently in your writing task preparation process based on your experiences so far?",
+    "reflectiveQuestion4": "What would you do differently next time based on this experience?"
   },
   "confidentProducer": {
     "title": "Confident Producer",
     "description": "Students in this cluster approach their writing tasks with moderate cognitive effort. They prefer a more direct writing approach without applying many strategies for monitoring or adjustment. They may spend time at the beginning on orientation and planning, which reduces the need for frequent revisions during the writing process.",
-    "reflectiveQuestion1": "How do you prepare for a writing task and how does this affect your performance?",
-    "reflectiveQuestion2": "Describe a situation where your plans did not yield the desired outcome. What did you learn from it?",
-    "reflectiveQuestion3": "Which strategies do you use to stay focused during long writing sessions?",
-    "reflectiveQuestion4": "How often do you revise your writing and on what criteria?",
-    "reflectiveQuestion5": "How do you respond to feedback from others and how do you integrate it into your work?",
-    "reflectiveQuestion6": "What are the biggest challenges you encounter while writing and how do you deal with them?",
-    "reflectiveQuestion7": "Can you recall a moment when you successfully adjusted your approach? What triggered this change?",
-    "reflectiveQuestion8": "How do you evaluate whether a writing strategy is effective?",
-    "reflectiveQuestion9": "Describe how you manage your time and resources during the writing of an assignment.",
-    "reflectiveQuestion10": "What personal goals do you set for your writing tasks and how do you monitor your progress against these goals?"
+    "numberQuestions": "5",
+    "reflectiveQuestion1": "How did you prepare for writing the essay text at the beginning of this assignment? Has this preparation influenced your writing process?",
+    "reflectiveQuestion2": "Describe a time while writing the essay when your planning didn't produce the desired result. What did you learn from that?",
+    "reflectiveQuestion3": "Can you describe a time when you successfully adjusted your approach while writing? Why did you have to change your approach?",
+    "reflectiveQuestion4": "How did you evaluate/assess your progress while writing?",
+    "reflectiveQuestion5": "What would you do differently next time based on this experience?"
   },
   "thoughtfulPlanner": {
     "title": "Thoughtful Planner",
     "description": "This cluster includes students who adopt a structured approach to writing. They regularly plan, evaluate, and adjust their writing process. These students have a strong focus on monitoring and optimizing their writing process and are actively engaged in reflecting on their progress to make adjustments.",
-    "reflectiveQuestion1": "How did you set the goals for this task and how effective were these goals in guiding your activities?",
-    "reflectiveQuestion2": "What strategies did you plan in advance for this task and how did you adjust them during the process?",
-    "reflectiveQuestion3": "Reflect on a moment when you had to revise a strategy due to unforeseen circumstances.",
-    "reflectiveQuestion4": "How do you assess the effectiveness of your planning techniques?",
-    "reflectiveQuestion5": "Describe how you used feedback to adjust your work during the task.",
-    "reflectiveQuestion6": "What do you do when you find that your original plan is not effective?",
-    "reflectiveQuestion7": "How do you monitor your progress during a task and how does this influence your further actions?",
-    "reflectiveQuestion8": "Can you describe a situation where your evaluation of your work changed your learning strategies?",
-    "reflectiveQuestion9": "How do you deal with setbacks during the planning and execution of your tasks?",
-    "reflectiveQuestion10": "In what ways do you reflect on your learning process after completing a task and how do you use these reflections for future tasks?"
+    "numberQuestions": "4",
+    "reflectiveQuestion1": "What goals/plans did you set at the beginning of this assignment?",
+    "reflectiveQuestion2": "What did you do while doing this assignment to monitor your progress?",
+    "reflectiveQuestion3": "Describe a time during this assignment when your original plan did not lead to the desired result. How did you deal with this?",
+    "reflectiveQuestion4": "What would you do differently next time based on this experience?"
   }
 }

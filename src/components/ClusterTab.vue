@@ -77,6 +77,7 @@
           :max-height="maxHeight"
           :primary-cluster-label="clusterResults.primaryClusterLabel"
           :secondary-cluster-label="clusterResults.secondaryClusterLabel"
+          :number-of-questions="parseInt($t(clusterResults.primaryClusterLabel + '.numberQuestions'))"
       />
     </v-row>
   </v-container>
@@ -85,6 +86,8 @@
 <script>
 import clusterImageA from '@/assets/cluster1.svg';
 import clusterImageB from '@/assets/cluster2.svg';
+import clusterImageC from '@/assets/cluster3.svg';
+import clusterImageD from '@/assets/cluster4.svg';
 import ClusterQuestions from './ClusterQuestions.vue';
 import {GET_USERNAME} from "@/store/storeconstants";
 
@@ -148,6 +151,17 @@ export default {
     },
     getUsername() {
       return this.$store.getters[`auth/${GET_USERNAME}`];
+    },
+    getImageUrl(clusterLabel) {
+      // Define a mapping from cluster labels to image assets
+      const imageMap = {
+        efficientScribbler: clusterImageA,
+        reflectiveWriter: clusterImageB,
+        creativeThinker: clusterImageC, // Example mapping
+        insightfulPhilosopher: clusterImageD, // Example mapping
+      };
+      // Return the appropriate image URL based on the cluster label
+      return imageMap[clusterLabel] // || 'defaultImage.svg'; // Fallback to a default image if none matched
     },
     calculateTextColor(backgroundColor) {
       const color = backgroundColor.replace('#', '');
@@ -340,7 +354,7 @@ export default {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
-  max-width: 180px; /* Limits the width of the image */
+  max-width: 200px; /* Limits the width of the image */
   width: 100%; /* Ensures the image uses the full width of its container */
   height: auto; /* Maintains the aspect ratio of the image */
 }
