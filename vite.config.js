@@ -14,7 +14,7 @@ export default defineConfig({
       vuetify()
   ],
   server: {
-    port: 8000,
+    port: 8443,
     watch: {
       usePolling: true,
     }
